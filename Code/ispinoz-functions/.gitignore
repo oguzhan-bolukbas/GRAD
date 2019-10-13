@@ -63,3 +63,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+# IMPORTANT! Never push configuration files
+functions/firebaseConf.js
