@@ -3,10 +3,7 @@ const app = require("express")();
 
 const { signup, login } = require("./handler/users");
 
-// Signup route
-app.post("/signup", signup);
-
-// Login route
-app.post("/login", login);
+app.post("/signup", signup); // Signup route
+app.post("/login", login); // Login route
 
 exports.api = functions.https.onRequest(app);
