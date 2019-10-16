@@ -12,32 +12,9 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-const styles = {
-  form: {
-    textAlign: 'center'
-  },
-  image: {
-    margin: '200px auto 20px auto'
-  },
-  pageTitle: {
-    margin: '10px auto auto auto'
-  },
-  textField: {
-    margin: '10px auto 10px auto'
-  },
-  button: {
-    marginTop: 20,
-    position: 'relative'
-  },
-  customError: {
-    color: 'red',
-    fontSize: '0.8rem',
-    marginTop: 10
-  },
-  progress: {
-    position: 'absolute'
-  }
-};
+const styles = (theme) => ({
+  ...theme.logAndSign
+});
 
 class login extends Component {
   constructor() {
@@ -62,6 +39,7 @@ class login extends Component {
     axios.post('/login', userData)
       .then(res => {
         console.log(res.data);
+        localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
           loading: false
         });
@@ -77,8 +55,7 @@ class login extends Component {
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value,
-      errors: {}
+      [event.target.name]: event.target.value
     });
   };
 
@@ -104,9 +81,9 @@ class login extends Component {
               <Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}
             <Button type="submit" variant="contained" color="primary" className={classes.button}>
               Login
-              {loading && (<CircularProgress size={30} color="white" className={classes.progress}/>)}
+              {loading && (<CircularProgress size={30} color="inherit" className={classes.progress}/>)}
             </Button><br/>
-            <small>Don't have an account?<Link to="/signup">Signup now!</Link></small>
+            <small>Don't have an account? <Link to="/signup">Signup now!</Link></small>
           </form>
         </Grid>
         <Grid item sm/>
