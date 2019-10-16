@@ -5,7 +5,6 @@ import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
 
 // Components
-import Navbar from "./Components/Navbar";
 import AuthRoute from "./util/AuthRoute"
 
 // Pages
@@ -36,11 +35,10 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <div className="App">
           <Router>
-            <Navbar/> {/* Switch'in üzerinde yazdığımız için Navbar hep yukarıda kalacak ve yalnızca sayfaların içeriği değişecek. */}
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home}/>
-                <AuthRoute exact path="/login" component={login} authenticated={authenticated}/>
+                <AuthRoute exact path="/login"  component={login}  authenticated={authenticated}/>
                 <AuthRoute exact path="/signup" component={signup} authenticated={authenticated}/>
               </Switch>
             </div>

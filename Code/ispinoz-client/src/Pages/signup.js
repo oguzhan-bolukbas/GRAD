@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from "react-router-dom";
-import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types';
-import WebsiteIcon from '../images/european.png';
 import axios from "axios";
 
 // MUI Stuff
@@ -11,6 +9,11 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import withStyles from '@material-ui/core/styles/withStyles'
+
+// Images
+import WebsiteIcon from '../images/european.png';
+import Background from "../images/DNA.jpg";
 
 const styles = (theme) => ({
   ...theme.logAndSign
@@ -29,6 +32,13 @@ class signup extends Component {
     }
   }
 
+  componentDidMount() {
+    document.body.style.backgroundImage = `url("${Background}")`;
+    document.body.style.height = "100%";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     this.setState({
@@ -43,7 +53,6 @@ class signup extends Component {
     axios
       .post('/signup', newUserData)
       .then(res => {
-        console.log(res.data);
         localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
           loading: false
@@ -82,13 +91,16 @@ class signup extends Component {
             <TextField id="password" name="password" type="password" label="Password" className={classes.textField}
                        helperText={errors.password} error={errors.password ? true : false}
                        value={this.state.password} onChange={this.handleChange} fullWidth/>
-            <TextField id="confirmPassword" name="confirmPassword" type="password" label="Confirm Password" className={classes.textField}
-                       helperText={errors.confirmPassword} error={errors.confirmPassword ? true : false} value={this.state.confirmPassword}
+            <TextField id="confirmPassword" name="confirmPassword" type="password" label="Confirm Password"
+                       className={classes.textField}
+                       helperText={errors.confirmPassword} error={errors.confirmPassword ? true : false}
+                       value={this.state.confirmPassword}
                        onChange={this.handleChange} fullWidth/>
             <TextField id="handle" name="handle" type="text" label="Username" className={classes.textField}
                        helperText={errors.handle} error={errors.handle ? true : false} value={this.state.handle}
                        onChange={this.handleChange} fullWidth/>
-            {errors.general && (<Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}
+            {errors.general && (
+              <Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}
             <Button type="submit" variant="contained" color="primary" className={classes.button}>
               Signup
               {loading && (<CircularProgress size={30} color="inherit" className={classes.progress}/>)}
