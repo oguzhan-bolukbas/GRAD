@@ -11,7 +11,10 @@ import AuthRoute from "./util/AuthRoute"
 import home from "./Pages/home";
 import login from "./Pages/login";
 import signup from "./Pages/signup";
-
+import lectures from "./Pages/lectures";
+import practices from "./Pages/practices";
+import quizzes from "./Pages/quiz";
+import deneme from "./Pages/deneme";
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -40,6 +43,10 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute exact path="/login"  component={login}  authenticated={authenticated}/>
                 <AuthRoute exact path="/signup" component={signup} authenticated={authenticated}/>
+                <AuthRoute exact path="/lectures" component={lectures}/>
+                <AuthRoute exact path="/deneme" component={deneme}/>
+                <AuthRoute exact path="/practices" component={practices}/>
+                <AuthRoute exact path="/quiz" component={quizzes}/>
               </Switch>
             </div>
           </Router>

@@ -16,16 +16,6 @@ import MailIcon from '@material-ui/icons/Mail';
 import WebsiteIcon from '../images/european.png';
 import SettingsIcon from '@material-ui/icons/Settings';
 import IconButton from '@material-ui/core/IconButton';
-import GestureIcon from '@material-ui/icons/Gesture';
-import SubjectIcon from '@material-ui/icons/Subject';
-import Collapse from '@material-ui/core/Collapse';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import SendIcon from '@material-ui/icons/Send';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
-import MapIcon from '@material-ui/icons/Map';
 
 import {Icon} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
@@ -51,7 +41,7 @@ const useStyles = makeStyles(theme => ({
         marginLeft: '100px',
     },
     settingsMargin: {
-        marginLeft : '630px'
+        marginLeft : '730px'
     },
     drawerPaper: {
         width: drawerWidth,
@@ -71,11 +61,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function ClippedDrawer() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-
-    const handleClick = () => {
-        setOpen(!open);
-    };
     // eklenti
     const [state, setState] = React.useState({
         top: false,
@@ -158,15 +143,14 @@ export default function ClippedDrawer() {
                         İspinoz
                     </Typography>
                     <List  className="list">
-                        <ListItem className={classes.AppBarLeftMargin}>
-                            <Typography variant="h5" noWrap>
-                                <Button color="inherit" component={Link} to="/">Ana Sayfa</Button>
-                                <Button color="inherit" component={Link} to="/lectures">Dersler</Button>
-                                <Button color="inherit" component={Link} to="/practices">Problemler</Button>
-                                <Button color="inherit" component={Link} to="/quiz">Quiz</Button>
-                            </Typography>
-                        </ListItem>
-                    </List>
+                    <ListItem className={classes.AppBarLeftMargin}>
+                        <Typography variant="h5" noWrap>
+                            <Button color="inherit" component={Link} to="/lectures">Lectures</Button>
+                            <Button color="inherit" component={Link} to="/practices">Practices</Button>
+                            <Button color="inherit" component={Link} to="/quizes">Quizes</Button>
+                        </Typography>
+                    </ListItem>
+                     </List>
 
                     <List  className="list">
                         <ListItem className={classes.settingsMargin} >
@@ -189,42 +173,22 @@ export default function ClippedDrawer() {
                 }}>
                 <div className={classes.toolbar} />
                 <List>
-                    <ListItem button component={Link} to="/deneme">
-                        <ListItemIcon> <GestureIcon /> </ListItemIcon>
-                        <ListItemText primary="GA Nedir?" />
-                    </ListItem>
-
-                    <ListItem  button onClick={handleClick}>
-                        <ListItemIcon> <SubjectIcon /> </ListItemIcon>
-                        <ListItemText primary="GA Terimleri" />
-                        {open ? <ExpandLess /> : <ExpandMore />}
-                    </ListItem>
-                    <Collapse in={open} timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            <ListItem button className={classes.nested}>
-                                <ListItemText primary="Mutasyon" />
-                            </ListItem>
-                            <ListItem button className={classes.nested}>
-                                <ListItemText primary="Çarprazlama" />
-                            </ListItem>
-                            <ListItem button className={classes.nested}>
-                                <ListItemText primary="Fitness" />
-                            </ListItem>
-                        </List>
-                    </Collapse>
-                    <Divider />
-                    <ListItem button >
-                    <ListItemIcon> <ShoppingBasketIcon /> </ListItemIcon>
-                    <ListItemText primary="Knapsack Problemi" />
-                    </ListItem>
-                    <ListItem button >
-                        <ListItemIcon> <MapIcon /> </ListItemIcon>
-                        <ListItemText primary="TSP Problemi" />
-                    </ListItem>
-
-
+                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
                 </List>
                 <Divider />
+                <List>
+                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.toolbar} />

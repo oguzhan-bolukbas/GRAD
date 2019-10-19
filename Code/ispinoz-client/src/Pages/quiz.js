@@ -214,8 +214,8 @@ export default function ClippedDrawer() {
                     </Collapse>
                     <Divider />
                     <ListItem button >
-                    <ListItemIcon> <ShoppingBasketIcon /> </ListItemIcon>
-                    <ListItemText primary="Knapsack Problemi" />
+                        <ListItemIcon> <ShoppingBasketIcon /> </ListItemIcon>
+                        <ListItemText primary="Knapsack Problemi" />
                     </ListItem>
                     <ListItem button >
                         <ListItemIcon> <MapIcon /> </ListItemIcon>
@@ -232,7 +232,7 @@ export default function ClippedDrawer() {
                     {sideList('right')}
                 </Drawer>
 
-                <p> Home Page</p>
+                <p> Quiz Page</p>
             </main>
 
 
