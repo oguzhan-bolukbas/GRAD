@@ -13,7 +13,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 
 // Images
 import WebsiteIcon from '../images/european.png';
-import Background from "../images/DNA.jpg";
+import Background from "../images/DNA.png";
 
 const styles = (theme) => ({
   ...theme.logAndSign

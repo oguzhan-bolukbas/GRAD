@@ -41,12 +41,12 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home}/>
-                <AuthRoute exact path="/login"  component={login}  authenticated={authenticated}/>
-                <AuthRoute exact path="/signup" component={signup} authenticated={authenticated}/>
-                <AuthRoute exact path="/lectures" component={lectures}/>
-                <AuthRoute exact path="/deneme" component={deneme}/>
-                <AuthRoute exact path="/practices" component={practices}/>
-                <AuthRoute exact path="/quiz" component={quizzes}/>
+                <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
+                <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
+                <Route path="/lecture" component={lectures}/>
+                <Route path="/deneme" component={deneme}/>
+                <Route path="/practice" component={practices}/>
+                <Route path="/quiz" component={quizzes}/>
               </Switch>
             </div>
           </Router>

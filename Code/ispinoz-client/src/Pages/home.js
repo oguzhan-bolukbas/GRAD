@@ -70,6 +70,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function ClippedDrawer() {
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
 
