@@ -19,6 +19,19 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
+import MenuBookIcon from '@material-ui/icons/MenuBook';
+import GestureIcon from '@material-ui/icons/Gesture';
+import SubjectIcon from '@material-ui/icons/Subject';
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import MapIcon from '@material-ui/icons/Map';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+
+import SettingsIcon from '@material-ui/icons/Settings';
+import PersonIcon from '@material-ui/icons/Person';
+import HistoryIcon from '@material-ui/icons/History';
 
 const drawerWidth = 240;
 
@@ -87,9 +100,19 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [openGATerm, setOpenGATerms] = React.useState(false);
+  const [openGAProblems, setOpenGAProblems] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+  };
+
+  const handleClickGATerms = () => {
+    setOpenGATerms(!openGATerm);
+  };
+
+  const handleClickGAProblems = () => {
+    setOpenGAProblems(!openGAProblems);
   };
 
   const handleDrawerClose = () => {
@@ -107,9 +130,10 @@ export default function ClippedDrawer() {
           <Typography variant="h5" noWrap className={classes.title}>
             İspinoz
           </Typography>
-          <Button color="inherit" className={classes.button} component={Link} to="/lecture">Lectures</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/practice">Practices</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quizes</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/lecture">Dersler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/practice">Problemler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -130,89 +154,56 @@ export default function ClippedDrawer() {
       >
         <div className={classes.toolbar}/>
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
+          <ListItem button component={Link} to="/deneme">
+            <ListItemIcon> <GestureIcon /> </ListItemIcon>
+            <ListItemText primary="GA Nedir?" />
+          </ListItem>
+
+          <ListItem  button onClick={handleClickGATerms}>
+            <ListItemIcon> <MenuBookIcon /> </ListItemIcon>
+            <ListItemText primary="GA Terimleri" />
+            {openGATerm ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={openGATerm} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Mutasyon" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Çarprazlama" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Fitness" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+          <Divider />
+
+          <ListItem  button onClick={handleClickGAProblems}>
+            <ListItemIcon> <SubjectIcon /> </ListItemIcon>
+            <ListItemText primary="Problemler" />
+            {openGAProblems ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={openGAProblems} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button >
+                <ListItemText primary="Sırt Çantası Problemi" />
+              </ListItem>
+              <ListItem button >
+                <ListItemText primary="Gezici Satıcı Problemi" />
+              </ListItem>
+            </List>
+          </Collapse>
+
+
         </List>
-        <Divider/>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
-        </List>
+        <Divider />
+
+
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar}/>
-          <Typography paragraph>
-              <h2>İstiklal Marşı</h2>
-          </Typography>
-        <Typography paragraph>
-          Korkma, sönmez bu şafaklarda yüzen al sancak;<br/>
-          Sönmeden yurdumun üstünde tüten en son ocak.<br/>
-          O benim milletimin yıldızıdır, parlayacak;<br/>
-          O benimdir, o benim milletimindir ancak.
-        </Typography>
-        <Typography paragraph>
-          Çatma, kurban olayım, çehreni ey nazlı hilal!<br/>
-          Kahraman ırkıma bir gül! Ne bu şiddet, bu celal?<br/>
-          Sana olmaz dökülen kanlarımız sonra helal...<br/>
-          Hakkıdır, hakk'a tapan, milletimin istiklal!
-        </Typography>
-        <Typography paragraph>
-          Ben ezelden beridir hür yaşadım, hür yaşarım.<br/>
-          Hangi çılgın bana zincir vuracakmış? Şaşarım!<br/>
-          Kükremiş sel gibiyim, bendimi çiğner, aşarım.<br/>
-          Yırtarım dağları, enginlere sığmam, taşarım.
-        </Typography>
-        <Typography paragraph>
-          Garbın afakını sarmışsa çelik zırhlı duvar,<br/>
-          Benim iman dolu göğsüm gibi serhaddim var.<br/>
-          Ulusun, korkma! Nasıl böyle bir imanı boğar,<br/>
-          'Medeniyet!' dediğin tek dişi kalmış canavar?
-        </Typography>
-        <Typography paragraph>
-          Arkadaş! Yurduma alçakları uğratma, sakın.<br/>
-          Siper et gövdeni, dursun bu hayasızca akın.<br/>
-          Doğacaktır sana va'dettigi günler hakk'ın...<br/>
-          Kim bilir, belki yarın, belki yarından da yakın.
-        </Typography>
-        <Typography paragraph>
-          Bastığın yerleri 'toprak!' diyerek geçme, tanı:<br/>
-          Düşün altında binlerce kefensiz yatanı.<br/>
-          Sen şehit oğlusun, incitme, yazıktır, atanı:<br/>
-          Verme, dünyaları alsan da, bu cennet vatanı.
-        </Typography>
-        <Typography paragraph>
-          Kim bu cennet vatanın uğruna olmaz ki feda?<br/>
-          Şuheda fışkıracak toprağı sıksan, şuheda!<br/>
-          Canı, cananı, bütün varımı alsın da hüda,<br/>
-          Etmesin tek vatanımdan beni dünyada cüda.
-        </Typography>
-        <Typography paragraph>
-          Ruhumun senden, ilahi, şudur ancak emeli:<br/>
-          Değmesin mabedimin göğsüne namahrem eli.<br/>
-          Bu ezanlar-ki şahadetleri dinin temeli,<br/>
-          Ebedi yurdumun üstünde benim inlemeli.
-        </Typography>
-        <Typography paragraph>
-          O zaman vecd ile bin secde eder -varsa- taşım,<br/>
-          Her cerihamdan, ilahi, boşanıp kanlı yaşım,<br/>
-          Fışkırır ruh-i mücerred gibi yerden na'şım;<br/>
-          O zaman yükselerek arsa değer belki başım.
-        </Typography>
-        <Typography paragraph>
-          Dalgalan sen de şafaklar gibi ey şanlı hilal!<br/>
-          Olsun artık dökülen kanlarımın hepsi helal.<br/>
-          Ebediyen sana yok, ırkıma yok izmihlal:<br/>
-          Hakkıdır, hür yaşamış, bayrağımın hürriyet;<br/>
-          Hakkıdır, hakk'a tapan, milletimin istiklal!
-        </Typography>
       </main>
       <Drawer
         className={classes.drawer}
@@ -230,21 +221,21 @@ export default function ClippedDrawer() {
         </div>
         <Divider/>
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
-        </List>
-        <Divider/>
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-              <ListItemText primary={text}/>
-            </ListItem>
-          ))}
+          <ListItem button>
+            <ListItemIcon> <PersonIcon /> </ListItemIcon>
+            <ListItemText primary="Profil" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon> <HistoryIcon /> </ListItemIcon>
+            <ListItemText primary="Öğrenme Geçmişi" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
+            <ListItemText primary="Ayarlar" />
+          </ListItem>
+
         </List>
       </Drawer>
     </div>
