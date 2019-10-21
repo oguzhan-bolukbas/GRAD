@@ -4,17 +4,18 @@ import './App.css';
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
 
-// Components
+// components
 import AuthRoute from "./util/AuthRoute"
 
-// Pages
-import home from "./Pages/home";
-import login from "./Pages/login";
-import signup from "./Pages/signup";
-import lectures from "./Pages/lectures";
-import practices from "./Pages/practices";
-import quizzes from "./Pages/quiz";
-import deneme from "./Pages/deneme";
+// pages
+import home from "./pages/home";
+import login from "./pages/login";
+import signup from "./pages/signup";
+import lecture from "./pages/lecture"
+import practice from "./pages/practice"
+import quiz from "./pages/quiz"
+
+
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -43,10 +44,9 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
-                <Route path="/lecture" component={lectures}/>
-                <Route path="/deneme" component={deneme}/>
-                <Route path="/practice" component={practices}/>
-                <Route path="/quiz" component={quizzes}/>
+                <Route path="/lecture" component={lecture}/>
+                <Route path="/practice" component={practice}/>
+                <Route path="/quiz" component={quiz}/>
               </Switch>
             </div>
           </Router>

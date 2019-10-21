@@ -14,5 +14,16 @@ body{
 
 .list {
   margin-left: 5500px;
-
+}
+.home h1{
+  color: white; /* or hexidecimal */
+}
+.lecture h1{
+  color: white; /* or hexidecimal */
+}
+.practice h1{
+  color: white; /* or hexidecimal */
+}
+.quiz h1{
+  color: white; /* or hexidecimal */
 }

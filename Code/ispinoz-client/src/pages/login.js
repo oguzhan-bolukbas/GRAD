@@ -11,15 +11,15 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import withStyles from '@material-ui/core/styles/withStyles'
 
-// Images
-import WebsiteIcon from '../images/european.png';
+// images
+import WebsiteIcon from '../images/European.png';
 import Background from "../images/DNA.png"
 
 const styles = (theme) => ({
   ...theme.logAndSign
 });
 
-class login extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,7 +46,7 @@ class login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    axios.post('/login', userData)
+    axios.post('/Login', userData)
       .then(res => {
         localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
@@ -103,8 +103,8 @@ class login extends Component {
   }
 }
 
-login.propTypes = {
+Login.propTypes = {
   classes: PropTypes.object.isRequired
-}
+};
 
-export default withStyles(styles)(login);
+export default withStyles(styles)(Login);

@@ -11,8 +11,8 @@ import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import withStyles from '@material-ui/core/styles/withStyles'
 
-// Images
-import WebsiteIcon from '../images/european.png';
+// images
+import WebsiteIcon from '../images/European.png';
 import Background from "../images/DNA.png";
 
 const styles = (theme) => ({
@@ -116,6 +116,6 @@ class signup extends Component {
 
 signup.propTypes = {
   classes: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(signup);
