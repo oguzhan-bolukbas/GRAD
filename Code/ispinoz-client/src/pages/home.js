@@ -3,6 +3,7 @@ import '../App.css'
 
 // Components
 import Appbar from "../components/appbar";
+import {Stepper} from "@material-ui/core";
 
 class Home extends Component{
   componentDidMount() {
@@ -15,7 +16,7 @@ class Home extends Component{
     return (
       <div className="home">
         <Appbar/>
-        <h1>Home Page</h1>
+        <Stepper/>
       </div>
     );
   }
