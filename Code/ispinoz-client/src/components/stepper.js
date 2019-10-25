@@ -25,22 +25,27 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['What is Chromosome?',
+    'What is Gene?',
+    'What is Population?'];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`;
+      return `In an obvious nod to biology, a chromosome is a single hypothesis of which many make up a population. `;
     case 1:
-      return 'An ad group contains one or more ads which target a shared set of keywords.';
+      return 'In a GA, potential hypotheses are made up of chromosomes, which are, in turn, made up of genes. Practically, in a GA, chromosomes are generally represented as binary strings, a series of 1s and 0s, which denote inclusion or exclusion of particular items represented by position in the string. A gene is a single bit within such a chromosome.\n' +
+        '\n' +
+        'For example, the Hello World of genetic algorithms is often considered to be the knapsack problem. In this problem, there would be a set of N items which may or may not be included in a thief\'s knapsack, and these N items would be represented as a binary string (the chromosome) N characters long, with each position in the string representing a particular item and the positional bit (1 or 0; the gene) denoting whether the item is included in the particular hypothesis or not.\n' +
+        '\n' +
+        'Population → all of the proposed solutions to the knapsack problem of the current generation (iteration of the algorithm)\n' +
+        '\n' +
+        'Chromosome → a particular proposed solution to the knapsack problem\n' +
+        '\n' +
+        'Gene → positional representation of a particular item (and its inclusion or exclusion) in the knapsack of a particular solution to the knapsack problem.';
     case 2:
-      return `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`;
+      return `In a GA, each iteration, or generation, results in a series of possible hypotheses for best approximating a function, and the population refers to the complete set or pool of these generated hypotheses after a given iteration.`;
     default:
       return 'Unknown step';
   }
