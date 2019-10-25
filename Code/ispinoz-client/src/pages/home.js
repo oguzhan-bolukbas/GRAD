@@ -12,6 +12,7 @@ import {Typography} from "@material-ui/core";
 class Home extends Component{
   componentDidMount() {
     document.body.style.background = "#fff";
+    document.body.style.marginLeft = "300px";
 
   }
   render() {
