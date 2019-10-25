@@ -14,6 +14,7 @@ class Home extends Component{
     document.body.style.background = "#fff";
     document.body.style.marginLeft = "300px";
 
+
   }
   render() {
     return (
