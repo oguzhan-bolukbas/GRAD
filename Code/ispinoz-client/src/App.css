@@ -5,9 +5,13 @@ body{
   sans-serif;
 }
 .container{ /*Navbar'ın arkasında metin kalmaması için*/
-  margin: 80px auto 0 auto; /*Top Right Bottom Left*/
+  margin: auto auto 0 auto; /*Top Right Bottom Left top 80 di değiştim.*/
   max-width: 1200px;
 }
+.pixel{
+  margin-left: 120px;
+}
+
 .nav-container{
   margin: auto;
 }
