@@ -164,15 +164,18 @@ export default function ClippedDrawer() {
             <ListItemText primary="GA Terimleri" />
             {openGATerm ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
+
           <Collapse in={openGATerm} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
+              <ListItem button className={classes.nested} button component={Link} to="/mutasyon">
+
                 <ListItemText primary="Mutasyon" />
+
               </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemText primary="Çarprazlama" />
+              <ListItem button className={classes.nested} button component={Link} to="/Çaprazlama">
+                <ListItemText primary="Çaprazlama" />
               </ListItem>
-              <ListItem button className={classes.nested}>
+              <ListItem button className={classes.nested} button component={Link} to="/Fitness">
                 <ListItemText primary="Fitness" />
               </ListItem>
             </List>

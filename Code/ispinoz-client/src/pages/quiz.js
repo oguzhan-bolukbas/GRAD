@@ -7,6 +7,7 @@ class Quiz extends Component {
       <div className="quiz">
         <Appbar/>
         <h1>Quiz Page</h1>
+
       </div>
     );
   }

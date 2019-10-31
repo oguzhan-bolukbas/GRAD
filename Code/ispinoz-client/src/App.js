@@ -11,6 +11,10 @@ import AuthRoute from "./util/AuthRoute"
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
+import deneme from "./pages/deneme";
+import mutasyon from "./pages/mutasyon";
+import fitness from "./pages/fitness";
+import çaprazlama from "./pages/çaprazlama";
 import lecture from "./pages/lecture"
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
@@ -44,13 +48,21 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
+                <AuthRoute path="/deneme"  component={deneme}  authenticated={authenticated}/>
+                <AuthRoute path="/çaprazlama"  component={çaprazlama}  authenticated={authenticated}/>
+                <AuthRoute path="/fitness"  component={fitness}  authenticated={authenticated}/>
+                <AuthRoute path="/mutasyon"  component={mutasyon}  authenticated={authenticated}/>
                 <Route path="/lecture" component={lecture}/>
                 <Route path="/practice" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
               </Switch>
             </div>
           </Router>
+
         </div>
+
+
+
       </MuiThemeProvider>
     );
   }
