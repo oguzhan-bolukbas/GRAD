@@ -159,6 +159,21 @@ export default function ClippedDrawer() {
             <ListItemText primary="GA Nedir?" />
           </ListItem>
 
+            <ListItem button component={Link} to="/how_works">
+              <ListItemIcon> <GestureIcon /> </ListItemIcon>
+              <ListItemText primary="GA Nasıl Çalışır?" />
+            </ListItem>
+
+          <ListItem button component={Link} to="/new_gene">
+            <ListItemIcon> <GestureIcon /> </ListItemIcon>
+            <ListItemText primary="Yeni Nesil Oluşumu" />
+          </ListItem>
+
+          <ListItem button component={Link} to="/stopping">
+            <ListItemIcon> <GestureIcon /> </ListItemIcon>
+            <ListItemText primary="GA Durma Koşulları" />
+          </ListItem>
+
           <ListItem  button onClick={handleClickGATerms}>
             <ListItemIcon> <MenuBookIcon /> </ListItemIcon>
             <ListItemText primary="GA Terimleri" />
@@ -172,6 +187,7 @@ export default function ClippedDrawer() {
                 <ListItemText primary="Mutasyon" />
 
               </ListItem>
+
               <ListItem button className={classes.nested} button component={Link} to="/Çaprazlama">
                 <ListItemText primary="Çaprazlama" />
               </ListItem>

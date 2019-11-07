@@ -14,15 +14,19 @@ import signup from "./pages/signup";
 import deneme from "./pages/deneme";
 import mutasyon from "./pages/mutasyon";
 import fitness from "./pages/fitness";
+import work from "./pages/how_works"
 import çaprazlama from "./pages/çaprazlama";
-import lecture from "./pages/lecture"
-import practice from "./pages/practice"
-import quiz from "./pages/quiz"
+import lecture from "./pages/lecture";
+import practice from "./pages/practice";
+import quiz from "./pages/quiz";
+import n_gene from "./pages/new_gene";
+import stop from "./pages/stopping";
 
 
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import how_works from "./pages/how_works";
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -49,6 +53,9 @@ class App extends Component {
                 <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
                 <AuthRoute path="/deneme"  component={deneme}  authenticated={authenticated}/>
+                <AuthRoute path="/how_works"  component={work}  authenticated={authenticated}/>
+                <AuthRoute path="/new_gene"  component={n_gene}  authenticated={authenticated}/>
+                <AuthRoute path="/stopping"  component={stop}  authenticated={authenticated}/>
                 <AuthRoute path="/çaprazlama"  component={çaprazlama}  authenticated={authenticated}/>
                 <AuthRoute path="/fitness"  component={fitness}  authenticated={authenticated}/>
                 <AuthRoute path="/mutasyon"  component={mutasyon}  authenticated={authenticated}/>
