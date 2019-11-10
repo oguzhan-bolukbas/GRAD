@@ -3,10 +3,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
-
 // components
 import AuthRoute from "./util/AuthRoute"
-
 // pages
 import home from "./pages/home";
 import login from "./pages/login";
@@ -18,8 +16,8 @@ import çaprazlama from "./pages/çaprazlama";
 import lecture from "./pages/lecture"
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
-
-
+import whatisGA from "./pages/whatisGA"
+import gaApplications from "./pages/GAApplications"
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -51,10 +49,12 @@ class App extends Component {
                 <AuthRoute path="/deneme"  component={deneme}  authenticated={authenticated}/>
                 <AuthRoute path="/çaprazlama"  component={çaprazlama}  authenticated={authenticated}/>
                 <AuthRoute path="/fitness"  component={fitness}  authenticated={authenticated}/>
-                <AuthRoute path="/mutasyon"  component={mutasyon}  authenticated={authenticated}/>
+                <Route path="/mutasyon"  component={mutasyon} />
+                <Route path="/GAnedir" component={whatisGA}/>
                 <Route path="/lecture" component={lecture}/>
                 <Route path="/practice" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
+                <Route path="/GAUygulamaları" component={gaApplications}/>
               </Switch>
             </div>
           </Router>

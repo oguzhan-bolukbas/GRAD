@@ -17,12 +17,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
-import MenuBookIcon from '@material-ui/icons/MenuBook';
 import GestureIcon from '@material-ui/icons/Gesture';
 import SubjectIcon from '@material-ui/icons/Subject';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import AppsIcon from '@material-ui/icons/Apps';
+import BookIcon from '@material-ui/icons/Book';
 
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
@@ -125,8 +123,7 @@ export default function ClippedDrawer() {
           <Typography variant="h5" noWrap className={classes.title}>
             İspinoz
           </Typography>
-          <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/lecture">Dersler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/practice">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
@@ -153,50 +150,52 @@ export default function ClippedDrawer() {
             <ListItemIcon> <GestureIcon /> </ListItemIcon>
             <ListItemText primary="GA Nedir?" />
           </ListItem>
-
-          <ListItem  button onClick={handleClickGATerms}>
-            <ListItemIcon> <MenuBookIcon /> </ListItemIcon>
+          <Divider />
+          <ListItem button component={Link} to="/GAUygulamaları">
+            <ListItemIcon> <AppsIcon /> </ListItemIcon>
+            <ListItemText primary="GA Uygulamaları" />
+          </ListItem>
+          <Divider />
+          <ListItem>
+            <ListItemIcon> <SubjectIcon /> </ListItemIcon>
             <ListItemText primary="GA Terimleri" />
-            {openGATerm ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
 
-          <Collapse in={openGATerm} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested} button component={Link} to="/mutasyon">
+          <ListItem button component={Link} to="/mutasyon" >
+            <ListItemText primary="Mutasyon"/>
+          </ListItem>
 
-                <ListItemText primary="Mutasyon" />
+          <ListItem button>
+            <ListItemText primary="Mutasyon Çeşitleri" />
+          </ListItem>
 
-              </ListItem>
-              <ListItem button className={classes.nested} button component={Link} to="/Çaprazlama">
-                <ListItemText primary="Çaprazlama" />
-              </ListItem>
-              <ListItem button className={classes.nested} button component={Link} to="/Fitness">
-                <ListItemText primary="Fitness" />
-              </ListItem>
-            </List>
-          </Collapse>
+          <ListItem button>
+          <ListItemText primary="Çaprazlama (Crossover)" />
+        </ListItem>
+
+          <ListItem button>
+            <ListItemText primary="Çaprazlama Çeşitleri" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemText primary="Populasyon" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemText primary="Jenerasyon" />
+          </ListItem>
+
+          <ListItem button>
+            <ListItemText primary="Uygunluk (Fitness)" />
+          </ListItem>
 
           <Divider />
-
-          <ListItem  button onClick={handleClickGAProblems}>
-            <ListItemIcon> <SubjectIcon /> </ListItemIcon>
-            <ListItemText primary="Problemler" />
-            {openGAProblems ? <ExpandLess /> : <ExpandMore />}
+          <ListItem button >
+            <ListItemIcon> <BookIcon /> </ListItemIcon>
+            <ListItemText primary="Referanslar" />
           </ListItem>
-          <Collapse in={openGAProblems} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button >
-                <ListItemText primary="Sırt Çantası Problemi" />
-              </ListItem>
-              <ListItem button >
-                <ListItemText primary="Gezici Satıcı Problemi" />
-              </ListItem>
-            </List>
-          </Collapse>
-
-
+          <Divider />
         </List>
-        <Divider />
 
 
       </Drawer>
@@ -237,5 +236,5 @@ export default function ClippedDrawer() {
         </List>
       </Drawer>
     </div>
-);
+  );
 }

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import '../App.css'
 // Components
 import AppbarHome from "../components/appbarLectures";
-import PaperMutation from "../components/paperMutation";
+import PaperGAApplications from "../components/paperGAApplications";
+import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 
@@ -20,11 +21,11 @@ class whatisGA extends Component{
       <div className="home">
 
         <AppbarHome/>
-        <Button  variant="contained" color="primary"  style={{float: 'right'}} className="float-right" >
+        <Button  variant="contained" color="primary"  style={{float: 'right'}} className="float-right" component={Link} to="/mutasyon">
           İLERİ
           <NavigateNextIcon/>
         </Button>
-        <PaperMutation/>
+        <PaperGAApplications/>
 
       </div>
     );
