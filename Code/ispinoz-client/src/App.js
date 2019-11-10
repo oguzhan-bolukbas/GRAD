@@ -9,11 +9,9 @@ import AuthRoute from "./util/AuthRoute"
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
-import deneme from "./pages/deneme";
 import mutasyon from "./pages/mutasyon";
 import fitness from "./pages/fitness";
 import çaprazlama from "./pages/çaprazlama";
-import lecture from "./pages/lecture"
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
 import whatisGA from "./pages/whatisGA"
@@ -44,15 +42,13 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home}/>
-                <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
-                <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
-                <AuthRoute path="/deneme"  component={deneme}  authenticated={authenticated}/>
-                <AuthRoute path="/çaprazlama"  component={çaprazlama}  authenticated={authenticated}/>
-                <AuthRoute path="/fitness"  component={fitness}  authenticated={authenticated}/>
+                <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
+                <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
+                <Route path="/çaprazlama"  component={çaprazlama}/>
+                <Route path="/uygunluk"  component={fitness}/>
                 <Route path="/mutasyon"  component={mutasyon} />
                 <Route path="/GAnedir" component={whatisGA}/>
-                <Route path="/lecture" component={lecture}/>
-                <Route path="/practice" component={practice}/>
+                <Route path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
                 <Route path="/GAUygulamaları" component={gaApplications}/>
               </Switch>

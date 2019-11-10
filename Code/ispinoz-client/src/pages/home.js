@@ -17,8 +17,6 @@ class Home extends Component{
       <div className="home">
         <AppbarHome/>
         <PaperHome/>
-
-
       </div>
     );
   }

@@ -120,7 +120,7 @@ export default function ClippedDrawer() {
             İspinoz
           </Typography>
           <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/practice">Problemler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
             color="inherit"

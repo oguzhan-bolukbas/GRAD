@@ -48,17 +48,17 @@ export default function PaperSheet() {
         </Links>
         sekmesinden öğrendiğiniz bilgileri ölçmeye,
 
-        <Links href="/practice" onClick={"/practice"} className={classes.link}>
+        <Links href="/problemler" onClick={"/problemler"} className={classes.link}>
           {" "} Problemler {" "}
         </Links>
         sekmesinden çeşitli problemleri uygulamaya başlayabilirsiniz.
       </Typography>
       <div className={classes.mar}>
-        <Button  variant="contained" color="primary"  style={{float: 'right'}} className="float-right" component={Link} to="/practice">
-          Pratik Yap
+        <Button  variant="contained" color="primary"  style={{float: 'right'}} className="float-right" component={Link} to="/problemler">
+          PRATİK YAP
         </Button>
         <Button  variant="contained" color="primary" style={{float: 'left'}} className="float-left" component={Link} to="/GAnedir" >
-          Öğrenmeye Başla
+          ÖĞRENMEYE BAŞLA
         </Button>
 
       </div>

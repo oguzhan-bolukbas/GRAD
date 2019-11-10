@@ -125,9 +125,8 @@ export default function ClippedDrawer() {
           <Typography variant="h5" noWrap className={classes.title}>
             İspinoz
           </Typography>
-          <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/lecture">Dersler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/practice">Problemler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
             color="inherit"
@@ -170,7 +169,7 @@ export default function ClippedDrawer() {
               <ListItem button className={classes.nested} button component={Link} to="/Çaprazlama">
                 <ListItemText primary="Çaprazlama" />
               </ListItem>
-              <ListItem button className={classes.nested} button component={Link} to="/Fitness">
+              <ListItem button className={classes.nested} button component={Link} to="/uygunluk">
                 <ListItemText primary="Fitness" />
               </ListItem>
             </List>
