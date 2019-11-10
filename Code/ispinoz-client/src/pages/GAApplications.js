@@ -6,6 +6,7 @@ import PaperGAApplications from "../components/paperGAApplications";
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 
 class whatisGA extends Component{
@@ -19,13 +20,12 @@ class whatisGA extends Component{
   render() {
     return (
       <div className="home">
-
         <AppbarHome/>
-        <Button  variant="contained" color="primary"  style={{float: 'right'}} className="float-right" component={Link} to="/mutasyon">
-          İLERİ
-          <NavigateNextIcon/>
-        </Button>
         <PaperGAApplications/>
+        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" component={Link} to="/mutasyon">
+          İLERİ <NavigateNextIcon/> </Button>
+        <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/GAnedir" >
+          <NavigateBeforeIcon/> GERİ </Button>
 
       </div>
     );
