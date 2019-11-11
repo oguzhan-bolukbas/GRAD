@@ -25,8 +25,9 @@ import BookIcon from '@material-ui/icons/Book';
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
+import LowPriorityIcon from '@material-ui/icons/LowPriority';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -124,7 +125,7 @@ export default function ClippedDrawer() {
             İspinoz
           </Typography>
           <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/practice">Problemler</Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
             color="inherit"
@@ -154,6 +155,11 @@ export default function ClippedDrawer() {
           <ListItem button component={Link} to="/GAUygulamaları">
             <ListItemIcon> <AppsIcon /> </ListItemIcon>
             <ListItemText primary="GA Uygulamaları" />
+          </ListItem>
+          <Divider />
+          <ListItem button component={Link} to="/GANasılÇalışır">
+            <ListItemIcon> <LowPriorityIcon /> </ListItemIcon>
+            <ListItemText primary="GA Çalışma Mekanizması" />
           </ListItem>
           <Divider />
           <ListItem>

@@ -15,10 +15,11 @@ import çaprazlama from "./pages/çaprazlama";
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
 import whatisGA from "./pages/whatisGA"
-import gaApplications from "./pages/GAApplications"
+import gaWorkingMechanism from "./pages/GAWorkingMechanism"
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+import gaApplications from "./pages/GAApplications"
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -51,6 +52,7 @@ class App extends Component {
                 <Route path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
                 <Route path="/GAUygulamaları" component={gaApplications}/>
+                <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
               </Switch>
             </div>
           </Router>
