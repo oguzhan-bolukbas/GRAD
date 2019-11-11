@@ -12,8 +12,8 @@ import {Link} from "react-router-dom";
 class whatisGA extends Component{
   componentDidMount() {
     document.body.style.background = "#fff";
-    document.body.style.marginLeft = "300px";
-    document.body.style.marginRight = "20px";
+    document.body.style.marginLeft = "370px";
+    document.body.style.marginRight = "100px";
 
 
   }
