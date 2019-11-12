@@ -43,7 +43,7 @@ export default function ImgMediaCard() {
           title="Sırt Çantası Problemi"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography  color="primary"  gutterBottom variant="h5" component="h2">
             Sırt Çantası Problemi
           </Typography>
         </CardContent>
@@ -69,7 +69,7 @@ export default function ImgMediaCard() {
             title="Contemplative Reptile"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography  color="primary"  gutterBottom variant="h5" component="h2">
               Gezici Satıcı Problemi
             </Typography>
           </CardContent>

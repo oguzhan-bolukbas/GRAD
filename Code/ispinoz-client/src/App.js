@@ -16,6 +16,8 @@ import practice from "./pages/practice"
 import quiz from "./pages/quiz"
 import whatisGA from "./pages/whatisGA"
 import gaWorkingMechanism from "./pages/GAWorkingMechanism"
+import QuizLectures from "./pages/quizLectures"
+import QuizProblems from "./pages/quizProblems"
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
@@ -53,6 +55,8 @@ class App extends Component {
                 <Route path="/quiz" component={quiz}/>
                 <Route path="/GAUygulamaları" component={gaApplications}/>
                 <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
+                <Route path="/quizLectures" component={QuizLectures}/>
+                <Route path="/quizProblems" component={QuizProblems}/>
               </Switch>
             </div>
           </Router>
