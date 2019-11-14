@@ -11,6 +11,7 @@ import AppbarProblems from "../components/appbarProblems";
 import '../App.css'
 import knapsack from "../images/knapsack.png";
 import tsp from "../images/traveling-salesman.png";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles({
   card: {
@@ -49,10 +50,10 @@ export default function ImgMediaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" component={Link} to="/">
           ÖĞREN
         </Button>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary" component={Link} to="/sırtÇantasıProlemiUygula">
           UYGULA
         </Button>
       </CardActions>
@@ -75,10 +76,10 @@ export default function ImgMediaCard() {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" component={Link} to="/">
            ÖĞREN
           </Button>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" component={Link} to="/geziciSatıcıProblemiUygula">
             UYGULA
           </Button>
         </CardActions>
