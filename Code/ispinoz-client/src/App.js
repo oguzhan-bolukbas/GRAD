@@ -11,7 +11,7 @@ import login from "./pages/login";
 import signup from "./pages/signup";
 import mutasyon from "./pages/mutasyon";
 import fitness from "./pages/fitness";
-import çaprazlama from "./pages/çaprazlama";
+import crossingOver from "./pages/crossingOver";
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
 import whatisGA from "./pages/whatisGA"
@@ -50,7 +50,7 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
-                <Route path="/çaprazlama"  component={çaprazlama}/>
+                <Route path="/crossingOver"  component={crossingOver}/>
                 <Route path="/uygunluk"  component={fitness}/>
                 <Route path="/mutasyon"  component={mutasyon} />
                 <Route path="/GAnedir" component={whatisGA}/>
@@ -60,17 +60,12 @@ class App extends Component {
                 <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
                 <Route path="/quizLectures" component={QuizLectures}/>
                 <Route path="/quizProblems" component={QuizProblems}/>
-
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
               </Switch>
             </div>
           </Router>
-
         </div>
-
-
-
       </MuiThemeProvider>
     );
   }

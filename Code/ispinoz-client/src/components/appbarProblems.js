@@ -89,13 +89,14 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  /*
   const [openGATerm, setOpenGATerms] = React.useState(false);
   const [openGAProblems, setOpenGAProblems] = React.useState(false);
-
+  */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
+/*
   const handleClickGATerms = () => {
     setOpenGATerms(!openGATerm);
   };
@@ -103,7 +104,7 @@ export default function ClippedDrawer() {
   const handleClickGAProblems = () => {
     setOpenGAProblems(!openGAProblems);
   };
-
+*/
   const handleDrawerClose = () => {
     setOpen(false);
   };

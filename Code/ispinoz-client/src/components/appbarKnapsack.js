@@ -89,21 +89,22 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  /*
   const [openGATerm, setOpenGATerms] = React.useState(false);
   const [openGAProblems, setOpenGAProblems] = React.useState(false);
-
+  */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+  /*
+    const handleClickGATerms = () => {
+      setOpenGATerms(!openGATerm);
+    };
 
-  const handleClickGATerms = () => {
-    setOpenGATerms(!openGATerm);
-  };
-
-  const handleClickGAProblems = () => {
-    setOpenGAProblems(!openGAProblems);
-  };
-
+    const handleClickGAProblems = () => {
+      setOpenGAProblems(!openGAProblems);
+    };
+  */
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -141,29 +142,20 @@ export default function ClippedDrawer() {
         }}
       >
         <div className={classes.toolbar}/>
-        <List>
-
+        <List component={""}>
           <ListItem button component={Link} to="/">
-            <ListItemText primary="Sırt Çantası Problemi Nedir?" />
+            <ListItemText primary="Sırt Çantası Problemi Nedir?"/>
           </ListItem>
-
-          <Divider />
-
-          <ListItem button component={Link} to="/" >
+          <Divider component={""}/>
+          <ListItem button component={Link} to="/">
             <ListItemText primary="GA Gösterimi"/>
           </ListItem>
-
-          <Divider />
-
-          <ListItem button component={Link} to="/" >
+          <Divider component={""}/>
+          <ListItem button component={Link} to="/">
             <ListItemText primary="GA'nın Probleme Uygulanışı"/>
           </ListItem>
-
-
-          <Divider />
+          <Divider component={""}/>
         </List>
-
-
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar}/>
@@ -182,23 +174,20 @@ export default function ClippedDrawer() {
             {theme.direction === 'rtl' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
           </IconButton>
         </div>
-        <Divider/>
-        <List>
-          <ListItem button>
-            <ListItemIcon> <PersonIcon /> </ListItemIcon>
-            <ListItemText primary="Profil" />
+        <Divider component={""}/>
+        <List component={""}>
+          <ListItem button component={""}>
+            <ListItemIcon> <PersonIcon/> </ListItemIcon>
+            <ListItemText primary="Profil"/>
           </ListItem>
-
-          <ListItem button>
-            <ListItemIcon> <HistoryIcon /> </ListItemIcon>
-            <ListItemText primary="Öğrenme Geçmişi" />
+          <ListItem button component={""}>
+            <ListItemIcon> <HistoryIcon/> </ListItemIcon>
+            <ListItemText primary="Öğrenme Geçmişi"/>
           </ListItem>
-
-          <ListItem button>
-            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
-            <ListItemText primary="Ayarlar" />
+          <ListItem button component={""}>
+            <ListItemIcon> <SettingsIcon/> </ListItemIcon>
+            <ListItemText primary="Ayarlar"/>
           </ListItem>
-
         </List>
       </Drawer>
     </div>

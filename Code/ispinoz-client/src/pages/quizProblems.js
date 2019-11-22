@@ -1,8 +1,9 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+//import {makeStyles} from '@material-ui/core/styles';
 import AppbarProblems from "../components/appbarProblems";
 import '../App.css'
 
+/*
 const useStyles = makeStyles({
   card: {
     maxWidth: 300,
@@ -15,10 +16,10 @@ const useStyles = makeStyles({
     alignItems: "center"
   }
 });
+*/
 
 export default function ImgMediaCard() {
-  const classes = useStyles();
-
+  //const classes = useStyles();
   return (
     <div className="home">
       <AppbarProblems />
