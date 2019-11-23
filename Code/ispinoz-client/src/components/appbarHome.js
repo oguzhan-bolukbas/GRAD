@@ -163,7 +163,7 @@ export default function ClippedDrawer() {
             <ListItemIcon> <SubjectIcon/> </ListItemIcon>
             <ListItemText primary="GA Terimleri"/>
           </ListItem>
-          <ListItem button component={Link} to="/mutation">
+          <ListItem button component={Link} to="/mutasyon">
             <ListItemText primary="Mutasyon"/>
           </ListItem>
           <ListItem button>

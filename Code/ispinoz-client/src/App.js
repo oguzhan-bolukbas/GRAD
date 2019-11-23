@@ -53,7 +53,6 @@ class App extends Component {
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
                 <Route path="/crossingOver"  component={crossingOver}/>
                 <Route path="/uygunluk"  component={fitness}/>
-                <Route path="/mutasyon"  component={mutasyon} />
                 <Route path="/GAnedir" component={whatisGA}/>
                 <Route path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
@@ -63,7 +62,7 @@ class App extends Component {
                 <Route path="/quizProblems" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
-                <Route path="/mutation" component={mutation}/>
+                <Route path="/mutasyon" component={mutation}/>
               </Switch>
             </div>
           </Router>
