@@ -62,7 +62,7 @@ class App extends Component {
                 <Route path="/quizProblems" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
-                <Route path="/mutation" component={mutation}/>
+                <Route path="/mutasyon" component={mutation}/>
               </Switch>
             </div>
           </Router>
