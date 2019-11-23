@@ -25,6 +25,8 @@ import tspProblemPage from "./pages/tspProblemPage"
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import gaApplications from "./pages/GAApplications"
+import mutation from "./pages/mutation"
+
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -62,6 +64,7 @@ class App extends Component {
                 <Route path="/quizProblems" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
+                <Route path="/mutation" component={mutation}/>
               </Switch>
             </div>
           </Router>

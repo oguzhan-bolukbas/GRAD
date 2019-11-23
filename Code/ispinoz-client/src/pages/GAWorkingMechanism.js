@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css'
 // Components
-import AppbarHome from "../components/appbarLectures";
+import AppbarHome from "../components/appbarHome";
 import PaperGAWorkingMechanism from "../components/paperGAWorkingMechanism";
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";

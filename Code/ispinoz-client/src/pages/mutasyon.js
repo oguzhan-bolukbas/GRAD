@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css'
 // Components
-import AppbarHome from "../components/appbarLectures";
+import AppbarHome from "../components/appbarHome";
 import PaperMutation from "../components/paperMutation";
 import Button from "@material-ui/core/Button";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -9,7 +9,7 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import {Link} from "react-router-dom";
 
 
-class whatisGA extends Component{
+class mutasyon extends Component{
   componentDidMount() {
     document.body.style.background = "#fff";
     document.body.style.marginLeft = "370px";
@@ -38,4 +38,4 @@ class whatisGA extends Component{
   }
 }
 
-export default whatisGA;
+export default mutasyon;

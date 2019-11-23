@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import beforeMutation from "../images/beforeMutation.png";
 import afterMutation from "../images/afterMutation.png";
 
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
@@ -15,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PaperSheet() {
   const classes = useStyles();
+
   return (
     <Paper className={classes.root}>
       <Typography color={"primary"} variant="h5" component="h3">
@@ -26,18 +28,20 @@ export default function PaperSheet() {
         mutasyon, basit bir şekilde rastgele bir genin bitini çevirir ve tüm kromozomu, potansiyel yerel
         minimumdan kaçmak için bir strateji olan sonraki nesle iter. <br/><br/><br/>
       </Typography>
-      <Grid container justify="center" alignItems="center" component={""}>
+      <Grid container justify="center" alignItems="center">
         <Typography color={"primary"} component="p">
           Mutasyondan Önce <br/><br/>
         </Typography>
-        <img src={beforeMutation} width={350} alt={""}/>
+
+        <img src={beforeMutation} width={350}/>
       </Grid>
-      <Grid container justify="center" alignItems="center" component={""}>
+      <Grid container justify="center" alignItems="center">
         <Typography color={"primary"} component="p">
           Mutasyondan Sonra <br/><br/>
         </Typography>
-        <img src={afterMutation} width={350} alt={""}/>
+        <img src={afterMutation} width={350}/>
       </Grid>
+
     </Paper>
   );
 }
