@@ -1,6 +1,7 @@
 import React from 'react';
 //import {makeStyles} from '@material-ui/core/styles';
 import AppbarProblems from "../components/appbarProblems";
+import RadioButton from "../components/radioButton";
 import '../App.css'
 
 /*
@@ -23,7 +24,7 @@ export default function ImgMediaCard() {
   return (
     <div className="home">
       <AppbarProblems />
-      quiz problems
+      <RadioButton />
     </div>
   );
 }
