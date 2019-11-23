@@ -49,12 +49,12 @@ function getStepContent(step) {
   }
 }
 
-function getQuestion(index, classes, value, handleChange) {
+function getQuestion(index) {
   switch (index) {
     case 0:
       return <div>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+        <FormControl component="fieldset" /*className={classes.formControl}*/>
+          <RadioGroup aria-label="options" name="gender1" /*value={value} onChange={handleChange}*/>
             <FormControlLabel value="a" control={<Radio />} label="A" />
             <FormControlLabel value="b" control={<Radio />} label="B" />
             <FormControlLabel value="c" control={<Radio />} label="C" />
@@ -65,8 +65,8 @@ function getQuestion(index, classes, value, handleChange) {
       </div>;
     case 1:
       return <div>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+        <FormControl component="fieldset" /*className={classes.formControl}*/>
+          <RadioGroup aria-label="options" name="gender1" /*value={value} onChange={handleChange}*/>
             <FormControlLabel value="a" control={<Radio />} label="A1" />
             <FormControlLabel value="b" control={<Radio />} label="B1" />
           </RadioGroup>
@@ -74,8 +74,8 @@ function getQuestion(index, classes, value, handleChange) {
       </div>;
     case 2:
       return <div>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+        <FormControl component="fieldset" /*className={classes.formControl}*/>
+          <RadioGroup aria-label="options" name="gender1" /*value={value} onChange={handleChange}*/>
             <FormControlLabel value="a" control={<Radio />} label="A2" />
             <FormControlLabel value="b" control={<Radio />} label="B2" />
             <FormControlLabel value="c" control={<Radio />} label="C2" />
@@ -120,7 +120,7 @@ export default function VerticalLinearStepper() {
               <Typography>{getStepContent(index)}</Typography>
               <div className={classes.actionsContainer}>
                 <div>
-                  {getQuestion(index, classes, value)}
+                  {getQuestion(index)}
                   <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
