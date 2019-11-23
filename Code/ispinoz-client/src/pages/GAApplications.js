@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import '../App.css'
 // Components
 import AppbarHome from "../components/appbarLectures";
-import PaperMutation from "../components/paperMutation";
+import PaperGAApplications from "../components/paperGAApplications";
+import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import {Link} from "react-router-dom";
 
 
 class whatisGA extends Component{
@@ -20,18 +20,12 @@ class whatisGA extends Component{
   render() {
     return (
       <div className="home">
-
         <AppbarHome/>
-        <PaperMutation/>
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" >
-          İLERİ
-          <NavigateNextIcon/>
-        </Button>
-
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/GAUygulamaları" >
-          <NavigateBeforeIcon/>
-          GERİ
-        </Button>
+        <PaperGAApplications/>
+        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" component={Link} to="/mutasyon">
+          İLERİ <NavigateNextIcon/> </Button>
+        <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/GAnedir" >
+          <NavigateBeforeIcon/> GERİ </Button>
 
       </div>
     );

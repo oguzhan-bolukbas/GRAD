@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Appbar from "../components/appbar";
 
-class Çaprazlama extends Component {
+class CrossingOver extends Component {
     render() {
         return (
             <div className="pixel">
@@ -12,4 +12,4 @@ class Çaprazlama extends Component {
     }
 }
 
-export default Çaprazlama;
+export default CrossingOver;

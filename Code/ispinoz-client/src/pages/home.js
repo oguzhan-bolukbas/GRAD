@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
 import '../App.css'
-
 // Components
-import Appbar from "../components/appbar";
-import Stepper from "../components/stepper";
-import {Link} from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import {Typography} from "@material-ui/core";
+import AppbarHome from "../components/appbarLectures";
+import PaperHome from "../components/paperHome";
 
 
 class Home extends Component{
   componentDidMount() {
     document.body.style.background = "#fff";
+    document.body.style.marginLeft = "450px";
+
 
   }
   render() {
     return (
       <div className="home">
-        <Appbar/>
-        <Stepper/>
+        <AppbarHome/>
+        <PaperHome/>
       </div>
     );
   }

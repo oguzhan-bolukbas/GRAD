@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import {Link} from "react-router-dom";
 import axios from "axios";
 import PropTypes from 'prop-types';
-
 // MUI Stuff
 import Grid from '@material-ui/core/Grid';
 import Typography from "@material-ui/core/Typography";
@@ -10,7 +9,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import withStyles from '@material-ui/core/styles/withStyles'
-
 // images
 import WebsiteIcon from '../images/European.png';
 import Background from "../images/DNA.png"
@@ -78,22 +76,22 @@ class Login extends Component {
           <Grid item sm>
             <img src={WebsiteIcon} width="99" height="104" alt="finch" className={classes.image}/>
             <Typography variant="h4" className={classes.pageTitle}>
-              Login
+              Giriş Yap
             </Typography>
             <form noValidate onSubmit={this.handleSubmit}>
-              <TextField id="email" name="email" type="email" label="Email" className={classes.textField}
+              <TextField id="email" name="email" type="email" label="E-posta" className={classes.textField}
                          helperText={errors.email} error={errors.email ? true : false} value={this.state.email}
                          onChange={this.handleChange} fullWidth/>
-              <TextField id="password" name="password" type="password" label="Password" className={classes.textField}
+              <TextField id="password" name="password" type="password" label="Şifre" className={classes.textField}
                          helperText={errors.password} error={errors.password ? true : false} value={this.state.password}
                          onChange={this.handleChange} fullWidth/>
               {errors.general && (
                 <Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}
               <Button type="submit" variant="contained" color="primary" className={classes.button}>
-                Login
+                GİRİŞ
                 {loading && (<CircularProgress size={30} color="inherit" className={classes.progress}/>)}
               </Button><br/>
-              <small>Don't have an account? <Link to="/signup">Signup now!</Link></small>
+              <small>Hesabın yok mu? <Link to="/kayitol">Şimdi Kayıt Ol!</Link></small>
             </form>
           </Grid>
           <Grid item sm/>

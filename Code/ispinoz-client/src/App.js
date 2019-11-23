@@ -3,30 +3,28 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
-
 // components
 import AuthRoute from "./util/AuthRoute"
-
 // pages
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
-import deneme from "./pages/deneme";
 import mutasyon from "./pages/mutasyon";
 import fitness from "./pages/fitness";
-import work from "./pages/how_works"
-import çaprazlama from "./pages/çaprazlama";
-import lecture from "./pages/lecture";
-import practice from "./pages/practice";
-import quiz from "./pages/quiz";
-import n_gene from "./pages/new_gene";
-import stop from "./pages/stopping";
-
-
+import crossingOver from "./pages/crossingOver";
+import practice from "./pages/practice"
+import quiz from "./pages/quiz"
+import whatisGA from "./pages/whatisGA"
+import gaWorkingMechanism from "./pages/GAWorkingMechanism"
+import QuizLectures from "./pages/quizLectures"
+import QuizProblems from "./pages/quizProblems"
+//import knapsackLecturePage from "./pages/"
+import knapsackProblemPage from "./pages/knapsackProblemPage"
+import tspProblemPage from "./pages/tspProblemPage"
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import how_works from "./pages/how_works";
+import gaApplications from "./pages/GAApplications"
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -50,26 +48,24 @@ class App extends Component {
             <div className="container">
               <Switch>
                 <Route exact path="/" component={home}/>
-                <AuthRoute path="/login"  component={login}  authenticated={authenticated}/>
-                <AuthRoute path="/signup" component={signup} authenticated={authenticated}/>
-                <AuthRoute path="/deneme"  component={deneme}  authenticated={authenticated}/>
-                <AuthRoute path="/how_works"  component={work}  authenticated={authenticated}/>
-                <AuthRoute path="/new_gene"  component={n_gene}  authenticated={authenticated}/>
-                <AuthRoute path="/stopping"  component={stop}  authenticated={authenticated}/>
-                <AuthRoute path="/çaprazlama"  component={çaprazlama}  authenticated={authenticated}/>
-                <AuthRoute path="/fitness"  component={fitness}  authenticated={authenticated}/>
-                <AuthRoute path="/mutasyon"  component={mutasyon}  authenticated={authenticated}/>
-                <Route path="/lecture" component={lecture}/>
-                <Route path="/practice" component={practice}/>
+                <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
+                <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
+                <Route path="/crossingOver"  component={crossingOver}/>
+                <Route path="/uygunluk"  component={fitness}/>
+                <Route path="/mutasyon"  component={mutasyon} />
+                <Route path="/GAnedir" component={whatisGA}/>
+                <Route path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
+                <Route path="/GAUygulamaları" component={gaApplications}/>
+                <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
+                <Route path="/quizLectures" component={QuizLectures}/>
+                <Route path="/quizProblems" component={QuizProblems}/>
+                <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
+                <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
               </Switch>
             </div>
           </Router>
-
         </div>
-
-
-
       </MuiThemeProvider>
     );
   }

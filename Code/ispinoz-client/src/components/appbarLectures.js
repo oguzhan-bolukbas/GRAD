@@ -17,18 +17,17 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
-import MenuBookIcon from '@material-ui/icons/MenuBook';
 import GestureIcon from '@material-ui/icons/Gesture';
 import SubjectIcon from '@material-ui/icons/Subject';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import AppsIcon from '@material-ui/icons/Apps';
+import BookIcon from '@material-ui/icons/Book';
 
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
+import LowPriorityIcon from '@material-ui/icons/LowPriority';
 
-const drawerWidth = 240;
+const drawerWidth = 300;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -95,21 +94,22 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  /*
   const [openGATerm, setOpenGATerms] = React.useState(false);
   const [openGAProblems, setOpenGAProblems] = React.useState(false);
-
+  */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
+  /*
+    const handleClickGATerms = () => {
+      setOpenGATerms(!openGATerm);
+    };
 
-  const handleClickGATerms = () => {
-    setOpenGATerms(!openGATerm);
-  };
-
-  const handleClickGAProblems = () => {
-    setOpenGAProblems(!openGAProblems);
-  };
-
+    const handleClickGAProblems = () => {
+      setOpenGAProblems(!openGAProblems);
+    };
+  */
   const handleDrawerClose = () => {
     setOpen(false);
   };
@@ -119,13 +119,10 @@ export default function ClippedDrawer() {
       <CssBaseline/>
       <AppBar position="fixed" className={clsx(classes.appBar, {
         [classes.appBarShift]: open,
-      })}
-      >
+      })}>
         <Toolbar>
-          <Typography variant="h5" noWrap className={classes.title}>
-            İspinoz
-          </Typography>
-          <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
+          <Typography variant="h5" noWrap className={classes.title}>İspinoz</Typography>
+          <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
           <IconButton
@@ -143,61 +140,57 @@ export default function ClippedDrawer() {
         className={classes.drawer}
         variant="permanent"
         classes={{
-          paper: classes.drawerPaper,
-        }}
-      >
+          paper: classes.drawerPaper
+        }}>
         <div className={classes.toolbar}/>
         <List>
           <ListItem button component={Link} to="/GAnedir">
-            <ListItemIcon> <GestureIcon /> </ListItemIcon>
-            <ListItemText primary="GA Nedir?" />
+            <ListItemIcon> <GestureIcon/> </ListItemIcon>
+            <ListItemText primary="GA Nedir?"/>
           </ListItem>
-
-          <ListItem  button onClick={handleClickGATerms}>
-            <ListItemIcon> <MenuBookIcon /> </ListItemIcon>
-            <ListItemText primary="GA Terimleri" />
-            {openGATerm ? <ExpandLess /> : <ExpandMore />}
+          <Divider/>
+          <ListItem button component={Link} to="/GAUygulamaları">
+            <ListItemIcon> <AppsIcon/> </ListItemIcon>
+            <ListItemText primary="GA Uygulamaları"/>
           </ListItem>
-
-          <Collapse in={openGATerm} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested} component={Link} to="/mutasyon">
-
-                <ListItemText primary="Mutasyon" />
-
-              </ListItem>
-              <ListItem button className={classes.nested} component={Link} to="/Çaprazlama">
-                <ListItemText primary="Çaprazlama" />
-              </ListItem>
-              <ListItem button className={classes.nested} component={Link} to="/uygunluk">
-                <ListItemText primary="Fitness" />
-              </ListItem>
-            </List>
-          </Collapse>
-
-          <Divider />
-
-          <ListItem  button onClick={handleClickGAProblems}>
-            <ListItemIcon> <SubjectIcon /> </ListItemIcon>
-            <ListItemText primary="Problemler" />
-            {openGAProblems ? <ExpandLess /> : <ExpandMore />}
+          <Divider/>
+          <ListItem button component={Link} to="/GANasılÇalışır">
+            <ListItemIcon> <LowPriorityIcon/> </ListItemIcon>
+            <ListItemText primary="GA Çalışma Mekanizması"/>
           </ListItem>
-          <Collapse in={openGAProblems} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button >
-                <ListItemText primary="Sırt Çantası Problemi" />
-              </ListItem>
-              <ListItem button >
-                <ListItemText primary="Gezici Satıcı Problemi" />
-              </ListItem>
-            </List>
-          </Collapse>
-
-
+          <Divider/>
+          <ListItem>
+            <ListItemIcon> <SubjectIcon/> </ListItemIcon>
+            <ListItemText primary="GA Terimleri"/>
+          </ListItem>
+          <ListItem button component={Link} to="/mutasyon">
+            <ListItemText primary="Mutasyon"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Mutasyon Çeşitleri"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Çaprazlama (Crossover)"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Çaprazlama Çeşitleri"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Populasyon"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Jenerasyon"/>
+          </ListItem>
+          <ListItem button>
+            <ListItemText primary="Uygunluk (Fitness)"/>
+          </ListItem>
+          <Divider/>
+          <ListItem button>
+            <ListItemIcon> <BookIcon/> </ListItemIcon>
+            <ListItemText primary="Referanslar"/>
+          </ListItem>
+          <Divider/>
         </List>
-        <Divider />
-
-
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar}/>
@@ -209,8 +202,7 @@ export default function ClippedDrawer() {
         open={open}
         classes={{
           paper: classes.drawerPaper,
-        }}
-      >
+        }}>
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
@@ -219,22 +211,19 @@ export default function ClippedDrawer() {
         <Divider/>
         <List>
           <ListItem button>
-            <ListItemIcon> <PersonIcon /> </ListItemIcon>
-            <ListItemText primary="Profil" />
+            <ListItemIcon> <PersonIcon/> </ListItemIcon>
+            <ListItemText primary="Profil"/>
           </ListItem>
-
           <ListItem button>
-            <ListItemIcon> <HistoryIcon /> </ListItemIcon>
-            <ListItemText primary="Öğrenme Geçmişi" />
+            <ListItemIcon> <HistoryIcon/> </ListItemIcon>
+            <ListItemText primary="Öğrenme Geçmişi"/>
           </ListItem>
-
           <ListItem button>
-            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
-            <ListItemText primary="Ayarlar" />
+            <ListItemIcon> <SettingsIcon/> </ListItemIcon>
+            <ListItemText primary="Ayarlar"/>
           </ListItem>
-
         </List>
       </Drawer>
     </div>
-);
+  );
 }
