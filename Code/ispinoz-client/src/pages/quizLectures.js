@@ -1,6 +1,7 @@
 import React from 'react';
 //import {makeStyles} from '@material-ui/core/styles';
 import AppbarProblems from "../components/appbarProblems";
+import Stepper from "../components/stepper2";
 import '../App.css'
 
 /*
@@ -24,7 +25,8 @@ export default function ImgMediaCard() {
   return (
     <div className="home">
       <AppbarProblems />
-      quiz lectures
+      <Stepper/>
+
     </div>
   );
 }
