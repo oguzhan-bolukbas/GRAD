@@ -53,7 +53,6 @@ class App extends Component {
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
                 <Route path="/crossingOver"  component={crossingOver}/>
                 <Route path="/uygunluk"  component={fitness}/>
-                <Route path="/mutasyon"  component={mutasyon} />
                 <Route path="/GAnedir" component={whatisGA}/>
                 <Route path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
