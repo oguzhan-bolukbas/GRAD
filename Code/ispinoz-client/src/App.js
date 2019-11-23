@@ -9,7 +9,6 @@ import AuthRoute from "./util/AuthRoute"
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
-import mutasyon from "./pages/mutasyon";
 import fitness from "./pages/fitness";
 import crossingOver from "./pages/crossingOver";
 import practice from "./pages/practice"
