@@ -29,27 +29,59 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function getSteps() {
-  return ['Question 1',
+  return [
+    'Question 1',
     'Question 2',
-    'Question 3'];
+    'Question 3'
+  ];
 }
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return `In an obvious nod to biology, a chromosome is a single hypothesis of which many make up a population. `;
+      return 'In an obvious nod to biology';
     case 1:
-      return 'In a GA, potential hypotheses are made up of chromosomes, which are, in turn, made up of genes. Practically, in a GA, chromosomes are generally represented as binary strings, a series of 1s and 0s, which denote inclusion or exclusion of particular items represented by position in the string. A gene is a single bit within such a chromosome.\n' +
-        '\n' +
-        'For example, the Hello World of genetic algorithms is often considered to be the knapsack problem. In this problem, there would be a set of N items which may or may not be included in a thief\'s knapsack, and these N items would be represented as a binary string (the chromosome) N characters long, with each position in the string representing a particular item and the positional bit (1 or 0; the gene) denoting whether the item is included in the particular hypothesis or not.\n' +
-        '\n' +
-        'Population → all of the proposed solutions to the knapsack problem of the current generation (iteration of the algorithm)\n' +
-        '\n' +
-        'Chromosome → a particular proposed solution to the knapsack problem\n' +
-        '\n' +
-        'Gene → positional representation of a particular item (and its inclusion or exclusion) in the knapsack of a particular solution to the knapsack problem.';
+      return 'In a GA, potential hypotheses';
     case 2:
-      return `In a GA, each iteration, or generation, results in a series of possible hypotheses for best approximating a function, and the population refers to the complete set or pool of these generated hypotheses after a given iteration.`;
+      return 'In a GA, each iteration';
+    default:
+      return 'Unknown step';
+  }
+}
+
+function getQuestion(index, classes, value, handleChange) {
+  switch (index) {
+    case 0:
+      return <div>
+        <FormControl component="fieldset" className={classes.formControl}>
+          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+            <FormControlLabel value="a" control={<Radio />} label="A" />
+            <FormControlLabel value="b" control={<Radio />} label="B" />
+            <FormControlLabel value="c" control={<Radio />} label="C" />
+            <FormControlLabel value="d" control={<Radio />} label="D" />
+            <FormControlLabel value="e" control={<Radio />} label="E" />
+          </RadioGroup>
+        </FormControl>
+      </div>;
+    case 1:
+      return <div>
+        <FormControl component="fieldset" className={classes.formControl}>
+          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+            <FormControlLabel value="a" control={<Radio />} label="A1" />
+            <FormControlLabel value="b" control={<Radio />} label="B1" />
+          </RadioGroup>
+        </FormControl>
+      </div>;
+    case 2:
+      return <div>
+        <FormControl component="fieldset" className={classes.formControl}>
+          <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
+            <FormControlLabel value="a" control={<Radio />} label="A2" />
+            <FormControlLabel value="b" control={<Radio />} label="B2" />
+            <FormControlLabel value="c" control={<Radio />} label="C2" />
+          </RadioGroup>
+        </FormControl>
+      </div>;
     default:
       return 'Unknown step';
   }
@@ -88,18 +120,7 @@ export default function VerticalLinearStepper() {
               <Typography>{getStepContent(index)}</Typography>
               <div className={classes.actionsContainer}>
                 <div>
-                  <div>
-                    <FormControl component="fieldset" className={classes.formControl}>
-                      <RadioGroup aria-label="options" name="gender1" value={value} onChange={handleChange}>
-                        <FormControlLabel value="a" control={<Radio />} label="A" />
-                        <FormControlLabel value="b" control={<Radio />} label="B" />
-                        <FormControlLabel value="c" control={<Radio />} label="C" />
-                        <FormControlLabel value="d" control={<Radio />} label="D" />
-                        <FormControlLabel value="e" control={<Radio />} label="E" />
-                      </RadioGroup>
-                    </FormControl>
-                  </div>
-
+                  {getQuestion(index, classes, value)}
                   <Button
                     disabled={activeStep === 0}
                     onClick={handleBack}
