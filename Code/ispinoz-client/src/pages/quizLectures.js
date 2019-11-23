@@ -26,7 +26,6 @@ export default function ImgMediaCard() {
     <div className="home">
       <AppbarProblems />
       <Stepper/>
-
     </div>
   );
 }
