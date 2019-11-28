@@ -139,7 +139,7 @@ export default function ImgMediaCard() {
                         />
                         <CardContent>
                             <Typography  color="primary"  gutterBottom variant="h7" component="h7">
-                                Portakal
+                                Limon
                             </Typography>
                         </CardContent>
                     </CardActionArea>
