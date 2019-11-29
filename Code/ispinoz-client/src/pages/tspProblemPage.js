@@ -1,25 +1,5 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import AppbarProblems from "../components/appbarProblems";
-import backpack from "../images/backpack.png";
-import elma from "../images/elma.png";
-import armut from "../images/armut.png";
-import portakal from "../images/portakal.png";
-import kivi from "../images/kivi.png";
-import cilek from "../images/cilek.png";
-import Fab from '@material-ui/core/Fab';
-import ExposurePlus1Icon from '@material-ui/icons/ExposurePlus1';
-
-import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
-import  { useState } from 'react';
-import App from "../App";
 
 const useStyles = makeStyles({
 
@@ -49,7 +29,7 @@ function Square(props) {
   );
 }
 
-class Board extends React.Component {
+class tspProblemPage extends React.Component {
 
   renderSquare(i) {
 
@@ -89,3 +69,4 @@ class Board extends React.Component {
     );
   }
 }
+export default tspProblemPage;
