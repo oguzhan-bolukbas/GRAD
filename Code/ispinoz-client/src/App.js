@@ -63,6 +63,7 @@ class App extends Component {
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
                 <Route path="/mutasyon" component={mutation}/>
+
               </Switch>
             </div>
           </Router>
