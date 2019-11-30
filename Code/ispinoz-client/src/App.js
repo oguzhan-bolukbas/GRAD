@@ -51,7 +51,7 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
-                <Route path="/crossingOver"  component={crossingOver}/>
+                <Route path="/caprazlama"  component={crossingOver}/>
                 <Route path="/uygunluk"  component={fitness}/>
                 <Route path="/GAnedir" component={whatisGA}/>
                 <Route path="/problemler" component={practice}/>

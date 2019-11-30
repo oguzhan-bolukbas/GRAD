@@ -169,7 +169,7 @@ export default function ClippedDrawer() {
           <ListItem button>
             <ListItemText primary="Mutasyon Çeşitleri"/>
           </ListItem>
-          <ListItem button>
+          <ListItem button component={Link} to="/caprazlama">
             <ListItemText primary="Çaprazlama (Crossover)"/>
           </ListItem>
           <ListItem button>
