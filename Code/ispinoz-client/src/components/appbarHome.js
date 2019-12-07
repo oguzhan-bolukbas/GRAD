@@ -18,14 +18,16 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import GestureIcon from '@material-ui/icons/Gesture';
-import SubjectIcon from '@material-ui/icons/Subject';
 import AppsIcon from '@material-ui/icons/Apps';
 import BookIcon from '@material-ui/icons/Book';
-
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
+
+import Collapse from '@material-ui/core/Collapse';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
 
 const drawerWidth = 300;
 
@@ -94,6 +96,22 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+
+  const [openMutation, setOpenMutation] = React.useState(false);
+
+  const handleClickMutation = () => {
+    setOpenMutation(!openMutation);
+  };
+
+  const [openCrossingOver, setOpenCrossingOver] = React.useState(false);
+
+  const handleClickCrossingOver = () => {
+    setOpenCrossingOver(!openCrossingOver);
+  };
+
+
+
+
   /*
   const [openGATerm, setOpenGATerms] = React.useState(false);
   const [openGAProblems, setOpenGAProblems] = React.useState(false);
@@ -159,22 +177,46 @@ export default function ClippedDrawer() {
             <ListItemText primary="GA Çalışma Mekanizması"/>
           </ListItem>
           <Divider/>
+
           <ListItem>
-            <ListItemIcon> <SubjectIcon/> </ListItemIcon>
+            <ListItemIcon> <LowPriorityIcon/> </ListItemIcon>
             <ListItemText primary="GA Terimleri"/>
           </ListItem>
-          <ListItem button component={Link} to="/mutasyon">
-            <ListItemText primary="Mutasyon"/>
+
+          <ListItem button component={Link} to="/dersler/gen-kromozom-populasyon">
+            <ListItemText primary="Gen, Kromozom ve Populasyon"/>
           </ListItem>
-          <ListItem button>
-            <ListItemText primary="Mutasyon Çeşitleri"/>
+
+
+          <ListItem button onClick={handleClickMutation}>
+            <ListItemText primary="Mutasyon" />
+            {openMutation ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <ListItem button component={Link} to="/caprazlama">
-            <ListItemText primary="Çaprazlama (Crossover)"/>
+          <Collapse in={openMutation} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button component={Link} to="/mutasyon">
+                <ListItemText primary="Mutasyon Nedir?" />
+              </ListItem>
+              <ListItem button className={classes.nested}>
+                <ListItemText primary="Mutasyon Çeşitleri" />
+              </ListItem>
+            </List>
+          </Collapse>
+          <ListItem button onClick={handleClickCrossingOver}>
+            <ListItemText primary="Çaprazlama (Crossover)" />
+            {openCrossingOver ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
-          <ListItem button>
-            <ListItemText primary="Çaprazlama Çeşitleri"/>
-          </ListItem>
+          <Collapse in={openCrossingOver} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-nedir">
+                <ListItemText primary="Çaprazlama Nedir?" />
+              </ListItem>
+              <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-cesitleri"   >
+                <ListItemText primary="Çaprazlama Çeşitleri" />
+              </ListItem>
+            </List>
+          </Collapse>
+
           <ListItem button>
             <ListItemText primary="Populasyon"/>
           </ListItem>
