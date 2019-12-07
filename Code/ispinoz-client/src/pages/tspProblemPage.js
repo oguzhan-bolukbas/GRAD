@@ -1,72 +1,128 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
+import '../App.css'
+import ReactDOM from 'react-dom';
+import AppbarHome from "../components/appbarHome";
+import {Link} from "react-router-dom";
+import AppbarProblems from "../components/appbarProblems";
 
-const useStyles = makeStyles({
-
-  card: {
-    maxWidth: 60,
-  },
-  row: {
-    display: "flex",
-    marginTop: "5px",
- marginBottom:"5px",
-    marginRight: "10px"
-  },
-  rectangle: {
-    width: 35 ,
-    height: 35,
-    backgroundColor: '#EB9694'
-  }
-});
-
-
-function Square(props) {
-  return (
-      <button className="square" onClick={props.onClick}>
-        {props.value}
-      </button>
-
-  );
+class Square extends React.Component {
+    render() {
+        return (
+            <button className="square">
+                {this.props.value}
+            </button>
+        );
+    }
 }
 
-class tspProblemPage extends React.Component {
+class Board extends React.Component {
+    renderSquare(i) {
 
-  renderSquare(i) {
+        return <Square value={" 1"} />;
+    }
 
-    return (
-        <Square
-            value={this.props.squares[i]}
-            onClick={() => this.props.onClick(i)}
-        />
-    );
-  }
+    render() {
+        const status = 'Next player: X';
 
-  render() {
-    const classes = useStyles();
-    return (
-        <div>
-          <div className={classes.row}>
-            {this.renderSquare(0)}
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-            {this.renderSquare(3)}
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-            {this.renderSquare(6)}
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-            {this.renderSquare(9)}
-            {this.renderSquare(10)}
-            {this.renderSquare(11)}
-            {this.renderSquare(12)}
-            {this.renderSquare(13)}
-          </div>
+        return (
 
-
-
-        </div>
-
-    );
-  }
+            <div>
+                <div className="status">{status}</div>
+                <div className="board-row">
+                    {this.renderSquare(0)}
+                    {this.renderSquare(1)}
+                    {this.renderSquare(2)}
+                    {this.renderSquare(3)}
+                    {this.renderSquare(4)}
+                    {this.renderSquare(5)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(6)}
+                    {this.renderSquare(7)}
+                    {this.renderSquare(8)}
+                    {this.renderSquare(9)}
+                    {this.renderSquare(10)}
+                    {this.renderSquare(11)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(12)}
+                    {this.renderSquare(13)}
+                    {this.renderSquare(14)}
+                    {this.renderSquare(15)}
+                    {this.renderSquare(16)}
+                    {this.renderSquare(17)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(18)}
+                    {this.renderSquare(19)}
+                    {this.renderSquare(20)}
+                    {this.renderSquare(21)}
+                    {this.renderSquare(22)}
+                    {this.renderSquare(23)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(24)}
+                    {this.renderSquare(25)}
+                    {this.renderSquare(26)}
+                    {this.renderSquare(27)}
+                    {this.renderSquare(28)}
+                    {this.renderSquare(29)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(30)}
+                    {this.renderSquare(31)}
+                    {this.renderSquare(32)}
+                    {this.renderSquare(33)}
+                    {this.renderSquare(34)}
+                    {this.renderSquare(35)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(36)}
+                    {this.renderSquare(37)}
+                    {this.renderSquare(38)}
+                    {this.renderSquare(39)}
+                    {this.renderSquare(40)}
+                    {this.renderSquare(41)}
+                </div>
+                <div className="board-row">
+                    {this.renderSquare(42)}
+                    {this.renderSquare(43)}
+                    {this.renderSquare(44)}
+                    {this.renderSquare(45)}
+                    {this.renderSquare(46)}
+                    {this.renderSquare(47)}
+                </div>
+            </div>
+        );
+    }
 }
+
+class tspProblemPage extends Component {
+    render() {
+        return (
+            <div className="home">
+                <AppbarProblems />
+            <div className="game">
+                <div className="game-board">
+                    <Board />
+                </div>
+                <div className="game-info">
+                    <div>{/* status */}</div>
+                    <ol>{/* TODO */}</ol>
+                </div>
+            </div>
+            </div>
+        );
+    }
+}
+
+// ========================================
+
+ReactDOM.render(
+    <tspProblemPage />,
+    document.getElementById('root')
+);
+
+
 export default tspProblemPage;
