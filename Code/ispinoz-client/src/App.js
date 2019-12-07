@@ -3,13 +3,18 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
+
+// MUI
+import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
+import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
+
 // components
 import AuthRoute from "./util/AuthRoute"
+
 // pages
 import home from "./pages/home";
 import login from "./pages/login";
 import signup from "./pages/signup";
-import fitness from "./pages/fitness";
 import crossingOver from "./pages/crossingOver";
 import practice from "./pages/practice"
 import quiz from "./pages/quiz"
@@ -20,14 +25,13 @@ import QuizProblems from "./pages/quizProblems"
 //import knapsackLecturePage from "./pages/"
 import knapsackProblemPage from "./pages/knapsackProblemPage"
 import tspProblemPage from "./pages/tspProblemPage"
-// MUI
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
-import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import gaApplications from "./pages/GAApplications"
 import mutation from "./pages/mutation"
 import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
 import crossOverTypes from "./pages/CrossOverTypesPage"
-
+import profile from "./pages/profile"
+import learningHistory from "./pages/learningHistory"
+import settings from "./pages/settings"
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -54,9 +58,8 @@ class App extends Component {
                 <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
                 <Route path="/dersler/caprazlama/caprazlama-nedir"  component={crossingOver}/>
-                <Route path="/uygunluk"  component={fitness}/>
                 <Route path="/GAnedir" component={whatisGA}/>
-                <Route path="/problemler" component={practice}/>
+                <Route exact path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
                 <Route path="/GAUygulamaları" component={gaApplications}/>
                 <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
@@ -67,7 +70,9 @@ class App extends Component {
                 <Route path="/mutasyon" component={mutation}/>
                 <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
                 <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
-
+                <Route path="/profil" component={profile}/>
+                <Route path="/ogrenme-gecmisi" component={learningHistory}/>
+                <Route path="/ayarlar" component={settings}/>
               </Switch>
             </div>
           </Router>

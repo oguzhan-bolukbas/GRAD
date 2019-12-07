@@ -154,21 +154,18 @@ export default function ClippedDrawer() {
         </div>
         <Divider/>
         <List>
-          <ListItem button>
+          <ListItem button component={Link} to="/profil">
             <ListItemIcon> <PersonIcon /> </ListItemIcon>
-            <ListItemText primary="Profil" />
+            <ListItemText primary="Profil"/>
           </ListItem>
-
-          <ListItem button>
+          <ListItem button component={Link} to="/ogrenme-gecmisi">
             <ListItemIcon> <HistoryIcon /> </ListItemIcon>
             <ListItemText primary="Öğrenme Geçmişi" />
           </ListItem>
-
-          <ListItem button>
+          <ListItem button component={Link} to="/ayarlar">
             <ListItemIcon> <SettingsIcon /> </ListItemIcon>
             <ListItemText primary="Ayarlar" />
           </ListItem>
-
         </List>
       </Drawer>
     </div>
