@@ -25,6 +25,8 @@ import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import gaApplications from "./pages/GAApplications"
 import mutation from "./pages/mutation"
+import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
+import crossOverTypes from "./pages/CrossOverTypesPage"
 
 
 const theme = createMuiTheme(themeFile);
@@ -51,7 +53,7 @@ class App extends Component {
                 <Route exact path="/" component={home}/>
                 <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
-                <Route path="/caprazlama"  component={crossingOver}/>
+                <Route path="/dersler/caprazlama/caprazlama-nedir"  component={crossingOver}/>
                 <Route path="/uygunluk"  component={fitness}/>
                 <Route path="/GAnedir" component={whatisGA}/>
                 <Route path="/problemler" component={practice}/>
@@ -63,6 +65,8 @@ class App extends Component {
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
                 <Route path="/mutasyon" component={mutation}/>
+                <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
+                <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
 
               </Switch>
             </div>
