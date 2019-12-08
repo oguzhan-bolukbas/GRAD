@@ -1,6 +1,6 @@
 const { admin, db } = require('./admin');
 
-exports.FBAuth = (req, res, next) => {
+module.exports = (req, res, next) => {
   
   let idToken;
   
@@ -25,7 +25,7 @@ exports.FBAuth = (req, res, next) => {
       return next();
     })
     .catch(err => {
-      console.error("Error occured while verifying token!", err);
+      console.error("Error occurred while verifying token!", err);
       return res.status(403).json(err);
     })
 };
