@@ -1,11 +1,11 @@
-const { db } = require("../util/admin");
+const {admin, db} = require("../util/admin");
 const firebase = require("firebase");
-const firebaseConf = require("../util/config");
+const config = require("../util/config");
 
-firebase.initializeApp(firebaseConf);
+firebase.initializeApp(config);
+require('express')();
 
-const app = require('express')();
-const { isEmail, isEmpty } = require("../util/validators");
+const {isEmail, isEmpty} = require("../util/validators");
 
 exports.signup = (req, res) => {
   const newUser = {
@@ -15,6 +15,8 @@ exports.signup = (req, res) => {
     handle: req.body.handle,
     className: req.body.className
   };
+
+  const noImg = "no-img.png";
 
   let errors = {};
 
@@ -38,7 +40,7 @@ exports.signup = (req, res) => {
     .get()
     .then(doc => {
       if (doc.exists) {
-        return res.status(400).json({ handle: "This username is already taken" });
+        return res.status(400).json({handle: "This username is already taken"});
       } else {
         return firebase
           .auth()
@@ -56,19 +58,22 @@ exports.signup = (req, res) => {
         className: newUser.className,
         email: newUser.email,
         createdAt: new Date().toISOString(),
+        imageUrl: `https://firebasestorage.googleapis.com/v0/b/${
+          config.storageBucket
+        }/o/${noImg}?alt=media`,
         userId
       };
       return db.doc(`/users/${newUser.handle}`).set(userCredentials);
     })
     .then(() => {
-      return res.status(201).json({ token });
+      return res.status(201).json({token});
     })
     .catch(err => {
       console.error(err);
       if (err.code === "auth/email-already-in-use") {
-        return res.status(400).json({ email: "This email is already in use" });
+        return res.status(400).json({email: "This email is already in use"});
       } else {
-        return res.status(500).json({ error: err.code });
+        return res.status(500).json({error: err.code});
       }
     });
 };
@@ -93,7 +98,7 @@ exports.login = (req, res) => {
       return data.user.getIdToken();
     })
     .then(token => {
-      return res.json({ token });
+      return res.json({token});
     })
     .catch(err => {
       console.error(err);
@@ -107,7 +112,55 @@ exports.login = (req, res) => {
         errors.email = "This is not an email";
         return res.status(403).json(errors);
       } else {
-        return res.status(500).json({ error: err.code });
+        return res.status(500).json({error: err.code});
       }
     });
+};
+
+exports.uploadImage = (req, res) => {
+  const BusBoy = require('busboy');
+  const path = require('path');
+  const os = require('os');
+  const fs = require('fs');  // File system
+
+  const busboy = new BusBoy({headers: req.headers});
+
+  let imageFileName;
+  let imageToBeUploaded = {};
+
+  busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+    if (mimetype !== 'image/jpeg' && mimetype !== 'image/png') {
+      return res.status(400).json({error: "Wrong file type submitted"});
+    }
+    // To split .png or .jpg etc.
+    const imageExtension = filename.split('.')[filename.split('.').length - 1];
+    imageFileName = `${Math.round(Math.random() * 10000000000)}.${imageExtension}`;
+    const filepath = path.join(os.tmpdir(), imageFileName);
+    imageToBeUploaded = {filepath, mimetype};
+    file.pipe(fs.createWriteStream(filepath));
+  });
+  busboy.on('finish', () => {
+    admin.storage().bucket().upload(imageToBeUploaded.filepath, {
+      resumable: false,
+      metadata: {
+        metadata: {
+          contentType: imageToBeUploaded.mimetype
+        }
+      }
+    })
+      .then(() => {
+        const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${
+          config.storageBucket
+        }/o/${imageFileName}?alt=media`;
+        return db.doc(`/users/${req.user.handle}`).update({imageUrl});
+      })
+      .then(() => {
+        return res.json({message: `Image uploaded successfully`});
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({error: err.code});
+      })
+  });
+  busboy.end(req.rawBody);
 };
