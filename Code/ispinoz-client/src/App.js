@@ -29,7 +29,7 @@ import gaApplications from "./pages/GAApplications"
 import mutation from "./pages/mutation"
 import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
 import crossOverTypes from "./pages/CrossOverTypesPage"
-import profile from "./pages/profile"
+import profile from "./pages/profilePage"
 import learningHistory from "./pages/learningHistory"
 import settings from "./pages/settings"
 

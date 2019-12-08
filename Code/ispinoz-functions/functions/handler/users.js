@@ -1,17 +1,19 @@
-const { db } = require("../util/admin")
-
+const { db } = require("../util/admin");
 const firebase = require("firebase");
 const firebaseConf = require("../util/config");
+
 firebase.initializeApp(firebaseConf);
 
-const { isEmail, isEmpty } = require("../util/validators")
+const app = require('express')();
+const { isEmail, isEmpty } = require("../util/validators");
 
 exports.signup = (req, res) => {
   const newUser = {
     email: req.body.email,
     password: req.body.password,
     confirmPassword: req.body.confirmPassword,
-    handle: req.body.handle
+    handle: req.body.handle,
+    className: req.body.className
   };
 
   let errors = {};
@@ -26,6 +28,8 @@ exports.signup = (req, res) => {
   if (newUser.password !== newUser.confirmPassword)
     errors.confirmPassword = "Password must be the same";
   if (isEmpty(newUser.handle)) errors.handle = "Must not be empty";
+  if (newUser.className !== "CSE4082") errors.className = "Undefined class name";
+  if (isEmpty(newUser.className)) errors.className = "Must not be empty";
 
   if (Object.keys(errors).length > 0) return res.status(400).json(errors);
 
@@ -49,6 +53,7 @@ exports.signup = (req, res) => {
       token = idToken;
       const userCredentials = {
         handle: newUser.handle,
+        className: newUser.className,
         email: newUser.email,
         createdAt: new Date().toISOString(),
         userId
@@ -66,7 +71,7 @@ exports.signup = (req, res) => {
         return res.status(500).json({ error: err.code });
       }
     });
-}
+};
 
 exports.login = (req, res) => {
   const user = {
@@ -93,18 +98,16 @@ exports.login = (req, res) => {
     .catch(err => {
       console.error(err);
       if (err.code === "auth/wrong-password") {
-        errors.password = "Wrong password, please try again"
+        errors.password = "Wrong password, please try again";
         return res.status(403).json(errors);
       } else if (err.code === "auth/user-not-found") {
-        errors.password = "Wrong email, please try again"
+        errors.password = "Wrong email, please try again";
         return res.status(403).json(errors);
       } else if (err.code === "auth/invalid-email") {
-        errors.email = "This is not an email"
+        errors.email = "This is not an email";
         return res.status(403).json(errors);
       } else {
         return res.status(500).json({ error: err.code });
       }
     });
-}
-
-
+};

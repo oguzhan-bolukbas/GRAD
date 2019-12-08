@@ -5,7 +5,7 @@ import AppbarProblems from "../components/appbarProblems";
 import Profile from "../components/Profile";
 
 
-class Profile extends React.Component {
+class ProfilePage extends React.Component {
   render () {
     return (
       <div className="">
@@ -16,5 +16,4 @@ class Profile extends React.Component {
   }
 }
 
-
-export default withStyles(styles)(Profile);
+export default ProfilePage;
