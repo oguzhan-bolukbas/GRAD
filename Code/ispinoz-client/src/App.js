@@ -3,14 +3,11 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.css';
 import themeFile from "./util/theme";
 import jwtDecode from "jwt-decode";
-
 // MUI
 import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider"
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-
 // components
 import AuthRoute from "./util/AuthRoute"
-
 // pages
 import home from "./pages/home";
 import login from "./pages/login";
@@ -30,6 +27,9 @@ import mutation from "./pages/mutation"
 import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
 import crossOverTypes from "./pages/CrossOverTypesPage"
 import profile from "./pages/profilePage"
+import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
+
+
 import learningHistory from "./pages/learningHistory"
 import settings from "./pages/settings"
 
@@ -70,6 +70,9 @@ class App extends Component {
                 <Route path="/mutasyon" component={mutation}/>
                 <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
                 <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
+                <Route path="/problemler/sirt-cantasi-problemi/ogren" component={learnKnapsackProblemPage}/>
+
+
                 <Route path="/profil" component={profile}/>
                 <Route path="/ogrenme-gecmisi" component={learningHistory}/>
                 <Route path="/ayarlar" component={settings}/>
