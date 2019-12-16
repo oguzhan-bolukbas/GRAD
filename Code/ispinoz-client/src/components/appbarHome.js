@@ -194,10 +194,10 @@ export default function ClippedDrawer() {
           </ListItem>
           <Collapse in={openMutation} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button component={Link} to="/mutasyon">
+              <ListItem button component={Link} to="/mutasyon/mutasyon-nedir">
                 <ListItemText primary="Mutasyon Nedir?" />
               </ListItem>
-              <ListItem button className={classes.nested}>
+              <ListItem button className={classes.nested} component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
                 <ListItemText primary="Mutasyon Çeşitleri" />
               </ListItem>
             </List>

@@ -26,6 +26,8 @@ import gaApplications from "./pages/GAApplications"
 import mutation from "./pages/mutation"
 import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
 import crossOverTypes from "./pages/CrossOverTypesPage"
+import mutationTypes from "./pages/mutationTypes"
+
 import profile from "./pages/profilePage"
 import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
 
@@ -67,9 +69,10 @@ class App extends Component {
                 <Route path="/quizProblems" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
-                <Route path="/mutasyon" component={mutation}/>
+                <Route path="/mutasyon/mutasyon-nedir" component={mutation}/>
                 <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
                 <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
+                <Route path="/dersler/mutasyon/mutasyon-cesitleri" component={mutationTypes}/>
                 <Route path="/problemler/sirt-cantasi-problemi/ogren" component={learnKnapsackProblemPage}/>
 
 
