@@ -76,7 +76,7 @@ export default function ImgMediaCard() {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="small" color="primary" component={Link} to="/">
+          <Button size="small" color="primary" component={Link} to="/problemler/gezici-satici-problemi/ogren">
            ÖĞREN
           </Button>
           <Button size="small" color="primary" component={Link} to="/geziciSatıcıProblemiUygula">

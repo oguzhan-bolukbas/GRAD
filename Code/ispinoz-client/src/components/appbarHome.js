@@ -218,16 +218,13 @@ export default function ClippedDrawer() {
           </Collapse>
 
           <ListItem button>
-            <ListItemText primary="Populasyon"/>
-          </ListItem>
-          <ListItem button>
             <ListItemText primary="Jenerasyon"/>
           </ListItem>
           <ListItem button>
             <ListItemText primary="Uygunluk (Fitness)"/>
           </ListItem>
           <Divider/>
-          <ListItem button>
+          <ListItem button component={Link} to="/referanslar">
             <ListItemIcon> <BookIcon/> </ListItemIcon>
             <ListItemText primary="Referanslar"/>
           </ListItem>

@@ -30,10 +30,13 @@ import mutationTypes from "./pages/mutationTypes"
 
 import profile from "./pages/profilePage"
 import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
+import learnTSPPage from "./pages/learnTSPPage"
 
 
 import learningHistory from "./pages/learningHistory"
 import settings from "./pages/settings"
+import references from "./pages/ReferencesPage"
+
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -73,12 +76,15 @@ class App extends Component {
                 <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
                 <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
                 <Route path="/dersler/mutasyon/mutasyon-cesitleri" component={mutationTypes}/>
+                <Route path="/problemler/gezici-satici-problemi/ogren" component={learnTSPPage}/>
                 <Route path="/problemler/sirt-cantasi-problemi/ogren" component={learnKnapsackProblemPage}/>
-
 
                 <Route path="/profil" component={profile}/>
                 <Route path="/ogrenme-gecmisi" component={learningHistory}/>
                 <Route path="/ayarlar" component={settings}/>
+
+                <Route path="/referanslar" component={references}/>
+
               </Switch>
             </div>
           </Router>
