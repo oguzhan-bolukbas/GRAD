@@ -1,6 +1,6 @@
-const { admin } = require("../util/admin");
+const {admin, db} = require("../util/admin");
 
-exports.getQuizResults = (req, res) => {
+exports.getAllQuizResults = (req, res) => {
   admin.firestore().collection('quizResults')
   .orderBy('finishedAt', 'desc')
   .get()
@@ -21,8 +21,7 @@ exports.getQuizResults = (req, res) => {
   .catch(err => console.error(err));
 };
 
-exports.saveQuizResults = (req, res) => {
-
+exports.saveQuizResult = (req, res) => {
   const newQuizResult = {
     userHandle: req.user.handle,
     quizNumber: req.body.quizNumber,
@@ -40,4 +39,21 @@ exports.saveQuizResults = (req, res) => {
       res.status(500).json({ error: 'Something went wrong!' });
       console.error(err);
     });
+};
+
+exports.getQuizResult = (req, res) => {
+  let quizResult = {};
+  db.doc(`/quizResults/${req.params.quizResultId}`).get()
+    .then(doc => {
+      if (!doc.exists) {
+        return res.status(404).json({error: 'Quiz not found'});
+      }
+      quizResult = doc.data();
+      quizResult.quizResultId = doc.id;
+      return res.json(quizResult);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({error: err.code});
+    })
 };
