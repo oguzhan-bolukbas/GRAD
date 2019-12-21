@@ -31,6 +31,7 @@ import profile from "./pages/profilePage"
 import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
 import learnTSPPage from "./pages/learnTSPPage"
 import fitnessPage from "./pages/fitnessPage"
+import geneticRepresentationPage from "./pages/geneticRepresentationPage"
 
 
 import learningHistory from "./pages/learningHistory"
@@ -79,6 +80,8 @@ class App extends Component {
                 <Route path="/problemler/gezici-satici-problemi/ogren" component={learnTSPPage}/>
                 <Route path="/problemler/sirt-cantasi-problemi/ogren" component={learnKnapsackProblemPage}/>
                 <Route path="/dersler/uygunluk" component={fitnessPage}/>
+                <Route path="/dersler/genetik-kodlama" component={geneticRepresentationPage}/>
+
 
 
                 <Route path="/profil" component={profile}/>

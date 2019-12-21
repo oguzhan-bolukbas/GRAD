@@ -223,6 +223,13 @@ export default function ClippedDrawer() {
           <ListItem button component={Link} to="/dersler/uygunluk">
             <ListItemText primary="Uygunluk (Fitness)"/>
           </ListItem>
+
+          <ListItem button component={Link} to="/dersler/genetik-kodlama">
+            <ListItemText primary="Genetik Kodlama"/>
+          </ListItem>
+
+
+
           <Divider/>
           <ListItem button component={Link} to="/referanslar">
             <ListItemIcon> <BookIcon/> </ListItemIcon>
