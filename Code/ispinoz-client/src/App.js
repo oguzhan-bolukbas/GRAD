@@ -19,7 +19,6 @@ import whatisGA from "./pages/whatisGA"
 import gaWorkingMechanism from "./pages/GAWorkingMechanism"
 import QuizLectures from "./pages/quizLectures"
 import QuizProblems from "./pages/quizProblems"
-//import knapsackLecturePage from "./pages/"
 import knapsackProblemPage from "./pages/knapsackProblemPage"
 import tspProblemPage from "./pages/tspProblemPage"
 import gaApplications from "./pages/GAApplications"
@@ -31,6 +30,7 @@ import mutationTypes from "./pages/mutationTypes"
 import profile from "./pages/profilePage"
 import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
 import learnTSPPage from "./pages/learnTSPPage"
+import fitnessPage from "./pages/fitnessPage"
 
 
 import learningHistory from "./pages/learningHistory"
@@ -78,6 +78,8 @@ class App extends Component {
                 <Route path="/dersler/mutasyon/mutasyon-cesitleri" component={mutationTypes}/>
                 <Route path="/problemler/gezici-satici-problemi/ogren" component={learnTSPPage}/>
                 <Route path="/problemler/sirt-cantasi-problemi/ogren" component={learnKnapsackProblemPage}/>
+                <Route path="/dersler/uygunluk" component={fitnessPage}/>
+
 
                 <Route path="/profil" component={profile}/>
                 <Route path="/ogrenme-gecmisi" component={learningHistory}/>

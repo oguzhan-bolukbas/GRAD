@@ -220,7 +220,7 @@ export default function ClippedDrawer() {
           <ListItem button>
             <ListItemText primary="Jenerasyon"/>
           </ListItem>
-          <ListItem button>
+          <ListItem button component={Link} to="/dersler/uygunluk">
             <ListItemText primary="Uygunluk (Fitness)"/>
           </ListItem>
           <Divider/>
