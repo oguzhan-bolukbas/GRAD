@@ -184,26 +184,12 @@ export default function ClippedDrawer() {
           </ListItem>
 
           <ListItem button component={Link} to="/dersler/gen-kromozom-populasyon">
-            <ListItemText primary="Gen, Kromozom ve Populasyon"/>
+            <ListItemText primary="• Gen, Kromozom ve Populasyon"/>
           </ListItem>
 
 
-          <ListItem button onClick={handleClickMutation}>
-            <ListItemText primary="Mutasyon" />
-            {openMutation ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={openMutation} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button component={Link} to="/mutasyon/mutasyon-nedir">
-                <ListItemText primary="Mutasyon Nedir?" />
-              </ListItem>
-              <ListItem button className={classes.nested} component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
-                <ListItemText primary="Mutasyon Çeşitleri" />
-              </ListItem>
-            </List>
-          </Collapse>
           <ListItem button onClick={handleClickCrossingOver}>
-            <ListItemText primary="Çaprazlama (Crossover)" />
+            <ListItemText primary="• Çaprazlama (Crossover)"/>
             {openCrossingOver ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCrossingOver} timeout="auto" unmountOnExit>
@@ -217,15 +203,32 @@ export default function ClippedDrawer() {
             </List>
           </Collapse>
 
-          <ListItem button>
-            <ListItemText primary="Jenerasyon"/>
+          <ListItem button onClick={handleClickMutation}>
+            <ListItemText primary="• Mutasyon"/>
+            {openMutation ? <ExpandLess/> : <ExpandMore/>}
           </ListItem>
+          <Collapse in={openMutation} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button component={Link} to="/mutasyon/mutasyon-nedir">
+                <ListItemText primary="Mutasyon Nedir?"/>
+              </ListItem>
+              <ListItem button className={classes.nested} component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
+                <ListItemText primary="Mutasyon Çeşitleri"/>
+              </ListItem>
+            </List>
+          </Collapse>
+
+
           <ListItem button component={Link} to="/dersler/uygunluk">
-            <ListItemText primary="Uygunluk (Fitness)"/>
+            <ListItemText primary="• Uygunluk (Fitness)"/>
           </ListItem>
 
           <ListItem button component={Link} to="/dersler/genetik-kodlama">
-            <ListItemText primary="Genetik Kodlama"/>
+            <ListItemText primary="• Genetik Kodlama"/>
+          </ListItem>
+
+          <ListItem button component={Link} to="/dersler/secim-turleri">
+            <ListItemText primary="• Seçim Türleri"/>
           </ListItem>
 
 
