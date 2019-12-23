@@ -61,6 +61,16 @@ class quizLectures extends React.Component {
     this.setState({ myAnswer: answer, disabled: false });
   };
   finishHandler = () => {
+
+    const {myAnswer, answer, score} = this.state;
+
+    if (myAnswer === answer) {
+      this.setState({
+        score: score + 1
+      });
+    }
+
+
     if (this.state.currentQuestion === quizData.length - 1) {
       this.setState({
         isEnd: true
@@ -112,8 +122,10 @@ class quizLectures extends React.Component {
           {/* //adding a finish button */}
           {currentQuestion === quizData.length - 1 && (
 
-            <Button  variant="contained" color="primary" onClick={this.finishHandler} >
-            Finish  </Button>
+            <Button variant="contained" color="primary" onClick={() => {
+              this.finishHandler()
+            }}>
+              Quizi Bitir </Button>
           )}
         </div>
       );
