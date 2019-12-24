@@ -34,6 +34,7 @@ import fitnessPage from "./pages/fitnessPage"
 import geneticRepresentationPage from "./pages/geneticRepresentationPage"
 import selectionTypesPage from "./pages/selectionTypesPage"
 
+import quizResults from "./pages/quizResults"
 
 import learningHistory from "./pages/learningHistory"
 import settings from "./pages/settings"
@@ -84,6 +85,7 @@ class App extends Component {
                 <Route path="/dersler/genetik-kodlama" component={geneticRepresentationPage}/>
                 <Route path="/dersler/secim-turleri" component={selectionTypesPage}/>
 
+                <Route path="/quizSonuclari" component={quizResults}/>
                 <Route path="/profil" component={profile}/>
                 <Route path="/ogrenme-gecmisi" component={learningHistory}/>
                 <Route path="/ayarlar" component={settings}/>

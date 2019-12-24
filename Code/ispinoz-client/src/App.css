@@ -31,3 +31,6 @@ body{
 .quiz h1{
   color: white; /* or hexidecimal */
 }
+a{
+  text-decoration: none;
+}

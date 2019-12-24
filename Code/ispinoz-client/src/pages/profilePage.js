@@ -10,7 +10,7 @@ class ProfilePage extends React.Component {
     return (
       <div className="">
       <AppbarProblems/>
-      <Profile/>
+      {/*<Profile/>*/}
       </div>
     )
   }
