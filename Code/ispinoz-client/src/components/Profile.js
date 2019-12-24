@@ -2,18 +2,12 @@ import React, {Component} from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // MUI Stuff
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import {Typography} from "@material-ui/core";
-import {Link} from "react-router-dom";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Paper from "@material-ui/core/Paper";
 
 // Icons
 import {CalendarToday, Person, School, Web} from "@material-ui/icons";
-import Links from "@material-ui/core/Link/Link";
 
 const styles = (theme) => ({
   paper: {
@@ -67,7 +61,7 @@ const styles = (theme) => ({
 class Profile extends Component {
   render() {
     dayjs.extend(relativeTime);
-    const {classes, quizResult: {userHandle, userImage, className, quizNumber, quizScore, finishedAt}} = this.props;
+    const {classes, quizResult: {userHandle, userImage, className, finishedAt}} = this.props;
     return (
       <Paper className={classes.paper}>
         <div className={classes.profile}>

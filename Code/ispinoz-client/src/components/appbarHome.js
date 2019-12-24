@@ -28,6 +28,10 @@ import LowPriorityIcon from '@material-ui/icons/LowPriority';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import {StarBorderRounded, StarRounded, Subject} from "@material-ui/icons";
+import Grid from "@material-ui/core/Grid";
+import ButtonBase from "@material-ui/core/ButtonBase";
+import European from "../images/European.png";
 
 const drawerWidth = 300;
 
@@ -96,42 +100,20 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
   const [openMutation, setOpenMutation] = React.useState(false);
-
   const handleClickMutation = () => {
     setOpenMutation(!openMutation);
   };
-
   const [openCrossingOver, setOpenCrossingOver] = React.useState(false);
-
   const handleClickCrossingOver = () => {
     setOpenCrossingOver(!openCrossingOver);
   };
-
-
-
-
-  /*
-  const [openGATerm, setOpenGATerms] = React.useState(false);
-  const [openGAProblems, setOpenGAProblems] = React.useState(false);
-  */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-  /*
-    const handleClickGATerms = () => {
-      setOpenGATerms(!openGATerm);
-    };
-
-    const handleClickGAProblems = () => {
-      setOpenGAProblems(!openGAProblems);
-    };
-  */
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   return (
     <div className={classes.root}>
       <CssBaseline/>
@@ -139,7 +121,14 @@ export default function ClippedDrawer() {
         [classes.appBarShift]: open,
       })}>
         <Toolbar>
-          <Typography variant="h5" noWrap className={classes.title}>İspinoz</Typography>
+          <Grid item className={classes.title}>
+            <ButtonBase component={Link} to={"/"}>
+              <img className={classes.img} alt="complex" src={European} width={50}/>
+            </ButtonBase>
+            <ButtonBase className={classes.image} component={Link} to={"/"}>
+              <Typography variant="h5" color="inherit">İSPİNOZ</Typography>
+            </ButtonBase>
+          </Grid>
           <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
@@ -177,62 +166,60 @@ export default function ClippedDrawer() {
             <ListItemText primary="GA Çalışma Mekanizması"/>
           </ListItem>
           <Divider/>
-
-          <ListItem>
-            <ListItemIcon> <LowPriorityIcon/> </ListItemIcon>
+          <ListItem button>
+            <ListItemIcon> <Subject/> </ListItemIcon>
             <ListItemText primary="GA Terimleri"/>
           </ListItem>
-
           <ListItem button component={Link} to="/dersler/gen-kromozom-populasyon">
-            <ListItemText primary="• Gen, Kromozom ve Populasyon"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Gen, Kromozom ve Populasyon"/>
           </ListItem>
-
-
           <ListItem button onClick={handleClickCrossingOver}>
-            <ListItemText primary="• Çaprazlama (Crossover)"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Çaprazlama (Crossover)"/>
             {openCrossingOver ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCrossingOver} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-nedir">
+                <ListItemIcon> <StarRounded/> </ListItemIcon>
                 <ListItemText primary="Çaprazlama Nedir?" />
               </ListItem>
               <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-cesitleri"   >
+                <ListItemIcon> <StarRounded/> </ListItemIcon>
                 <ListItemText primary="Çaprazlama Çeşitleri" />
               </ListItem>
             </List>
           </Collapse>
-
           <ListItem button onClick={handleClickMutation}>
-            <ListItemText primary="• Mutasyon"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Mutasyon"/>
             {openMutation ? <ExpandLess/> : <ExpandMore/>}
           </ListItem>
           <Collapse in={openMutation} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button component={Link} to="/mutasyon/mutasyon-nedir">
+                <ListItemIcon> <StarRounded/> </ListItemIcon>
                 <ListItemText primary="Mutasyon Nedir?"/>
               </ListItem>
               <ListItem button className={classes.nested} component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
+                <ListItemIcon> <StarRounded/> </ListItemIcon>
                 <ListItemText primary="Mutasyon Çeşitleri"/>
               </ListItem>
             </List>
           </Collapse>
-
-
           <ListItem button component={Link} to="/dersler/uygunluk">
-            <ListItemText primary="• Uygunluk (Fitness)"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Uygunluk (Fitness)"/>
           </ListItem>
-
           <ListItem button component={Link} to="/dersler/genetik-kodlama">
-            <ListItemText primary="• Genetik Kodlama"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Genetik Kodlama"/>
           </ListItem>
-
           <ListItem button component={Link} to="/dersler/secim-turleri">
-            <ListItemText primary="• Seçim Türleri"/>
+            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemText primary="Seçim Türleri"/>
           </ListItem>
-
-
-
           <Divider/>
           <ListItem button component={Link} to="/referanslar">
             <ListItemIcon> <BookIcon/> </ListItemIcon>

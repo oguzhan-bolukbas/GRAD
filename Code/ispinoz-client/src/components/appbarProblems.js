@@ -21,6 +21,9 @@ import {Link} from "react-router-dom";
 import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
+import ButtonBase from "@material-ui/core/ButtonBase";
+import European from "../images/European.png";
+import Grid from "@material-ui/core/Grid";
 
 const drawerWidth = 240;
 
@@ -89,26 +92,12 @@ export default function ClippedDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  /*
-  const [openGATerm, setOpenGATerms] = React.useState(false);
-  const [openGAProblems, setOpenGAProblems] = React.useState(false);
-  */
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-/*
-  const handleClickGATerms = () => {
-    setOpenGATerms(!openGATerm);
-  };
-
-  const handleClickGAProblems = () => {
-    setOpenGAProblems(!openGAProblems);
-  };
-*/
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
   return (
     <div className={classes.root}>
       <CssBaseline/>
@@ -117,9 +106,14 @@ export default function ClippedDrawer() {
       })}
       >
         <Toolbar>
-          <Typography variant="h5" noWrap className={classes.title}>
-            İspinoz
-          </Typography>
+          <Grid item className={classes.title}>
+            <ButtonBase component={Link} to={"/"}>
+              <img className={classes.img} alt="complex" src={European} width={50}/>
+            </ButtonBase>
+            <ButtonBase className={classes.image} component={Link} to={"/"}>
+              <Typography variant="h5" color="inherit">İSPİNOZ</Typography>
+            </ButtonBase>
+          </Grid>
           <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
           <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>

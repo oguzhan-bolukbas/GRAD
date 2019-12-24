@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../App.css'
-import withStyles from "@material-ui/core/styles/withStyles";
 import AppbarProblems from "../components/appbarProblems";
 import ProfileComponent from "../components/Profile";
 import axios from "axios";
