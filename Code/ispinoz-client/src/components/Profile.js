@@ -1,18 +1,19 @@
-import React, {Component, Fragment} from 'react';
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import {Link} from 'react-router-dom';
-import dayjs from 'dayjs';
 
-// MUI Stuffs
-import Button from "@material-ui/core/Button";
-import Paper from "@material-ui/core/Paper";
+// MUI Stuff
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
 import {Typography} from "@material-ui/core";
-import MuiLink from '@material-ui/core/Link'
+import {Link} from "react-router-dom";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import Paper from "@material-ui/core/Paper";
 
 // Icons
-import LinkIcon from '@material-ui/icons/Link'
-import CalendarToday from '@material-ui/icons/CalendarToday'
+import {CalendarToday, Person, School, Web} from "@material-ui/icons";
+import Links from "@material-ui/core/Link/Link";
 
 const styles = (theme) => ({
   paper: {
@@ -29,14 +30,15 @@ const styles = (theme) => ({
       }
     },
     '& .profile-image': {
-      width: 200,
-      height: 200,
+      width: 400,
+      height: 400,
       objectFit: 'cover',
-      maxWidth: '100%',
+      maxWidth: '50%',
       borderRadius: '50%'
     },
     '& .profile-details': {
-      textAlign: 'center',
+      margin: '0 0 0 500px',
+      textAlign: 'left',
       '& span, svg': {
         verticalAlign: 'middle'
       },
@@ -64,35 +66,24 @@ const styles = (theme) => ({
 
 class Profile extends Component {
   render() {
-    const{
-      classes,
-      user: {
-        credentials: {handle, createdAt, imageUrl}
-      }
-    } = this.props;
-
-    return(
+    dayjs.extend(relativeTime);
+    const {classes, quizResult: {userHandle, userImage, className, quizNumber, quizScore, finishedAt}} = this.props;
+    return (
       <Paper className={classes.paper}>
         <div className={classes.profile}>
           <div className="profile-image">
-            <img src={imageUrl} alt="profile"/>
+            <img src={userImage} alt="profile"/>
           </div>
-          <hr/>
           <div className="profile-details">
-            <MuiLink component={Link} to={`/users/${handle}`} color="primary" variant="h5">@{handle}</MuiLink>
-            <hr/>
-            <CalendarToday color="primary"/>{' '}
-            <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
+            <Person color="primary"/>{' '}{userHandle}<br/>
+            <School color="primary"/>{' '}{className}<br/>
+            <Web color="primary"/>{' '}<a href={"https://www.github.com/oguzhan-bolukbas"}>github.com/oguzhan-bolukbas</a><br/>
+            <CalendarToday color="primary"/>{' '}<span>Joined {dayjs(finishedAt).format('MMM YYYY')}</span>
           </div>
         </div>
       </Paper>
-    )
+    );
   }
 }
-
-Profile.propTypes = {
-  user: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(Profile);

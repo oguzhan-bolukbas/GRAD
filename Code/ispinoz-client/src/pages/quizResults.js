@@ -17,7 +17,6 @@ class quizResults extends Component {
       })
       .catch(err => console.log(err));
   }
-
   render () {
     let recentQuizResults = this.state.quizResults ? (
       this.state.quizResults.map(quizResult => <QuizResult key={quizResult.quizResultId} quizResult={quizResult}/>)
@@ -26,7 +25,6 @@ class quizResults extends Component {
       <div className="">
         <AppbarProblems/>
         {recentQuizResults}
-        {/*<Profile/>*/}
       </div>
     )
   }
