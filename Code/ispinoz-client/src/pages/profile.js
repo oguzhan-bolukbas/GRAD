@@ -4,6 +4,7 @@ import AppbarProblems from "../components/appbarProblems";
 import ProfileComponent from "../components/Profile";
 import axios from "axios";
 import QuizResult from "../components/QuizResult";
+import Typography from "@material-ui/core/Typography";
 
 class Profile extends Component {
   state = {
@@ -37,23 +38,7 @@ class Profile extends Component {
       <div className="">
         <AppbarProblems/>
         {profile}
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+        <Typography variant="h5" color="primary">Quiz Sonuçları:</Typography>
         {recentQuizResults}
       </div>
     )

@@ -29,7 +29,7 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: 'flex',
+    display: 'flex'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -44,10 +44,10 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginRight: drawerWidth,
+    marginRight: drawerWidth
   },
   title: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   button: {
     align: "center",
