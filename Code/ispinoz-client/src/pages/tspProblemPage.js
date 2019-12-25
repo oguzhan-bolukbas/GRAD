@@ -546,26 +546,36 @@ export default function DenseTable() {
             var txt2 = "";
             var nur = window.nurarray3[i];
             var res = nur.split("");
-            for (k = 1; k < 9; k++) {
-
-                var random = Math.random() * 10;
-                var intvalue = Math.floor( random );
-                if( res[k-1] == 1){
-                    txt = "0";
+            var random = Math.random() * 10;
+            var intvalue = Math.floor( random );
+           if(intvalue < mprob) {
+                var random1 = Math.random() *8 ;
+                var intvalue1 = Math.floor( random1 );
+                var random2 = Math.random() *8 ;
+                var intvalue2 = Math.floor( random2 );
+                var a,b;
+                if(intvalue1>intvalue2){
+                    var val = intvalue2;
+                    intvalue2 = intvalue1;
+                    intvalue1 = val;
                 }
-                else{
-                    txt = "1";
-                }
-
-                if(intvalue < mprob){
-                    txt2 = txt2.concat(txt);
-
-                }
-                else{
-                    txt2 = txt2.concat(res[k-1]);
-                }
-
+                a = res[intvalue1];
+                b = res[intvalue2];
+                txt2 =  nur.substring(0, intvalue1);
+                txt2 = txt2.concat(b);
+                var deneme =  nur.substring(intvalue1+1, intvalue2);
+                txt2 = txt2.concat(deneme);
+                txt2 = txt2.concat(a);
+                deneme =  nur.substring(intvalue2+1, nur.length);
+                txt2 = txt2.concat(deneme);
             }
+               else{
+               txt2 = window.nurarray3[i]
+           }
+
+
+
+
 
             newarray[i] = txt2;
             window.nurarray2[i] = txt2;
@@ -632,8 +642,8 @@ export default function DenseTable() {
 
             newarray2[i] = str1.concat(str2,str3,str4,str5,str6,str7,str8);
             y[1].innerHTML = newarray2[i];
+            //y[1].innerHTML = res2;
 
-            //y[1].innerHTML = window.nurarray3[i];
 
 
 
