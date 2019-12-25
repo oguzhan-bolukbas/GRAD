@@ -207,6 +207,7 @@ export default function DenseTable() {
     function start() {
         var i;
         window.bestvalue = 99;
+        window.endValue = 0;
         window.mesafearray= [[0,7,5,6,5,4,3,5],[7,0,3,6,5,8,7,9],[5,3,0,3,5,7,4,6],[6,6,3,0,4,5,7,1],[5,5,5,4,0,6,3,4],
             [4,8,7,5,6,0,3,2],[3,7,4,7,3,3,0,5],[5,9,6,1,4,2,5,0]]
         var array1 = [];
@@ -684,58 +685,60 @@ export default function DenseTable() {
             nextgeneration();
         }
     }
-    function nextgeneration(){
-        var i;
-        var array5= [];
-        for (i = 1; i < 11; i++) {
-            var x = document.getElementById("table5").rows[i].cells;
-            var y = document.getElementById("table1").rows[i].cells;
-            var a = document.getElementById("table2").rows[i].cells;
-            var b = document.getElementById("table3").rows[i].cells;
-            var c = document.getElementById("table4").rows[i].cells;
+    function nextgeneration() {
+        if (window.endValue != 20) {
+            var i;
+            var array5 = [];
+            for (i = 1; i < 11; i++) {
+                var x = document.getElementById("table5").rows[i].cells;
+                var y = document.getElementById("table1").rows[i].cells;
+                var a = document.getElementById("table2").rows[i].cells;
+                var b = document.getElementById("table3").rows[i].cells;
+                var c = document.getElementById("table4").rows[i].cells;
 
 
-            var txt = x[1].innerHTML;
-            array5[i] = txt;
+                var txt = x[1].innerHTML;
+                array5[i] = txt;
 
-            y[1].innerHTML = txt;
-            x[1].innerHTML = "";
-            a[1].innerHTML = "";
-            b[1].innerHTML = "";
-            c[1].innerHTML = "";
+                y[1].innerHTML = txt;
+                x[1].innerHTML = "";
+                a[1].innerHTML = "";
+                b[1].innerHTML = "";
+                c[1].innerHTML = "";
 
-            x[0].innerHTML = 0;
-            a[0].innerHTML = 0;
-            b[0].innerHTML = 0;
-            c[0].innerHTML = 0;
+                x[0].innerHTML = 0;
+                a[0].innerHTML = 0;
+                b[0].innerHTML = 0;
+                c[0].innerHTML = 0;
 
-            y[1].style.backgroundColor = "white";
-            a[1].style.backgroundColor = "white";
-            a[0].style.backgroundColor = "white";
-            b[1].style.backgroundColor = "white";
-            b[0].style.backgroundColor = "white";
+                y[1].style.backgroundColor = "white";
+                a[1].style.backgroundColor = "white";
+                a[0].style.backgroundColor = "white";
+                b[1].style.backgroundColor = "white";
+                b[0].style.backgroundColor = "white";
+            }
+
+
+            fitness(array5, 1)
+            if (timervalue == 2) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 20000);
+            } else if (timervalue == 3) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 10000);
+            } else if (timervalue == 4) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 5000);
+            } else if (timervalue == 5) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 2000);
+            } else if (timervalue == 6) {
+                window.endValue = window.endValue + 1;
+                selection();
+            }
         }
 
-
-        fitness(array5,1)
-        if(timervalue == 2){
-            setTimeout(selection, 20000);
-        }
-        else  if(timervalue == 3){
-            setTimeout(selection, 10000);
-        }
-        else  if(timervalue == 4){
-            setTimeout(selection, 5000);
-        }
-        else if(timervalue == 5){
-            setTimeout(selection, 2000);
-        }
-        else  if(timervalue == 6){
-            selection();
-        }
     }
-
-
     return (
         <div className="home">
             <AppbarProblems />
