@@ -9,10 +9,10 @@ import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const useStyles = makeStyles(theme => ({
-  rootss: {
+  paper: {
     padding: theme.spacing(3, 2),
     width: "600px",
-    height: "360px",
+    height: "360px"
   },
   mar: {
     marginTop: "40px"
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 export default function PaperSheet() {
   const classes = useStyles();
   return (
-    <Paper className={classes.rootss}>
+    <Paper className={classes.paper}>
       <Grid container spacing={2} justify="center">
         <Grid item>
           <ButtonBase className={classes.image}>

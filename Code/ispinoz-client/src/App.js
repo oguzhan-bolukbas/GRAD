@@ -33,9 +33,7 @@ import geneticRepresentationPage from "./pages/geneticRepresentationPage"
 import selectionTypesPage from "./pages/selectionTypesPage"
 import quizResults from "./pages/quizResults"
 import references from "./pages/ReferencesPage"
-
 import profile from "./pages/profile"
-
 
 const theme = createMuiTheme(themeFile);
 const token = localStorage.FBIdToken;
@@ -82,9 +80,7 @@ class App extends Component {
                 <Route path="/dersler/secim-turleri" component={selectionTypesPage}/>
                 <Route path="/genel-puan-tablosu" component={quizResults}/>
                 <Route path="/referanslar" component={references}/>
-
                 <Route path="/profil" component={profile}/>
-
               </Switch>
             </div>
           </Router>

@@ -8,7 +8,6 @@ import PaperHome from "../components/paperHome";
 class Home extends Component{
   componentDidMount() {
     document.body.style.background = "#fff";
-    document.body.style.marginLeft = "450px";
   }
   render() {
     return (
