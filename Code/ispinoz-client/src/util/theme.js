@@ -15,7 +15,8 @@ export default {
   },
   logAndSign: {
     form: {
-      textAlign: 'center'
+      textAlign: 'center',
+      marginTop: "125px"
     },
     image: {
       margin: '200px auto 20px auto'

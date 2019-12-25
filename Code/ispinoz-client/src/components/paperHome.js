@@ -11,7 +11,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(3, 2),
-    width: "600px",
+    width: "800",
     height: "360px"
   },
   mar: {
