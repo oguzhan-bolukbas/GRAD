@@ -22,10 +22,10 @@ class fitnessPage extends Component {
         <AppbarHome/>
         <PaperFitnessPage/>
         <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
-                className="float-right" component={Link} to="/mutasyon">
+                className="float-right" component={Link} to="/dersler/genetik-kodlama">
           İLERİ <NavigateNextIcon/> </Button>
         <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
-                component={Link} to="/GAnedir">
+                component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
           <NavigateBeforeIcon/> GERİ </Button>
 
       </div>

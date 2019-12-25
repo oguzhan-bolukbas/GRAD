@@ -22,9 +22,11 @@ class whatisGA extends Component{
       <div className="home">
         <AppbarHome/>
         <PaperGAApplications/>
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" component={Link} to="/mutasyon">
+        <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
+                className="float-right" component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
           İLERİ <NavigateNextIcon/> </Button>
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/GAnedir" >
+        <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
+                component={Link} to="/dersler/genetik-algoritma-nedir">
           <NavigateBeforeIcon/> GERİ </Button>
 
       </div>
