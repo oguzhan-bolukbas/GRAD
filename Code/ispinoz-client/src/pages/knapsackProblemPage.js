@@ -155,7 +155,7 @@ function createData2(name,elma, armut, limon, kivi, cilek, muz, ananas, bogurtle
 
 const rows2 = [
     createData2('Değerler',1, 2, 3, 4, 5, 6 ,7,8),
-    createData2('Ağırlıklar',1, 2, 3, 4, 5, 6 ,7,8)
+    createData2('Ağırlıklar',1, 3, 2, 6, 5, 7 ,10,12)
 
 ];
 
@@ -183,6 +183,7 @@ export default function DenseTable() {
     };
 
     function start() {
+       window.tablevalue = [[1,2,3,4,5,6,7,8],[1,3,2,6,5,7,10,12]];
         var i;
         window.endValue = 0;
         window.bestvalue = 0;
@@ -544,7 +545,7 @@ export default function DenseTable() {
             }
         }
     }
-    var nurarray = ["","","","","","","","","","",""];
+
     function selection(){
         var i,j;
         var sum = [0,0,0,0,0,0,0,0,0,0];
@@ -858,16 +859,136 @@ export default function DenseTable() {
     }
     function repair(){
         var i;
-        var array2 = ["","","","","","","",""];
-        for (i = 1; i < 11; i++) {
-            var x = document.getElementById("table4").rows[i].cells;
-            var y = document.getElementById("table5").rows[i].cells;
+        var newarray2 = ["","","","","","","","","",""];
+        var i,k,cvalue,substr1,substr2,substr3,substr4,str1,str2,str3,str4,str5,str6,str7,str8;
 
-            var txt = x[1].innerHTML;
-            array2[i] = window.nurarray2[i];
-            y[1].innerHTML = window.nurarray2[i] ;
+        window.array5 = ["","","","","","","",""];
+        for (i = 1; i < 11; i++) {
+            var y = document.getElementById("table5").rows[i].cells;
+            var sum = 0;
+            var k = window.nurarray2[i];
+
+
+            if(k.charAt(0) === "1"){
+                sum = sum + 2;
+            }
+            if(k.charAt(1) === "1"){
+                sum = sum + 1;
+            }
+            if(k.charAt(2) === "1"){
+                sum = sum + 2;
+            }
+            if(k.charAt(3) === "1"){
+                sum = sum + 4;
+            }
+            if(k.charAt(4) === "1"){
+                sum = sum + 5;
+            }
+            if(k.charAt(5) === "1"){
+                sum = sum + 4;
+            }
+            if(k.charAt(6) === "1"){
+                sum = sum + 8;
+            }
+            if(k.charAt(7) === "1"){
+                sum = sum + 12;
+            }
+            window.array5[i]=window.nurarray2[i];
+            var nur = k;
+            while(sum > 20) {
+                var m;
+                var valweight = [];
+                var min = 5;
+                var index;
+                for (m = 0; m < 8; m++){
+                    valweight[m] = window.tablevalue[0][m]/window.tablevalue[1][m];
+                    if(nur.charAt(m) === "1" && valweight[m] <  min){
+                        min = valweight[m];
+                        index = m;
+                    }
+                    }
+
+                var txt2 =  window.nurarray2[i].substring(0, index);
+
+                txt2 = txt2.concat('0')
+                txt2 = txt2.concat(window.nurarray2[i].substring(index+1, window.nurarray2[i].length));
+
+
+                sum = sum-window.tablevalue[1][m];
+                nur = txt2;
+                window.array5[i]=txt2;
+                    }
+
+            var nur5 = window.nurarray2[i];
+            var res = nur5.split("");
+            y[1].innerHTML = nur;
+            var array2 = [];
+            var nur2 = window.array5[i];
+            var res2 = nur2.split("");
+            for (k = 0; k < 8; k++) {
+                if (res2[k] === res[k]){
+                    array2[k]= "1";
+                }
+                else{
+                    array2[k]= "0";
+
+                }
+            }
+
+            if(array2[0] === "0"){
+                str1 =  res2[0].fontcolor("blue");
+            }
+            else{
+                str1 =  res2[0]
+            }
+            if(array2[1] === "0"){
+                str2 =  res2[1].fontcolor("blue");
+            }
+            else{
+                str2 =  res2[1]
+            }
+            if(array2[2] === "0"){
+                str3 =  res2[2].fontcolor("blue");
+            }
+            else{
+                str3 =  res2[2]
+            }
+            if(array2[3] === "0"){
+                str4 =  res2[3].fontcolor("blue");
+            }
+            else{
+                str4 =  res2[3]
+            }
+            if(array2[4] === "0"){
+                str5 = res2[4].fontcolor("blue");
+            }
+            else{
+                str5 =  res2[4]
+            }
+            if(array2[5] === "0"){
+                str6 =  res2[5].fontcolor("blue");
+            }
+            else{
+                str6 =  res2[5]
+            }
+            if(array2[6] === "0"){
+                str7 =  res2[6].fontcolor("blue");
+            }
+            else{
+                str7 =  res2[6]
+            }
+            if(array2[7] === "0"){
+                str8 =  res2[7].fontcolor("blue");
+            }
+            else{
+                str8 =  res2[7]
+            }
+
+            newarray2[i] = str1.concat(str2,str3,str4,str5,str6,str7,str8);
+            y[1].innerHTML = newarray2[i];
+
         }
-        fitness5(array2);
+       fitness5(window.array5);
         if(timervalue == 2){
             setTimeout(nextgeneration, 20000);
         }
@@ -896,7 +1017,7 @@ export default function DenseTable() {
                 var c = document.getElementById("table4").rows[i].cells;
 
 
-                var txt = x[1].innerHTML;
+                var txt = window.array5[i];
                 array5[i] = txt;
 
                 y[1].innerHTML = txt;
@@ -1027,8 +1148,8 @@ export default function DenseTable() {
 
                             <FormHelperText>Zamanlayıcı</FormHelperText>
                             <Select
-                                labelId="timer"
-                                id="timer"
+                                labelId="timer2"
+                                id="timer2"
                                 value={timervalue}
                                 onChange={handleChangeTimer}
                             >
