@@ -231,10 +231,8 @@ export default function DenseTable() {
             b[1].innerHTML = "";
             c[1].innerHTML = "";
 
-            y[0].innerHTML = 0;
-            a[0].innerHTML = 0;
-            b[0].innerHTML = 0;
-            c[0].innerHTML = 0;
+            y[0].innerHTML = "-";
+            a[0].innerHTML = "-";
 
             a[1].style.backgroundColor = "white";
             a[0].style.backgroundColor = "white";
@@ -911,6 +909,8 @@ export default function DenseTable() {
                 a[0].innerHTML = 0;
                 b[0].innerHTML = 0;
                 c[0].innerHTML = 0;
+
+
 
                 y[1].style.backgroundColor = "white";
                 a[1].style.backgroundColor = "white";
