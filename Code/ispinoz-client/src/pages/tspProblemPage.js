@@ -152,16 +152,16 @@ function valueLabelFormat(value) {
     return speed.findIndex(speed => speed.value === value) + 1;
 }
 const rows = [
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, ""),
-    createData(0, "")
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", ""),
+    createData("-", "")
 ];
 
 
