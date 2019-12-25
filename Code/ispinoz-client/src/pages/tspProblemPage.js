@@ -1,7 +1,7 @@
 //KOD TAM DEĞİL
 
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles,makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import table2 from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -43,7 +43,7 @@ const useStyles = makeStyles({
         overflowX: 'auto'
     },
     paper2: {
-        width: '70%',
+        width: '80%',
         overflowX: 'auto'
     },
     row: {
@@ -124,6 +124,23 @@ const speed = [
         label: 'x100',
     },
 ];
+const StyledTableCell = withStyles(theme => ({
+    head: {
+        backgroundColor: "#00bcd5",
+        color: theme.palette.common.white,
+    },
+    body: {
+        fontSize: 14,
+    },
+}))(TableCell);
+
+const StyledTableRow = withStyles(theme => ({
+    root: {
+        '&:nth-of-type(odd)': {
+            backgroundColor: theme.palette.background.default,
+        },
+    },
+}))(TableRow);
 function createData(name, calories) {
     return { name, calories};
 }
@@ -149,13 +166,19 @@ const rows = [
 
 
 
-function createData2(rize, bursa, ankara, tokat, manisa, agri) {
-    return { rize, bursa, ankara, tokat, manisa, agri};
+function createData2(name, rize, bursa, ankara, tokat, manisa, agri, sivas, hakkari) {
+    return { name,rize, bursa, ankara, tokat, manisa, agri, sivas, hakkari};
 }
 
 const rows2 = [
-    createData2(1, 2, 3, 4, 5, 6 )
-
+    createData2('Rize',0, 7, 5, 6, 5, 4 ,3,5),
+    createData2('Bursa',7, 0, 3, 6, 5, 8 ,7,9),
+    createData2('Ankara',5, 3, 0, 3, 5, 7 ,4,6),
+    createData2('Tokat',6, 6, 3, 0, 4, 5 ,7,1),
+    createData2('Manisa',5, 5, 5, 4, 0, 6 ,3,4),
+    createData2('Ağrı',4, 8, 7, 5, 6, 0 ,3,2),
+    createData2('Sivas',3, 7, 4, 7, 3, 3 ,0,5),
+    createData2('Hakkari',5, 9, 6, 1, 4, 2 ,5,0)
 ];
 
 export default function DenseTable() {
@@ -183,16 +206,27 @@ export default function DenseTable() {
 
     function start() {
         var i;
+
         for (i = 1; i < 11; i++) {
+            var startarray = [];
             var x = document.getElementById("table1").rows[i].cells;
             var txt = "";
             var k;
             for (k = 1; k < 9; k++) {
-                var random = Math.random() * 2;
+                var random = Math.random() * 8;
                 var intvalue = Math.floor( random );
-                txt = txt.concat("", intvalue);
+                intvalue = intvalue+1;
+
                 //x[1].style.backgroundColor = "red";
-            }
+                while (startarray.includes(intvalue)) {
+                    var random = Math.random() * 8;
+                    var intvalue = Math.floor( random );
+                    intvalue = intvalue+1;
+                }
+                txt = txt.concat("", intvalue);
+                startarray[k] = intvalue;
+                }
+
             x[1].innerHTML = txt;
             x[1].style.backgroundColor = "white";
         }
@@ -1311,26 +1345,31 @@ export default function DenseTable() {
                     <table2 id="table6" className={classes.table2} size="small" aria-label="a dense table">
                         <TableHead>
                             <TableRow>
-                                <TableCell align="right">Rize</TableCell>
-                                <TableCell align="right">Bursa</TableCell>
-                                <TableCell align="right">Ankara</TableCell>
-                                <TableCell align="right">Tokat</TableCell>
-                                <TableCell align="right">Manisa</TableCell>
-                                <TableCell align="right">Ağrı</TableCell>
-
+                                <StyledTableCell  align="right"></StyledTableCell>
+                                <StyledTableCell  align="right">Rize</StyledTableCell>
+                                <StyledTableCell  align="right">Bursa</StyledTableCell>
+                                <StyledTableCell  align="right">Ankara</StyledTableCell>
+                                <StyledTableCell  align="right">Tokat</StyledTableCell>
+                                <StyledTableCell  align="right">Manisa</StyledTableCell>
+                                <StyledTableCell  align="right">Ağrı</StyledTableCell>
+                                <StyledTableCell  align="right">Sivas</StyledTableCell>
+                                <StyledTableCell  align="right">Hakkari</StyledTableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {rows2.map(row => (
                                 <TableRow key={row.name} >
-                                    <TableCell component="th" scope="row">
-                                        {row.rize}
-                                    </TableCell>
-                                    <TableCell align="right">{row.bursa}</TableCell>
-                                    <TableCell align="right">{row.ankara}</TableCell>
-                                    <TableCell align="right">{row.tokat}</TableCell>
-                                    <TableCell align="right">{row.manisa}</TableCell>
-                                    <TableCell align="right">{row.agri}</TableCell>
+                                    <StyledTableCell  component="th" scope="row">
+                                        {row.name}
+                                    </StyledTableCell>
+                                    <StyledTableCell  align="right">{row.rize}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.bursa}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.ankara}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.tokat}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.manisa}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.agri}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.sivas}</StyledTableCell>
+                                    <StyledTableCell  align="right">{row.hakkari}</StyledTableCell>
 
                                 </TableRow>
                             ))}

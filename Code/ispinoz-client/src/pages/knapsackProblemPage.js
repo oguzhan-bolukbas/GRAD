@@ -43,7 +43,7 @@ const useStyles = makeStyles({
         overflowX: 'auto'
     },
     paper2: {
-        width: '70%',
+        width: '75%',
         overflowX: 'auto'
     },
     row: {
@@ -149,12 +149,13 @@ const rows = [
 
 
 
-function createData2(elma, armut, limon, kivi, cilek, muz, ananas, bogurtlen) {
-    return { elma, armut, limon, kivi, cilek, muz, ananas, bogurtlen};
+function createData2(name,elma, armut, limon, kivi, cilek, muz, ananas, bogurtlen) {
+    return { name,elma, armut, limon, kivi, cilek, muz, ananas, bogurtlen};
 }
 
 const rows2 = [
-    createData2(1, 2, 3, 4, 5, 6 ,7,8)
+    createData2('Değerler',1, 2, 3, 4, 5, 6 ,7,8),
+    createData2('Ağırlıklar',1, 2, 3, 4, 5, 6 ,7,8)
 
 ];
 
@@ -1311,7 +1312,8 @@ export default function DenseTable() {
                     <table2 id="table6" className={classes.table2} size="small" aria-label="a dense table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Elma</TableCell>
+                                <TableCell></TableCell>
+                                <TableCell align="right">Elma</TableCell>
                                 <TableCell align="right">Armut</TableCell>
                                 <TableCell align="right">Limon</TableCell>
                                 <TableCell align="right">Kivi</TableCell>
@@ -1325,8 +1327,9 @@ export default function DenseTable() {
                             {rows2.map(row => (
                                 <TableRow key={row.name} >
                                     <TableCell component="th" scope="row">
-                                        {row.elma}
+                                        {row.name}
                                     </TableCell>
+                                    <TableCell align="right">{row.elma}</TableCell>
                                     <TableCell align="right">{row.armut}</TableCell>
                                     <TableCell align="right">{row.limon}</TableCell>
                                     <TableCell align="right">{row.kivi}</TableCell>
