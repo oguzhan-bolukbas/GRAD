@@ -15,13 +15,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import PersonIcon from '@material-ui/icons/Person';
-import HistoryIcon from '@material-ui/icons/History';
 import ButtonBase from "@material-ui/core/ButtonBase";
 import European from "../images/European.png";
 import Grid from "@material-ui/core/Grid";
+import {EmojiFlagsTwoTone} from "@material-ui/icons";
 
 const drawerWidth = 240;
 
@@ -49,6 +48,8 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     align: "center",
+    marginLeft: "10px",
+    marginRight: "10px"
   },
   hide: {
     display: 'none',
@@ -109,12 +110,18 @@ export default function ClippedDrawer() {
               <img className={classes.img} alt="complex" src={European} width={50}/>
             </ButtonBase>
             <ButtonBase className={classes.image} component={Link} to={"/"}>
-              <Typography variant="h5" color="inherit">İSPİNOZ</Typography>
+              <Typography variant="h6" color="inherit">İSPİNOZ</Typography>
             </ButtonBase>
           </Grid>
-          <Button color="inherit" className={classes.button} component={Link} to="/">Dersler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
+          <ButtonBase className={classes.button} component={Link} to={"/"}>
+            <Typography variant="subtitle1" color="inherit">ANA SAYFA</Typography>
+          </ButtonBase>
+          <ButtonBase className={classes.button} component={Link} to={"/problemler"}>
+            <Typography variant="subtitle1" color="inherit">PROBLEMLER</Typography>
+          </ButtonBase>
+          <ButtonBase className={classes.button} component={Link} to={"/quiz"}>
+            <Typography variant="subtitle1" color="inherit">QUIZ</Typography>
+          </ButtonBase>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -151,7 +158,7 @@ export default function ClippedDrawer() {
             <ListItemText primary="Profil"/>
           </ListItem>
           <ListItem button component={Link} to="/genel-puan-tablosu">
-            <ListItemIcon> <HistoryIcon /> </ListItemIcon>
+            <ListItemIcon> <EmojiFlagsTwoTone /> </ListItemIcon>
             <ListItemText primary="Genel Puan Geçmişi"/>
           </ListItem>
 

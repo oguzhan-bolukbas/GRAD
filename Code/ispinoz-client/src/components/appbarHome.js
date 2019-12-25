@@ -15,24 +15,26 @@ import ListItemText from '@material-ui/core/ListItemText';
 import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
 import GestureIcon from '@material-ui/icons/Gesture';
 import AppsIcon from '@material-ui/icons/Apps';
 import BookIcon from '@material-ui/icons/Book';
 import PersonIcon from '@material-ui/icons/Person';
-import HistoryIcon from '@material-ui/icons/History';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
 
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import {StarBorderRounded, StarRounded, Subject} from "@material-ui/icons";
+import {
+  BubbleChart,
+  BubbleChartTwoTone, EmojiFlagsTwoTone,
+  Subject
+} from "@material-ui/icons";
 import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import European from "../images/European.png";
 
-const drawerWidth = 300;
+const drawerWidth = 350;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,6 +60,8 @@ const useStyles = makeStyles(theme => ({
   },
   button: {
     align: "center",
+    marginLeft: "10px",
+    marginRight: "10px"
   },
   hide: {
     display: 'none',
@@ -125,12 +129,18 @@ export default function ClippedDrawer() {
               <img className={classes.img} alt="complex" src={European} width={50}/>
             </ButtonBase>
             <ButtonBase className={classes.image} component={Link} to={"/"}>
-              <Typography variant="h5" color="inherit">İSPİNOZ</Typography>
+              <Typography variant="h6" color="inherit">İSPİNOZ</Typography>
             </ButtonBase>
           </Grid>
-          <Button color="inherit" className={classes.button} component={Link} to="/">Ana Sayfa</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/problemler">Problemler</Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/quiz">Quiz</Button>
+          <ButtonBase className={classes.button} component={Link} to={"/"}>
+            <Typography variant="subtitle1" color="inherit">ANA SAYFA</Typography>
+          </ButtonBase>
+          <ButtonBase className={classes.button} component={Link} to={"/problemler"}>
+            <Typography variant="subtitle1" color="inherit">PROBLEMLER</Typography>
+          </ButtonBase>
+          <ButtonBase className={classes.button} component={Link} to={"/quiz"}>
+            <Typography variant="subtitle1" color="inherit">QUIZ</Typography>
+          </ButtonBase>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -170,53 +180,53 @@ export default function ClippedDrawer() {
             <ListItemText primary="GA Terimleri"/>
           </ListItem>
           <ListItem button component={Link} to="/dersler/gen-kromozom-populasyon">
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Gen, Kromozom ve Populasyon"/>
           </ListItem>
           <ListItem button onClick={handleClickCrossingOver}>
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Çaprazlama (Crossover)"/>
             {openCrossingOver ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCrossingOver} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-nedir">
-                <ListItemIcon> <StarRounded/> </ListItemIcon>
+                <ListItemIcon> <BubbleChart/> </ListItemIcon>
                 <ListItemText primary="Çaprazlama Nedir?" />
               </ListItem>
               <ListItem button component={Link} to="/dersler/caprazlama/caprazlama-cesitleri"   >
-                <ListItemIcon> <StarRounded/> </ListItemIcon>
+                <ListItemIcon> <BubbleChart/> </ListItemIcon>
                 <ListItemText primary="Çaprazlama Çeşitleri" />
               </ListItem>
             </List>
           </Collapse>
           <ListItem button onClick={handleClickMutation}>
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Mutasyon"/>
             {openMutation ? <ExpandLess/> : <ExpandMore/>}
           </ListItem>
           <Collapse in={openMutation} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               <ListItem button component={Link} to="/dersler/mutasyon/mutasyon-nedir">
-                <ListItemIcon> <StarRounded/> </ListItemIcon>
+                <ListItemIcon> <BubbleChart/> </ListItemIcon>
                 <ListItemText primary="Mutasyon Nedir?"/>
               </ListItem>
               <ListItem button className={classes.nested} component={Link} to="/dersler/mutasyon/mutasyon-cesitleri">
-                <ListItemIcon> <StarRounded/> </ListItemIcon>
+                <ListItemIcon> <BubbleChart/> </ListItemIcon>
                 <ListItemText primary="Mutasyon Çeşitleri"/>
               </ListItem>
             </List>
           </Collapse>
           <ListItem button component={Link} to="/dersler/uygunluk">
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Uygunluk (Fitness)"/>
           </ListItem>
           <ListItem button component={Link} to="/dersler/genetik-kodlama">
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Genetik Kodlama"/>
           </ListItem>
           <ListItem button component={Link} to="/dersler/secim-turleri">
-            <ListItemIcon> <StarBorderRounded/> </ListItemIcon>
+            <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
             <ListItemText primary="Seçim Türleri"/>
           </ListItem>
           <Divider/>
@@ -250,7 +260,7 @@ export default function ClippedDrawer() {
             <ListItemText primary="Profil"/>
           </ListItem>
           <ListItem button component={Link} to="/genel-puan-tablosu">
-            <ListItemIcon> <HistoryIcon /> </ListItemIcon>
+            <ListItemIcon> <EmojiFlagsTwoTone/> </ListItemIcon>
             <ListItemText primary="Genel Puan Tablosu"/>
           </ListItem>
         </List>

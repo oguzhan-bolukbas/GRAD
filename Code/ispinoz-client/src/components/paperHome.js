@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import ButtonBase from "@material-ui/core/ButtonBase";
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  rootss: {
     padding: theme.spacing(3, 2),
     width: "600px",
     height: "360px",
@@ -21,9 +21,8 @@ const useStyles = makeStyles(theme => ({
 
 export default function PaperSheet() {
   const classes = useStyles();
-  //const preventDefault = event => event.preventDefault();
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.rootss}>
       <Grid container spacing={2} justify="center">
         <Grid item>
           <ButtonBase className={classes.image}>
@@ -40,9 +39,8 @@ export default function PaperSheet() {
       </Grid>
       <br/>
       <Typography component="p" align={"justify"}>
-        İspinoz size "Genetik Algoritma"yı öğrenme, problem ve quiz çözerek pratik yapabilme imkanını sağlayan
-        etkileşimli
-        bir web sitesidir.
+        İspinoz size "Genetik Algoritma"yı öğrenme, problem ve quiz çözerek pratik yapabilme imkanı sağlayan
+        etkileşimli bir web sitesidir.
         <Typography variant="a" component={Link} to={`/dersler/genetik-algoritma-nedir`}
                     color="primary"> Dersler </Typography>
         sekmesinden genetik algoritmayı öğrenmeye,

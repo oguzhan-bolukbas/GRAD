@@ -14,21 +14,18 @@ class whatisGA extends Component{
     document.body.style.background = "#fff";
     document.body.style.marginLeft = "370px";
     document.body.style.marginRight = "100px";
-
-
   }
   render() {
     return (
       <div className="home">
         <AppbarHome/>
         <PaperGAApplications/>
-        <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
-                className="float-right" component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
-          İLERİ <NavigateNextIcon/> </Button>
-        <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
+        <Button variant="contained" color="primary" style={{float: 'left', marginTop: "5px"}} className="float-right"
                 component={Link} to="/dersler/genetik-algoritma-nedir">
           <NavigateBeforeIcon/> GERİ </Button>
-
+        <Button variant="contained" color="primary" style={{float: 'left', marginLeft: "2px", marginTop: "5px"}}
+                className="float-right" component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
+          İLERİ <NavigateNextIcon/> </Button>
       </div>
     );
   }
