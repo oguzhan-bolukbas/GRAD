@@ -48,21 +48,18 @@ const useStyles = makeStyles({
     },
     row: {
         display: "flex",
-        marginTop: "5px",
         marginLeft: "10px",
         marginRight: "30px",
         alignItems: "center"
     },
     row2: {
         display: "flex",
-        marginTop: "5px",
         marginLeft: "300px",
         marginRight: "20px",
         alignItems: "center"
     },
     row3: {
         display: "flex",
-        marginTop: "5px",
         marginLeft: "10px",
         marginRight: "2px",
         alignItems: "center"
@@ -184,6 +181,7 @@ export default function DenseTable() {
 
     function start() {
         var i;
+        window.endValue = 0;
         for (i = 1; i < 11; i++) {
             var x = document.getElementById("table1").rows[i].cells;
             var txt = "";
@@ -243,18 +241,24 @@ export default function DenseTable() {
         }
         if(timervalue == 2){
             setTimeout(selection, 20000);
+
         }
         else if(timervalue == 3){
             setTimeout(selection, 10000);
+
+
         }
         else if(timervalue == 4){
             setTimeout(selection, 5000);
+
         }
         else if(timervalue == 5){
             setTimeout(selection, 2000);
+
         }
         else if(timervalue == 6){
             selection();
+
         }
     }
     function fitness0() {
@@ -913,6 +917,7 @@ export default function DenseTable() {
         }
         fitness7(window.nurarray2);
         if(timervalue == 2){
+
             setTimeout(repair, 20000);
         }
         else if(timervalue == 3){
@@ -957,53 +962,57 @@ export default function DenseTable() {
         }
     }
     function nextgeneration(){
-        var i;
-        for (i = 1; i < 11; i++) {
-            var x = document.getElementById("table5").rows[i].cells;
-            var y = document.getElementById("table1").rows[i].cells;
-            var a = document.getElementById("table2").rows[i].cells;
-            var b = document.getElementById("table3").rows[i].cells;
-            var c = document.getElementById("table4").rows[i].cells;
+        if(window.endValue != 20) {
+            var i;
+            for (i = 1; i < 11; i++) {
+                var x = document.getElementById("table5").rows[i].cells;
+                var y = document.getElementById("table1").rows[i].cells;
+                var a = document.getElementById("table2").rows[i].cells;
+                var b = document.getElementById("table3").rows[i].cells;
+                var c = document.getElementById("table4").rows[i].cells;
 
 
-            var txt = x[1].innerHTML;
+                var txt = x[1].innerHTML;
 
 
-            y[1].innerHTML = txt;
-            x[1].innerHTML = "";
-            a[1].innerHTML = "";
-            b[1].innerHTML = "";
-            c[1].innerHTML = "";
+                y[1].innerHTML = txt;
+                x[1].innerHTML = "";
+                a[1].innerHTML = "";
+                b[1].innerHTML = "";
+                c[1].innerHTML = "";
 
-            x[0].innerHTML = 0;
-            a[0].innerHTML = 0;
-            b[0].innerHTML = 0;
-            c[0].innerHTML = 0;
+                x[0].innerHTML = 0;
+                a[0].innerHTML = 0;
+                b[0].innerHTML = 0;
+                c[0].innerHTML = 0;
 
-            y[1].style.backgroundColor = "white";
-            a[1].style.backgroundColor = "white";
-            a[0].style.backgroundColor = "white";
-            b[1].style.backgroundColor = "white";
-            b[0].style.backgroundColor = "white";
+                y[1].style.backgroundColor = "white";
+                a[1].style.backgroundColor = "white";
+                a[0].style.backgroundColor = "white";
+                b[1].style.backgroundColor = "white";
+                b[0].style.backgroundColor = "white";
+            }
+
+
+            if (timervalue == 2) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 20000);
+
+            } else if (timervalue == 3) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 10000);
+            } else if (timervalue == 4) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 5000);
+            } else if (timervalue == 5) {
+                window.endValue = window.endValue + 1;
+                setTimeout(selection, 2000);
+            } else if (timervalue == 6) {
+                window.endValue = window.endValue + 1;
+                selection();
+            }
         }
 
-
-
-        if(timervalue == 2){
-            setTimeout(selection, 20000);
-        }
-        else  if(timervalue == 3){
-            setTimeout(selection, 10000);
-        }
-        else  if(timervalue == 4){
-            setTimeout(selection, 5000);
-        }
-        else if(timervalue == 5){
-            setTimeout(selection, 2000);
-        }
-        else  if(timervalue == 6){
-            selection();
-        }
     }
 
 

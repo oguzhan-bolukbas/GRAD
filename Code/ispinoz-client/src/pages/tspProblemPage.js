@@ -1142,7 +1142,7 @@ export default function DenseTable() {
                         </FormControl>
                         <div className={classes.root} >
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
-                                En Yüksek Değer
+                                En Kısa Yol
                             </Typography>
                             <Avatar className={classes2.orange}>{bestFitness}</Avatar>
                         </div>
