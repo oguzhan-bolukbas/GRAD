@@ -206,7 +206,7 @@ export default function DenseTable() {
 
     function start() {
         var i;
-        window.bestvalue = 99;
+        window.bestvalue2 = 99;
         window.endValue = 0;
         window.mesafearray= [[0,7,5,6,5,4,3,5],[7,0,3,6,5,8,7,9],[5,3,0,3,5,7,4,6],[6,6,3,0,4,5,7,1],[5,5,5,4,0,6,3,4],
             [4,8,7,5,6,0,3,2],[3,7,4,7,3,3,0,5],[5,9,6,1,4,2,5,0]]
@@ -339,8 +339,8 @@ export default function DenseTable() {
             }
 
             setBestFitness(best)  ;
-        if(window.bestvalue > best){
-            window.bestvalue = best;
+        if(window.bestvalue2 > best){
+            window.bestvalue2 = best;
         }
 
 
@@ -851,7 +851,7 @@ export default function DenseTable() {
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
                                 En Kısa Yol
                             </Typography>
-                            <Avatar className={classes2.orange}>{window.bestvalue}</Avatar>
+                            <Avatar className={classes2.orange}>{window.bestvalue2}</Avatar>
                         </div>
 
 
