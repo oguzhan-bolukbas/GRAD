@@ -206,7 +206,10 @@ export default function DenseTable() {
 
     function start() {
         var i;
-
+        window.bestvalue = 99;
+        window.mesafearray= [[0,7,5,6,5,4,3,5],[7,0,3,6,5,8,7,9],[5,3,0,3,5,7,4,6],[6,6,3,0,4,5,7,1],[5,5,5,4,0,6,3,4],
+            [4,8,7,5,6,0,3,2],[3,7,4,7,3,3,0,5],[5,9,6,1,4,2,5,0]]
+        var array1 = [];
         for (i = 1; i < 11; i++) {
             var startarray = [];
             var x = document.getElementById("table1").rows[i].cells;
@@ -226,10 +229,11 @@ export default function DenseTable() {
                 txt = txt.concat("", intvalue);
                 startarray[k] = intvalue;
                 }
-
+            array1[i] = txt;
             x[1].innerHTML = txt;
             x[1].style.backgroundColor = "white";
         }
+        fitness(array1,1);
         for (i = 1; i < 11; i++) {
             var x = document.getElementById("table2").rows[i].cells;
             var txt = "";
@@ -290,365 +294,56 @@ export default function DenseTable() {
             selection();
         }
     }
-    function fitness0() {
-        setBestFitness(0);
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table1").rows[i].cells;
-            var k = x[1].innerHTML;
+    function fitness(tablearray, tablevalue)  {
+            setBestFitness(0);
+            var best = 100;
+            var i,n;
+            for (i = 1; i < 11; i++) {
+                var j;
+                var sum = 0;
+                if(tablevalue === 1){
+                    var x = document.getElementById("table1").rows[i].cells;
+                }
+                else  if(tablevalue === 2){
+                    var x = document.getElementById("table2").rows[i].cells;
+                }
+                else  if(tablevalue === 3){
+                    var x = document.getElementById("table3").rows[i].cells;
+                }
+                else  if(tablevalue === 4){
+                    var x = document.getElementById("table4").rows[i].cells;
+                }
+                else  if(tablevalue === 5){
+                    var x = document.getElementById("table5").rows[i].cells;
+                }
+
+                var k = tablearray[i];
 
 
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-
-        setBestFitness(best)  ;
-
-    }
-    function fitness1() {
-
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table1").rows[i].cells;
-            var k = x[1].innerHTML;
+                for (n = 0; n < 7; n++) {
+                    var nur = k;
+                    var res = nur.split("");
+                    var index1 = res.indexOf((n+1).toString());
+                    var index2 = res.indexOf((n+2).toString());
+                    sum = sum + window.mesafearray[index1][index2];
+                }
+                index1 = res.indexOf("8");
+                index2 = res.indexOf("1");
+                sum = sum + window.mesafearray[index1][index2];
 
 
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
+                x[0].innerHTML = sum;
+                if (best > sum){
+                    best = sum  ;
+                }
             }
 
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
             setBestFitness(best)  ;
+        if(window.bestvalue > best){
+            window.bestvalue = best;
         }
-    }
-    function fitness2(newarray) {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table2").rows[i].cells;
-            var k = newarray[i];
 
 
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
-    function fitness3() {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table3").rows[i].cells;
-            var k = x[1].innerHTML;
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
-    function fitness4() {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table4").rows[i].cells;
-            var k = x[1].innerHTML;
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
-    function fitness5(newarray) {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table5").rows[i].cells;
-            var k = newarray[i];
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
-    function fitness6(newarray) {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table3").rows[i].cells;
-            var k = newarray[i];
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
-    function fitness7(newarray) {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table4").rows[i].cells;
-            var k = newarray[i];
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
     }
     var nurarray = ["","","","","","","","","","",""];
     function selection(){
@@ -742,7 +437,7 @@ export default function DenseTable() {
 
             }
         }
-        fitness2(array2);
+        fitness(array2,2);
         if(timervalue == 2){
             setTimeout(crossover, 20000);
         }
@@ -819,7 +514,7 @@ export default function DenseTable() {
         }
 
 
-        fitness6(newarray);
+       // fitness(newarray,3);
         if(timervalue == 2){
             setTimeout(mutation, 20000);
         }
@@ -944,7 +639,7 @@ export default function DenseTable() {
 
 
         }
-        fitness7(window.nurarray2);
+        //fitness(window.nurarray2,3);
         if(timervalue == 2){
             setTimeout(repair, 20000);
         }
@@ -965,14 +660,14 @@ export default function DenseTable() {
         var i;
         var array2 = ["","","","","","","",""];
         for (i = 1; i < 11; i++) {
-            var x = document.getElementById("table4").rows[i].cells;
+            var x = document.getElementById("table1").rows[i].cells;
             var y = document.getElementById("table5").rows[i].cells;
-
+           // window.nurarray2[i]
             var txt = x[1].innerHTML;
-            array2[i] = window.nurarray2[i];
-            y[1].innerHTML = window.nurarray2[i] ;
+            array2[i] = txt;
+            y[1].innerHTML = txt ;
         }
-        fitness5(array2);
+        fitness(array2,5);
         if(timervalue == 2){
             setTimeout(nextgeneration, 20000);
         }
@@ -991,6 +686,7 @@ export default function DenseTable() {
     }
     function nextgeneration(){
         var i;
+        var array5= [];
         for (i = 1; i < 11; i++) {
             var x = document.getElementById("table5").rows[i].cells;
             var y = document.getElementById("table1").rows[i].cells;
@@ -1000,7 +696,7 @@ export default function DenseTable() {
 
 
             var txt = x[1].innerHTML;
-
+            array5[i] = txt;
 
             y[1].innerHTML = txt;
             x[1].innerHTML = "";
@@ -1021,7 +717,7 @@ export default function DenseTable() {
         }
 
 
-
+        fitness(array5,1)
         if(timervalue == 2){
             setTimeout(selection, 20000);
         }
@@ -1049,7 +745,7 @@ export default function DenseTable() {
 
                     <div className={classes.row3}>
                         <div id="nur" className={classes.row3} >
-                            <Button id="deneme" variant="contained" color="secondary" onClick={() => {start(); fitness0()} }>
+                            <Button id="deneme" variant="contained" color="secondary" onClick={() => {start()} }>
                                 Başlangıç
                             </Button>
                         </div>
@@ -1144,7 +840,7 @@ export default function DenseTable() {
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
                                 En Kısa Yol
                             </Typography>
-                            <Avatar className={classes2.orange}>{bestFitness}</Avatar>
+                            <Avatar className={classes2.orange}>{window.bestvalue}</Avatar>
                         </div>
 
 

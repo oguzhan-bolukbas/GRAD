@@ -48,18 +48,21 @@ const useStyles = makeStyles({
     },
     row: {
         display: "flex",
+        marginTop: "5px",
         marginLeft: "10px",
         marginRight: "30px",
         alignItems: "center"
     },
     row2: {
         display: "flex",
+        marginTop: "5px",
         marginLeft: "300px",
         marginRight: "20px",
         alignItems: "center"
     },
     row3: {
         display: "flex",
+        marginTop: "5px",
         marginLeft: "10px",
         marginRight: "2px",
         alignItems: "center"
@@ -182,6 +185,7 @@ export default function DenseTable() {
     function start() {
         var i;
         window.endValue = 0;
+        window.bestvalue = 0;
         for (i = 1; i < 11; i++) {
             var x = document.getElementById("table1").rows[i].cells;
             var txt = "";
@@ -263,6 +267,7 @@ export default function DenseTable() {
     }
     function fitness0() {
         setBestFitness(0);
+        window.bestvalue = 0;
         var best = 0;
         var i;
         for (i = 1; i < 11; i++) {
@@ -301,56 +306,13 @@ export default function DenseTable() {
             if (best < sum){
                 best = sum  ;
             }
-        }
 
+        }
+        window.bestvalue = best;
         setBestFitness(best)  ;
 
     }
-    function fitness1() {
-
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table1").rows[i].cells;
-            var k = x[1].innerHTML;
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
-    }
+//selection
     function fitness2(newarray) {
         var best = 0;
         var i;
@@ -395,15 +357,19 @@ export default function DenseTable() {
         if (bestFitness < best){
             setBestFitness(best)  ;
         }
+        if(window.bestvalue < best){
+            window.bestvalue = best;
+        }
     }
-    function fitness3() {
+//next generation
+    function fitness4(newarray) {
         var best = 0;
         var i;
         for (i = 1; i < 11; i++) {
             var j;
             var sum = 0;
-            var x = document.getElementById("table3").rows[i].cells;
-            var k = x[1].innerHTML;
+            var x = document.getElementById("table1").rows[i].cells;
+            var k = newarray[i];
 
 
             if(k.charAt(0) === "1"){
@@ -440,54 +406,13 @@ export default function DenseTable() {
         if (bestFitness < best){
             setBestFitness(best)  ;
         }
-    }
-    function fitness4() {
-        var best = 0;
-        var i;
-        for (i = 1; i < 11; i++) {
-            var j;
-            var sum = 0;
-            var x = document.getElementById("table4").rows[i].cells;
-            var k = x[1].innerHTML;
-
-
-            if(k.charAt(0) === "1"){
-                sum = sum + 1;
-            }
-            if(k.charAt(1) === "1"){
-                sum = sum + 2;
-            }
-            if(k.charAt(2) === "1"){
-                sum = sum + 3;
-            }
-            if(k.charAt(3) === "1"){
-                sum = sum + 4;
-            }
-            if(k.charAt(4) === "1"){
-                sum = sum + 5;
-            }
-            if(k.charAt(5) === "1"){
-                sum = sum + 6;
-            }
-            if(k.charAt(6) === "1"){
-                sum = sum + 7;
-            }
-            if(k.charAt(7) === "1"){
-                sum = sum + 8;
-            }
-
-
-            x[0].innerHTML = sum;
-            if (best < sum){
-                best = sum  ;
-            }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
+        if(window.bestvalue < best){
+            window.bestvalue = best;
         }
     }
+    //repair
     function fitness5(newarray) {
-        var best = 0;
+        var best = bestFitness;
         var i;
         for (i = 1; i < 11; i++) {
             var j;
@@ -530,9 +455,13 @@ export default function DenseTable() {
         if (bestFitness < best){
             setBestFitness(best)  ;
         }
+        if(window.bestvalue < best){
+            window.bestvalue = best;
+        }
     }
+    //cross
     function fitness6(newarray) {
-        var best = 0;
+        var best = bestFitness;
         var i;
         for (i = 1; i < 11; i++) {
             var j;
@@ -572,12 +501,11 @@ export default function DenseTable() {
                 best = sum  ;
             }
         }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
-        }
+
     }
+    //mutation
     function fitness7(newarray) {
-        var best = 0;
+        var best = bestFitness;
         var i;
         for (i = 1; i < 11; i++) {
             var j;
@@ -616,9 +544,6 @@ export default function DenseTable() {
             if (best < sum){
                 best = sum  ;
             }
-        }
-        if (bestFitness < best){
-            setBestFitness(best)  ;
         }
     }
     var nurarray = ["","","","","","","","","","",""];
@@ -964,6 +889,7 @@ export default function DenseTable() {
     function nextgeneration(){
         if(window.endValue != 20) {
             var i;
+            var array5= [];
             for (i = 1; i < 11; i++) {
                 var x = document.getElementById("table5").rows[i].cells;
                 var y = document.getElementById("table1").rows[i].cells;
@@ -973,7 +899,7 @@ export default function DenseTable() {
 
 
                 var txt = x[1].innerHTML;
-
+                array5[i] = txt;
 
                 y[1].innerHTML = txt;
                 x[1].innerHTML = "";
@@ -993,7 +919,7 @@ export default function DenseTable() {
                 b[0].style.backgroundColor = "white";
             }
 
-
+            fitness4(array5);
             if (timervalue == 2) {
                 window.endValue = window.endValue + 1;
                 setTimeout(selection, 20000);
@@ -1120,7 +1046,7 @@ export default function DenseTable() {
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
                                 En Yüksek Değer
                             </Typography>
-                            <Avatar className={classes2.orange}>{bestFitness}</Avatar>
+                            <Avatar className={classes2.orange}>{window.bestvalue}</Avatar>
                         </div>
 
 
