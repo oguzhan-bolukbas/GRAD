@@ -50,7 +50,7 @@ export default function ImgMediaCard() {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary" component={Link} to="/quizLectures">
+              <Button size="small" color="primary" component={Link} to="/quiz-dersler">
                 BAŞLA
               </Button>
             </CardActions>
@@ -73,7 +73,7 @@ export default function ImgMediaCard() {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary" component={Link} to="/quizProblems">
+              <Button size="small" color="primary" component={Link} to="/quiz-problemler">
                 BAŞLA
               </Button>
             </CardActions>

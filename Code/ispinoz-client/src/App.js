@@ -67,8 +67,8 @@ class App extends Component {
                 <Route path="/quiz" component={quiz}/>
                 <Route path="/dersler/genetik-algoritma-uygulamalari" component={gaApplications}/>
                 <Route path="/dersler/genetik-algoritma-nasil-calisir" component={gaWorkingMechanism}/>
-                <Route path="/quizLectures" component={QuizLectures}/>
-                <Route path="/quizProblems" component={QuizProblems}/>
+                <Route path="/quiz-dersler" component={QuizLectures}/>
+                <Route path="/quiz-problemler" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
                 <Route path="/dersler/mutasyon/mutasyon-nedir" component={mutation}/>
