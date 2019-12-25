@@ -80,7 +80,7 @@ class App extends Component {
                 <Route path="/dersler/uygunluk" component={fitnessPage}/>
                 <Route path="/dersler/genetik-kodlama" component={geneticRepresentationPage}/>
                 <Route path="/dersler/secim-turleri" component={selectionTypesPage}/>
-                <Route path="/quizSonuclari" component={quizResults}/>
+                <Route path="/genel-puan-tablosu" component={quizResults}/>
                 <Route path="/referanslar" component={references}/>
 
                 <Route path="/profil" component={profile}/>

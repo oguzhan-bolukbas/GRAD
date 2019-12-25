@@ -17,8 +17,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Button from "@material-ui/core/Button";
 import {Link} from "react-router-dom";
-
-import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -152,14 +150,11 @@ export default function ClippedDrawer() {
             <ListItemIcon> <PersonIcon /> </ListItemIcon>
             <ListItemText primary="Profil"/>
           </ListItem>
-          <ListItem button component={Link} to="/ogrenme-gecmisi">
+          <ListItem button component={Link} to="/genel-puan-tablosu">
             <ListItemIcon> <HistoryIcon /> </ListItemIcon>
-            <ListItemText primary="Öğrenme Geçmişi" />
+            <ListItemText primary="Genel Puan Geçmişi"/>
           </ListItem>
-          <ListItem button component={Link} to="/ayarlar">
-            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
-            <ListItemText primary="Ayarlar" />
-          </ListItem>
+
         </List>
       </Drawer>
     </div>

@@ -1,25 +1,21 @@
-import React, {Component, Fragment} from 'react';
-import PropTypes from "prop-types";
+import React, {Component} from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
+// MUI Stuff
 import dayjs from "dayjs";
-
-// MUI Stuffs
-import Button from "@material-ui/core/Button";
+import relativeTime from "dayjs/plugin/relativeTime";
 import Paper from "@material-ui/core/Paper";
-import {Typography} from "@material-ui/core";
-import MuiLink from '@material-ui/core/Link'
-
 // Icons
-import LocationOn from '@material-ui/icons/LocationOn'
-import LinkIcon from '@material-ui/icons/Link'
-import CalendarToday from '@material-ui/icons/CalendarToday'
-
-// Redux
-import {connect} from "react-redux";
+import {CalendarToday, Person, School, Web} from "@material-ui/icons";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Typography from "@material-ui/core/Typography";
 
 const styles = (theme) => ({
   paper: {
-    padding: 20
+    marginLeft: '300px',
+    padding: 20,
+    width: "600px",
+    height: "475px"
   },
   profile: {
     '& .image-wrapper': {
@@ -32,14 +28,15 @@ const styles = (theme) => ({
       }
     },
     '& .profile-image': {
-      width: 200,
-      height: 200,
+      width: 300,
+      height: 300,
       objectFit: 'cover',
-      maxWidth: '100%',
+      maxWidth: '50%',
       borderRadius: '50%'
     },
     '& .profile-details': {
-      textAlign: 'center',
+      margin: '0 0 0 125px',
+      textAlign: 'left',
       '& span, svg': {
         verticalAlign: 'middle'
       },
@@ -62,74 +59,46 @@ const styles = (theme) => ({
     '& a': {
       margin: '20px 10px'
     }
-  }
+  },
+  buttonPadding: {
+    padding: '0 0 0 0',
+    margin: '0 0 0 0'
+  },
 });
 
 class Profile extends Component {
   render() {
-    const{
-      classes,
-      user: {
-        credentials: {handle, createdAt, imageUrl, bio, website, location},
-        loading,
-        authenticated
-      }
-    } = this.props;
-
-    let profileMarkup = authenticated ?
-      (<Paper className={classes.paper}>
+    dayjs.extend(relativeTime);
+    const {classes, quizResult: {userHandle, userImage, className, finishedAt}} = this.props;
+    return (finishedAt === "2019-12-24T23:39:44.590Z") ? (
+      <Paper elevation={3} className={classes.paper}>
         <div className={classes.profile}>
-          <div className="profile-image">
-            <img src={imageUrl} alt="profile"/>
+          <div className="image-wrapper">
+            <img className="profile-image" src={userImage} alt="profile"/>
           </div>
-          <hr/>
           <div className="profile-details">
-            {/*<MuiLink component={Link} to={`/user/${handle}`} color="primary" variant="h5">@{handle}</MuiLink>*/}
-            <hr/>
-            {bio && <Typography variant="body2">{bio}</Typography>}
-            <hr/>
-            {location && (
-              <Fragment>
-                <LocationOn color="primary"/> <span>{location}</span>
-                <hr/>
-              </Fragment>
-            )}
-            {website && (
-              <Fragment>
-                <LinkIcon color="primary"/>
-                <a href={website} target="_blank" rel="noopener noreferrer">
-                  {' '}{website}
-                </a>
-              </Fragment>
-            )}
-            <CalendarToday color="primary"/>{' '}
-            <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
+            <ListItem className={classes.buttonPadding}>
+              <ListItemIcon> <Person color="primary"/> </ListItemIcon>
+              <Typography variant="h6" color="initial">{userHandle}</Typography>
+            </ListItem>
+            <ListItem className={classes.buttonPadding}>
+              <ListItemIcon> <School color="primary"/> </ListItemIcon>
+              <Typography variant="h6" color="initial">{className}</Typography>
+            </ListItem>
+            <ListItem className={classes.buttonPadding}>
+              <ListItemIcon> <Web color="primary"/> </ListItemIcon>
+              <Typography variant="h6" color="initial"><a
+                href={"https://www.github.com/oguzhan-bolukbas"}>github.com/oguzhan-bolukbas</a></Typography>
+            </ListItem>
+            <ListItem className={classes.buttonPadding}>
+              <ListItemIcon> <CalendarToday color="primary"/> </ListItemIcon>
+              <Typography variant="h6" color="initial">Joined {dayjs(finishedAt).format('MMM YYYY')}</Typography>
+            </ListItem>
           </div>
         </div>
-      </Paper>)
-      :
-      (
-        <Paper className={classes.paper}>
-          <Typography variant="body2" align="center">
-            No profile found, please login again
-          </Typography>
-          <div className={classes.buttons}>
-            <Button variant="contained" color="primary" /*component={Link} to={"/girisyap"}*/>Giris Yap</Button>
-            <Button variant="contained" color="secondary" /*component={Link} to={"/kayitol"}*/>Kayıt Ol</Button>
-          </div>
-        </Paper>
-      );
-    return profileMarkup;
+      </Paper>
+    ) : <h5></h5>;
   }
 }
-
-const mapStateToProps = (state) => ({
-  user: state.user
-});
-
-Profile.propTypes = {
-  user: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(Profile);

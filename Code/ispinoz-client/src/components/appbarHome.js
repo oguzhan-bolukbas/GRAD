@@ -20,7 +20,6 @@ import {Link} from "react-router-dom";
 import GestureIcon from '@material-ui/icons/Gesture';
 import AppsIcon from '@material-ui/icons/Apps';
 import BookIcon from '@material-ui/icons/Book';
-import SettingsIcon from '@material-ui/icons/Settings';
 import PersonIcon from '@material-ui/icons/Person';
 import HistoryIcon from '@material-ui/icons/History';
 import LowPriorityIcon from '@material-ui/icons/LowPriority';
@@ -250,13 +249,9 @@ export default function ClippedDrawer() {
             <ListItemIcon> <PersonIcon /> </ListItemIcon>
             <ListItemText primary="Profil"/>
           </ListItem>
-          <ListItem button component={Link} to="/ogrenme-gecmisi">
+          <ListItem button component={Link} to="/genel-puan-tablosu">
             <ListItemIcon> <HistoryIcon /> </ListItemIcon>
-            <ListItemText primary="Öğrenme Geçmişi" />
-          </ListItem>
-          <ListItem button component={Link} to="/ayarlar">
-            <ListItemIcon> <SettingsIcon /> </ListItemIcon>
-            <ListItemText primary="Ayarlar" />
+            <ListItemText primary="Genel Puan Tablosu"/>
           </ListItem>
         </List>
       </Drawer>
