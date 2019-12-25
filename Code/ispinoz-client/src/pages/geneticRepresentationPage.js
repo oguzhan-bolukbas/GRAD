@@ -25,10 +25,10 @@ class geneticRepresentationPage extends Component {
         <AppbarHome/>
         <PaperGeneticRepresentationPage/>
         <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
-                className="float-right" component={Link} to="/GAUygulamaları">
+                className="float-right" component={Link} to="/dersler/secim-turleri">
           İLERİ <NavigateNextIcon/> </Button>
         <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
-                component={Link} to="/">
+                component={Link} to="/dersler/uygunluk">
           <NavigateBeforeIcon/> GERİ </Button>
 
       </div>

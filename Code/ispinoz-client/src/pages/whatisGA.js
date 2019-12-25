@@ -25,7 +25,8 @@ class whatisGA extends Component{
 
         <AppbarHome/>
         <PaperWhatIsGA/>
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" component={Link} to="/GAUygulamaları">
+        <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
+                className="float-right" component={Link} to="/dersler/genetik-algoritma-uygulamalari">
           İLERİ <NavigateNextIcon/> </Button>
         <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/" >
           <NavigateBeforeIcon/> GERİ </Button>

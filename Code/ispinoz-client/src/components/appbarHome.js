@@ -148,20 +148,20 @@ export default function ClippedDrawer() {
         variant="permanent"
         classes={{
           paper: classes.drawerPaper
-        }}>
+        }}>fit
         <div className={classes.toolbar}/>
         <List>
-          <ListItem button component={Link} to="/GAnedir">
+          <ListItem button component={Link} to="/dersler/genetik-algoritma-nedir">
             <ListItemIcon> <GestureIcon/> </ListItemIcon>
             <ListItemText primary="GA Nedir?"/>
           </ListItem>
           <Divider/>
-          <ListItem button component={Link} to="/GAUygulamaları">
+          <ListItem button component={Link} to="/dersler/genetik-algoritma-uygulamalari">
             <ListItemIcon> <AppsIcon/> </ListItemIcon>
             <ListItemText primary="GA Uygulamaları"/>
           </ListItem>
           <Divider/>
-          <ListItem button component={Link} to="/GANasılÇalışır">
+          <ListItem button component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
             <ListItemIcon> <LowPriorityIcon/> </ListItemIcon>
             <ListItemText primary="GA Çalışma Mekanizması"/>
           </ListItem>
@@ -198,7 +198,7 @@ export default function ClippedDrawer() {
           </ListItem>
           <Collapse in={openMutation} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button component={Link} to="/mutasyon/mutasyon-nedir">
+              <ListItem button component={Link} to="/dersler/mutasyon/mutasyon-nedir">
                 <ListItemIcon> <StarRounded/> </ListItemIcon>
                 <ListItemText primary="Mutasyon Nedir?"/>
               </ListItem>

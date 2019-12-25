@@ -25,13 +25,13 @@ class mutation extends Component {
         <AppbarHome/>
         <PaperMutationTypes/>
         <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
-                className="float-right">
+                className="float-right" component={Link} to="/dersler/uygunluk">
           İLERİ
           <NavigateNextIcon/>
         </Button>
 
         <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
-                component={Link} to="/">
+                component={Link} to="/dersler/mutasyon/mutasyon-nedir">
           <NavigateBeforeIcon/>
           GERİ
         </Button>

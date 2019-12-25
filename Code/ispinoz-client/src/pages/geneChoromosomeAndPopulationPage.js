@@ -23,12 +23,14 @@ class mutation extends Component{
 
         <AppbarHome/>
         <PaperGeneAndCromosome/>
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginLeft:"2px", marginTop: "5px"}} className="float-right" >
+        <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
+                className="float-right" component={Link} to="/dersler/caprazlama/caprazlama-nedir">
           İLERİ
           <NavigateNextIcon/>
         </Button>
 
-        <Button  variant="contained" color="primary"  style={{float: 'right', marginTop: "5px"}} className="float-right" component={Link} to="/" >
+        <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
+                component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
           <NavigateBeforeIcon/>
           GERİ
         </Button>

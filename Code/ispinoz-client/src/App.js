@@ -62,16 +62,16 @@ class App extends Component {
                 <AuthRoute path="/girisyap"  component={login}  authenticated={authenticated}/>
                 <AuthRoute path="/kayitol" component={signup} authenticated={authenticated}/>
                 <Route path="/dersler/caprazlama/caprazlama-nedir"  component={crossingOver}/>
-                <Route path="/GAnedir" component={whatisGA}/>
+                <Route path="/dersler/genetik-algoritma-nedir" component={whatisGA}/>
                 <Route exact path="/problemler" component={practice}/>
                 <Route path="/quiz" component={quiz}/>
-                <Route path="/GAUygulamaları" component={gaApplications}/>
-                <Route path="/GANasılÇalışır" component={gaWorkingMechanism}/>
+                <Route path="/dersler/genetik-algoritma-uygulamalari" component={gaApplications}/>
+                <Route path="/dersler/genetik-algoritma-nasil-calisir" component={gaWorkingMechanism}/>
                 <Route path="/quizLectures" component={QuizLectures}/>
                 <Route path="/quizProblems" component={QuizProblems}/>
                 <Route path="/sırtÇantasıProlemiUygula" component={knapsackProblemPage}/>
                 <Route path="/geziciSatıcıProblemiUygula" component={tspProblemPage}/>
-                <Route path="/mutasyon/mutasyon-nedir" component={mutation}/>
+                <Route path="/dersler/mutasyon/mutasyon-nedir" component={mutation}/>
                 <Route path="/dersler/gen-kromozom-populasyon" component={geneAndChoromosome}/>
                 <Route path="/dersler/caprazlama/caprazlama-cesitleri" component={crossOverTypes}/>
                 <Route path="/dersler/mutasyon/mutasyon-cesitleri" component={mutationTypes}/>
