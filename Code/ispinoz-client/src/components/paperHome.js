@@ -3,15 +3,16 @@ import {makeStyles} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import European from "../images/European.png";
-import Links from '@material-ui/core/Link';
 import {Link} from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Grid from "@material-ui/core/Grid";
+import ButtonBase from "@material-ui/core/ButtonBase";
 
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     width: "600px",
-    height: "350px",
+    height: "360px",
   },
   mar: {
     marginTop: "40px"
@@ -23,30 +24,43 @@ export default function PaperSheet() {
   //const preventDefault = event => event.preventDefault();
   return (
     <Paper className={classes.root}>
-      <div className="row">
-        <div style={{display: 'inline-block'}}>
-          <img src={European} width={75} alt={""}/>
-        </div>
-        <div style={{display: 'inline-block'}}>
-          <h1 style={{color: '#00bcd5', marginTop: '-50'}}>ispinoz.com</h1>
-        </div>
-      </div>
+      <Grid container spacing={2} justify="center">
+        <Grid item>
+          <ButtonBase className={classes.image}>
+            <img className={classes.img} alt="complex" src={European} width={75}/>
+          </ButtonBase>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} justify="center">
+        <Grid item>
+          <ButtonBase className={classes.image}>
+            <Typography variant="h4" color="primary">İSPİNOZ</Typography>
+          </ButtonBase>
+        </Grid>
+      </Grid>
+      <br/>
       <Typography component="p" align={"justify"}>
-        İspinoz.com size Genetik Algoritmayı öğretmeyi ve problem ve quiz çözerek pratik yapabilmenizi sağlayan bir web
-        sitesidir.
-        <Links href="/GAnedir" onClick={"/GAnedir"} className={classes.link} component={""}>{" "} Dersler {" "}</Links>
-        sekmesinden Genetik Algoritmayı öğrenmeye,
-        <Links href="/quiz" onClick={"/quiz"} className={classes.link} component={""}>{" "} Quiz {" "}</Links>
-        sekmesinden öğrendiğiniz bilgileri ölçmeye,
-        <Links href="/problemler" onClick={"/problemler"} className={classes.link} component={""}>{" "} Problemler {" "}</Links>
-        sekmesinden çeşitli problemleri uygulamaya başlayabilirsiniz.
+        İspinoz size "Genetik Algoritma"yı öğrenme, problem ve quiz çözerek pratik yapabilme imkanını sağlayan
+        etkileşimli
+        bir web sitesidir.
+        <Typography variant="a" component={Link} to={`/GANedir`} color="primary"> Dersler </Typography>
+        sekmesinden genetik algoritmayı öğrenmeye,
+        <Typography variant="a" component={Link} to={`/quiz`} color="primary"> Quiz </Typography>
+        sekmesinden öğrendiğiniz bilgilerinizi ölçmeye,
+        <Typography variant="a" component={Link} to={`/problemler`} color="primary"> Problemler </Typography>
+        sekmesinden çeşitli problemleri inceleyip uygulamaya başlayabilirsiniz.
       </Typography>
-      <div className={classes.mar}>
-        <Button variant="contained" color="primary" style={{float: 'right'}} className="float-right" component={Link}
-                to="/problemler">PRATİK YAP</Button>
-        <Button variant="contained" color="primary" style={{float: 'left'}} className="float-left" component={Link}
-                to="/GAnedir">ÖĞRENMEYE BAŞLA</Button>
-      </div>
+      <br/>
+      <Grid container spacing={2} justify="center">
+        <Grid item>
+          <Button variant="contained" color="primary" style={{float: 'left'}} className="float-left" component={Link}
+                  to="/GAnedir">ÖĞRENMEYE BAŞLA</Button>
+        </Grid>
+        <Grid item>
+          <Button variant="contained" color="primary" style={{float: 'right'}} className="float-right" component={Link}
+                  to="/problemler">PRATİK YAP</Button>
+        </Grid>
+      </Grid>
     </Paper>
   );
-}
+};

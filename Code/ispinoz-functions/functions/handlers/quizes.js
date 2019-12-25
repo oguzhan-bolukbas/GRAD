@@ -14,6 +14,7 @@ exports.getAllQuizResults = (req, res) => {
         quizNumber: doc.data().quizNumber,
         quizScore: doc.data().quizScore,
         finishedAt: doc.data().finishedAt,
+        userImage: doc.data().userImage
       });
     });
     return res.json(quizResults);

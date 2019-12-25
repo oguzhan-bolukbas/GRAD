@@ -26,18 +26,15 @@ import mutation from "./pages/mutation"
 import geneAndChoromosome from "./pages/geneChoromosomeAndPopulationPage"
 import crossOverTypes from "./pages/CrossOverTypesPage"
 import mutationTypes from "./pages/mutationTypes"
-
-import profile from "./pages/profilePage"
 import learnKnapsackProblemPage from "./pages/learnKnapsackProblemPage"
 import learnTSPPage from "./pages/learnTSPPage"
 import fitnessPage from "./pages/fitnessPage"
 import geneticRepresentationPage from "./pages/geneticRepresentationPage"
 import selectionTypesPage from "./pages/selectionTypesPage"
-
-
-import learningHistory from "./pages/learningHistory"
-import settings from "./pages/settings"
+import quizResults from "./pages/quizResults"
 import references from "./pages/ReferencesPage"
+
+import profile from "./pages/profile"
 
 
 const theme = createMuiTheme(themeFile);
@@ -46,7 +43,7 @@ let authenticated;
 if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 < Date.now()) {
-    window.location.href = "/login";
+    window.location.href = "/girisyap";
     authenticated = false;
   } else {
     authenticated = true;
@@ -83,12 +80,10 @@ class App extends Component {
                 <Route path="/dersler/uygunluk" component={fitnessPage}/>
                 <Route path="/dersler/genetik-kodlama" component={geneticRepresentationPage}/>
                 <Route path="/dersler/secim-turleri" component={selectionTypesPage}/>
+                <Route path="/quizSonuclari" component={quizResults}/>
+                <Route path="/referanslar" component={references}/>
 
                 <Route path="/profil" component={profile}/>
-                <Route path="/ogrenme-gecmisi" component={learningHistory}/>
-                <Route path="/ayarlar" component={settings}/>
-
-                <Route path="/referanslar" component={references}/>
 
               </Switch>
             </div>
