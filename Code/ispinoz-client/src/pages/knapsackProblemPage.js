@@ -1,4 +1,3 @@
-//KOD TAM DEĞİL
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,10 +20,8 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
-
+import { deepOrange} from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
-
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -120,13 +117,6 @@ const speed = [
 ];
 function createData(name, calories) {
     return { name, calories};
-}
-function valuetext(value) {
-    return `${value}`;
-}
-
-function valueLabelFormat(value) {
-    return speed.findIndex(speed => speed.value === value) + 1;
 }
 const rows = [
     createData(0, ""),
@@ -261,6 +251,7 @@ export default function DenseTable() {
     function fitness0() {
         setBestFitness(0);
         window.bestvalue = 0;
+        window.bestpath = "";
         var best = 0;
         var i;
         for (i = 1; i < 11; i++) {
@@ -298,6 +289,7 @@ export default function DenseTable() {
             x[0].innerHTML = sum;
             if (best < sum){
                 best = sum  ;
+                window.bestpath = k;
             }
 
         }
@@ -352,6 +344,7 @@ export default function DenseTable() {
         }
         if(window.bestvalue < best){
             window.bestvalue = best;
+            window.bestpath = k;
         }
     }
 //next generation
@@ -401,6 +394,7 @@ export default function DenseTable() {
         }
         if(window.bestvalue < best){
             window.bestvalue = best;
+            window.bestpath = k;
         }
     }
     //repair
@@ -450,6 +444,7 @@ export default function DenseTable() {
         }
         if(window.bestvalue < best){
             window.bestvalue = best;
+            window.bestpath = k;
         }
     }
     //cross
@@ -1157,6 +1152,7 @@ export default function DenseTable() {
                             </Select>
 
                         </FormControl>
+
                         <div className={classes.root} >
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
                                 En Yüksek Değer
@@ -1164,6 +1160,14 @@ export default function DenseTable() {
                             <Avatar className={classes2.orange}>{window.bestvalue}</Avatar>
                         </div>
 
+
+                        <div className={classes.row3}>
+                            <div id="nur" className={classes.row3} >
+                                <Typography  color="secondary"  gutterBottom variant="h4" component="h4"  >
+                                    {window.bestpath}
+                                </Typography>
+                            </div>
+                        </div>
 
 
                     </div>

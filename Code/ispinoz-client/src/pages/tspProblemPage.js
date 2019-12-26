@@ -1,4 +1,3 @@
-//KOD TAM DEĞİL
 
 import React from 'react';
 import { withStyles,makeStyles } from '@material-ui/core/styles';
@@ -11,26 +10,18 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import AppbarProblems from "../components/appbarProblems";
 import Fab from "@material-ui/core/Fab";
-import ExposurePlus1Icon from "@material-ui/core/SvgIcon/SvgIcon";
-import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ClearIcon from '@material-ui/icons/Clear';
-import FlipCameraAndroidIcon from '@material-ui/icons/FlipCameraAndroid';
 import LoopIcon from '@material-ui/icons/Loop';
 import BuildIcon from '@material-ui/icons/Build';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
-import Slider from '@material-ui/core/Slider';
-
+import { deepOrange} from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
-
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -207,6 +198,7 @@ export default function DenseTable() {
     function start() {
         var i;
         window.bestvalue2 = 99;
+        window.bestpath = "";
         window.endValue = 0;
         window.mesafearray= [[0,7,5,6,5,4,3,5],[7,0,3,6,5,8,7,9],[5,3,0,3,5,7,4,6],[6,6,3,0,4,5,7,1],[5,5,5,4,0,6,3,4],
             [4,8,7,5,6,0,3,2],[3,7,4,7,3,3,0,5],[5,9,6,1,4,2,5,0]]
@@ -297,7 +289,7 @@ export default function DenseTable() {
     function fitness(tablearray, tablevalue)  {
             setBestFitness(0);
             var best = 100;
-            var i,n;
+            var i,n,path;
             for (i = 1; i < 11; i++) {
                 var j;
                 var sum = 0;
@@ -335,12 +327,14 @@ export default function DenseTable() {
                 x[0].innerHTML = sum;
                 if (best > sum){
                     best = sum  ;
+                    path = k;
                 }
             }
 
             setBestFitness(best)  ;
         if(window.bestvalue2 > best){
             window.bestvalue2 = best;
+            window.bestpath = path;
         }
 
 
@@ -468,7 +462,7 @@ export default function DenseTable() {
         }
 
         for (x = 0; x < 5; x++) {
-            var random = Math.random() * 10;
+            var random = Math.random() * 100;
             var intvalue = Math.floor( random );
             if(intvalue < cprob){
                 substr1 = array[2*x+1].substr(0, (array[2*x+1].length-cvalue));
@@ -546,7 +540,7 @@ export default function DenseTable() {
             var txt2 = "";
             var nur = window.nurarray3[i];
             var res = nur.split("");
-            var random = Math.random() * 10;
+            var random = Math.random() * 100;
             var intvalue = Math.floor( random );
            if(intvalue < mprob) {
                 var random1 = Math.random() *8 ;
@@ -554,20 +548,35 @@ export default function DenseTable() {
                 var random2 = Math.random() *8 ;
                 var intvalue2 = Math.floor( random2 );
                 var a,b;
-                if(intvalue1>intvalue2){
+                if(intvalue1 > intvalue2){
                     var val = intvalue2;
                     intvalue2 = intvalue1;
                     intvalue1 = val;
+                    a = res[intvalue1];
+                    b = res[intvalue2];
+                    txt2 =  nur.substring(0, intvalue1);
+                    txt2 = txt2.concat(b);
+                    var deneme =  nur.substring(intvalue1+1, intvalue2);
+                    txt2 = txt2.concat(deneme);
+                    txt2 = txt2.concat(a);
+                    deneme =  nur.substring(intvalue2+1, nur.length);
+                    txt2 = txt2.concat(deneme);
                 }
-                a = res[intvalue1];
-                b = res[intvalue2];
-                txt2 =  nur.substring(0, intvalue1);
-                txt2 = txt2.concat(b);
-                var deneme =  nur.substring(intvalue1+1, intvalue2);
-                txt2 = txt2.concat(deneme);
-                txt2 = txt2.concat(a);
-                deneme =  nur.substring(intvalue2+1, nur.length);
-                txt2 = txt2.concat(deneme);
+                else if(intvalue1 < intvalue2){
+                    a = res[intvalue1];
+                    b = res[intvalue2];
+                    txt2 =  nur.substring(0, intvalue1);
+                    txt2 = txt2.concat(b);
+                    var deneme =  nur.substring(intvalue1+1, intvalue2);
+                    txt2 = txt2.concat(deneme);
+                    txt2 = txt2.concat(a);
+                    deneme =  nur.substring(intvalue2+1, nur.length);
+                    txt2 = txt2.concat(deneme);
+                }
+                else{
+                    txt2 = window.nurarray3[i]
+                }
+
             }
                else{
                txt2 = window.nurarray3[i]
@@ -667,17 +676,174 @@ export default function DenseTable() {
         }
     }
     function repair(){
-        var i;
-        var array2 = ["","","","","","","",""];
+        var i,m,n;
+        var i,str1,str2,str3,str4,str5,str6,str7,str8;
+        var newarray = ["","","","","","","","","","",""];
+        var newarray2 = ["","","","","","","","","",""];
+        window.nurarray7 = ["","","","","","","","","","",""];
         for (i = 1; i < 11; i++) {
-            var x = document.getElementById("table1").rows[i].cells;
+            var array2 = ["0","0","0","0","0","0","0","0","0"];
+            var array3 = ["0","0","0","0","0","0","0","0","0"];
+            //var x = document.getElementById("table1").rows[i].cells;
+
             var y = document.getElementById("table5").rows[i].cells;
-           // window.nurarray2[i]
-            var txt = x[1].innerHTML;
-            array2[i] = txt;
-            y[1].innerHTML = txt ;
+
+            var k = window.nurarray2[i];
+
+
+                if(k.indexOf("1") !== -1){
+                    array2[1] = "1";
+                    var num = 1;
+                    array3[1] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("2") !== -1){
+                    array2[2] = "1";
+                    var num = 2;
+                    array3[2] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("3") !== -1){
+                    array2[3] = "1";
+                    var num = 3;
+                    array3[3] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("4") !== -1){
+                    array2[4] = "1";
+                    var num = 4;
+                    array3[4] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("5") !== -1){
+                    array2[5] = "1";
+                    var num = 5;
+                    array3[5] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("6") !== -1){
+                    array2[6] = "1";
+                    var num = 6;
+                    array3[6] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("7") !== -1){
+                    array2[7] = "1";
+                    var num = 7;
+                    array3[7] = k.split(num.toString()).length-1
+                }
+                if(k.indexOf("8") !== -1){
+                    array2[8] = "1";
+                    var num = 8;
+                    array3[8] = k.split(num.toString()).length-1
+                }
+                var txt2;
+                var ple = k;
+            for (m = 1; m < 9; m++){
+                if(array2[m] === "0"){
+                    var random = Math.random() * 8;
+                    var intvalue = Math.floor( random );
+                    intvalue = intvalue+1;
+                   var please =1;
+                    while(please){
+                        if( parseInt(array3[intvalue] ) > 1){
+                            array3[intvalue] = array3[intvalue] -1;
+                            please = 0;
+                        }
+                        else{
+                            var random = Math.random() * 8;
+                            var intvalue = Math.floor( random );
+                            intvalue = intvalue+1;
+
+                        }
+                    }
+
+
+                    var txt2 =  ple.substring(0, ple.indexOf(intvalue) );
+                    var cal = m;
+                    txt2 = txt2.concat(cal);
+                    var txt3 = ple.substring(ple.indexOf(intvalue) +1,ple.length);
+                    txt2 = txt2.concat(txt3);
+
+
+
+                    ple =txt2;
+                    array2[m] = "1";
+                    array3[m] = 1;
+                }
+
+            }
+
+            window.nurarray7[i] = ple;
+            var nur = window.nurarray2[i];
+            var res = nur.split("");
+            var nur2 = window.nurarray7[i];
+            var res2 = nur2.split("");
+            for (k = 0; k < 8; k++) {
+                if (res2[k] === res[k]){
+                    newarray[k]= "1";
+                }
+                else{
+                    newarray[k]= "0";
+
+                }
+            }
+
+            if(newarray[0] === "0"){
+                str1 =  res2[0].fontcolor("blue");
+            }
+            else{
+                str1 =  res2[0]
+            }
+            if(newarray[1] === "0"){
+                str2 =  res2[1].fontcolor("blue");
+            }
+            else{
+                str2 =  res2[1]
+            }
+            if(newarray[2] === "0"){
+                str3 =  res2[2].fontcolor("blue");
+            }
+            else{
+                str3 =  res2[2]
+            }
+            if(newarray[3] === "0"){
+                str4 =  res2[3].fontcolor("blue");
+            }
+            else{
+                str4 =  res2[3]
+            }
+            if(newarray[4] === "0"){
+                str5 = res2[4].fontcolor("blue");
+            }
+            else{
+                str5 =  res2[4]
+            }
+            if(newarray[5] === "0"){
+                str6 =  res2[5].fontcolor("blue");
+            }
+            else{
+                str6 =  res2[5]
+            }
+            if(newarray[6] === "0"){
+                str7 =  res2[6].fontcolor("blue");
+            }
+            else{
+                str7 =  res2[6]
+            }
+            if(newarray[7] === "0"){
+                str8 =  res2[7].fontcolor("blue");
+            }
+            else{
+                str8 =  res2[7]
+            }
+
+            newarray2[i] = str1.concat(str2,str3,str4,str5,str6,str7,str8);
+            y[1].innerHTML = newarray2[i];
+
+
+
+
+
+
         }
-        fitness(array2,5);
+
+
+        fitness(window.nurarray7,5);
         if(timervalue == 2){
             setTimeout(nextgeneration, 20000);
         }
@@ -706,10 +872,10 @@ export default function DenseTable() {
                 var c = document.getElementById("table4").rows[i].cells;
 
 
-                var txt = x[1].innerHTML;
-                array5[i] = txt;
 
-                y[1].innerHTML = txt;
+               array5[i] = window.nurarray7[i];
+
+                y[1].innerHTML = window.nurarray7[i];
                 x[1].innerHTML = "";
                 a[1].innerHTML = "";
                 b[1].innerHTML = "";
@@ -727,7 +893,7 @@ export default function DenseTable() {
             }
 
 
-            fitness(array5, 1)
+           fitness(array5, 1)
             if (timervalue == 2) {
                 window.endValue = window.endValue + 1;
                 setTimeout(selection, 20000);
@@ -772,15 +938,15 @@ export default function DenseTable() {
                                 value={mprob}
                                 onChange={handleChange}
                             >
-                                <MenuItem value={1}>0,1</MenuItem>
-                                <MenuItem value={2}>0,2</MenuItem>
-                                <MenuItem value={3}>0,3</MenuItem>
-                                <MenuItem value={4}>0,4</MenuItem>
-                                <MenuItem value={5}>0,5</MenuItem>
-                                <MenuItem value={6}>0,6</MenuItem>
-                                <MenuItem value={7}>0,7</MenuItem>
-                                <MenuItem value={8}>0,8</MenuItem>
-                                <MenuItem value={9}>0,9</MenuItem>
+                                <MenuItem value={5}>0,05</MenuItem>
+                                <MenuItem value={10}>0,1</MenuItem>
+                                <MenuItem value={15}>0,15</MenuItem>
+                                <MenuItem value={20}>0,2</MenuItem>
+                                <MenuItem value={25}>0,25</MenuItem>
+                                <MenuItem value={30}>0,3</MenuItem>
+                                <MenuItem value={35}>0,35</MenuItem>
+                                <MenuItem value={40}>0,4</MenuItem>
+                                <MenuItem value={45}>0,45</MenuItem>
                             </Select>
 
                         </FormControl>
@@ -795,15 +961,15 @@ export default function DenseTable() {
                                 onChange={handleChangeCross}
                             >
 
-                                <MenuItem value={1}>0,1</MenuItem>
-                                <MenuItem value={2}>0,2</MenuItem>
-                                <MenuItem value={3}>0,3</MenuItem>
-                                <MenuItem value={4}>0,4</MenuItem>
-                                <MenuItem value={5}>0,5</MenuItem>
-                                <MenuItem value={6}>0,6</MenuItem>
-                                <MenuItem value={7}>0,7</MenuItem>
-                                <MenuItem value={8}>0,8</MenuItem>
-                                <MenuItem value={9}>0,9</MenuItem>
+                                <MenuItem value={5}>0,05</MenuItem>
+                                <MenuItem value={10}>0,1</MenuItem>
+                                <MenuItem value={15}>0,15</MenuItem>
+                                <MenuItem value={20}>0,2</MenuItem>
+                                <MenuItem value={25}>0,25</MenuItem>
+                                <MenuItem value={30}>0,3</MenuItem>
+                                <MenuItem value={35}>0,35</MenuItem>
+                                <MenuItem value={40}>0,4</MenuItem>
+                                <MenuItem value={45}>0,45</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -854,7 +1020,13 @@ export default function DenseTable() {
                             <Avatar className={classes2.orange}>{window.bestvalue2}</Avatar>
                         </div>
 
-
+                        <div className={classes.row3}>
+                            <div id="nur" className={classes.row3} >
+                                <Typography  color="secondary"  gutterBottom variant="h4" component="h4"  >
+                                    {window.bestpath}
+                                </Typography>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
