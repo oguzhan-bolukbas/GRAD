@@ -1,4 +1,3 @@
-//KOD TAM DEĞİL
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -11,26 +10,18 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import AppbarProblems from "../components/appbarProblems";
 import Fab from "@material-ui/core/Fab";
-import ExposurePlus1Icon from "@material-ui/core/SvgIcon/SvgIcon";
-import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ClearIcon from '@material-ui/icons/Clear';
-import FlipCameraAndroidIcon from '@material-ui/icons/FlipCameraAndroid';
 import LoopIcon from '@material-ui/icons/Loop';
 import BuildIcon from '@material-ui/icons/Build';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
-import Slider from '@material-ui/core/Slider';
-
+import { deepOrange} from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
-
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -126,13 +117,6 @@ const speed = [
 ];
 function createData(name, calories) {
     return { name, calories};
-}
-function valuetext(value) {
-    return `${value}`;
-}
-
-function valueLabelFormat(value) {
-    return speed.findIndex(speed => speed.value === value) + 1;
 }
 const rows = [
     createData("-", ""),

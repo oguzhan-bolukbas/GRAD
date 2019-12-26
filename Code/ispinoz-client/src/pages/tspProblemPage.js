@@ -1,4 +1,3 @@
-//KOD TAM DEĞİL
 
 import React from 'react';
 import { withStyles,makeStyles } from '@material-ui/core/styles';
@@ -11,26 +10,18 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import AppbarProblems from "../components/appbarProblems";
 import Fab from "@material-ui/core/Fab";
-import ExposurePlus1Icon from "@material-ui/core/SvgIcon/SvgIcon";
-import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import ClearIcon from '@material-ui/icons/Clear';
-import FlipCameraAndroidIcon from '@material-ui/icons/FlipCameraAndroid';
 import LoopIcon from '@material-ui/icons/Loop';
 import BuildIcon from '@material-ui/icons/Build';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import TextField from '@material-ui/core/TextField';
 import Avatar from '@material-ui/core/Avatar';
-import { deepOrange, deepPurple } from '@material-ui/core/colors';
-import Slider from '@material-ui/core/Slider';
-
+import { deepOrange} from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
-
 const useStyles = makeStyles({
     root: {
         width: '100%',
@@ -471,7 +462,7 @@ export default function DenseTable() {
         }
 
         for (x = 0; x < 5; x++) {
-            var random = Math.random() * 10;
+            var random = Math.random() * 100;
             var intvalue = Math.floor( random );
             if(intvalue < cprob){
                 substr1 = array[2*x+1].substr(0, (array[2*x+1].length-cvalue));
@@ -549,7 +540,7 @@ export default function DenseTable() {
             var txt2 = "";
             var nur = window.nurarray3[i];
             var res = nur.split("");
-            var random = Math.random() * 10;
+            var random = Math.random() * 100;
             var intvalue = Math.floor( random );
            if(intvalue < mprob) {
                 var random1 = Math.random() *8 ;
@@ -557,20 +548,35 @@ export default function DenseTable() {
                 var random2 = Math.random() *8 ;
                 var intvalue2 = Math.floor( random2 );
                 var a,b;
-                if(intvalue1>intvalue2){
+                if(intvalue1 > intvalue2){
                     var val = intvalue2;
                     intvalue2 = intvalue1;
                     intvalue1 = val;
+                    a = res[intvalue1];
+                    b = res[intvalue2];
+                    txt2 =  nur.substring(0, intvalue1);
+                    txt2 = txt2.concat(b);
+                    var deneme =  nur.substring(intvalue1+1, intvalue2);
+                    txt2 = txt2.concat(deneme);
+                    txt2 = txt2.concat(a);
+                    deneme =  nur.substring(intvalue2+1, nur.length);
+                    txt2 = txt2.concat(deneme);
                 }
-                a = res[intvalue1];
-                b = res[intvalue2];
-                txt2 =  nur.substring(0, intvalue1);
-                txt2 = txt2.concat(b);
-                var deneme =  nur.substring(intvalue1+1, intvalue2);
-                txt2 = txt2.concat(deneme);
-                txt2 = txt2.concat(a);
-                deneme =  nur.substring(intvalue2+1, nur.length);
-                txt2 = txt2.concat(deneme);
+                else if(intvalue1 < intvalue2){
+                    a = res[intvalue1];
+                    b = res[intvalue2];
+                    txt2 =  nur.substring(0, intvalue1);
+                    txt2 = txt2.concat(b);
+                    var deneme =  nur.substring(intvalue1+1, intvalue2);
+                    txt2 = txt2.concat(deneme);
+                    txt2 = txt2.concat(a);
+                    deneme =  nur.substring(intvalue2+1, nur.length);
+                    txt2 = txt2.concat(deneme);
+                }
+                else{
+                    txt2 = window.nurarray3[i]
+                }
+
             }
                else{
                txt2 = window.nurarray3[i]
@@ -932,15 +938,15 @@ export default function DenseTable() {
                                 value={mprob}
                                 onChange={handleChange}
                             >
-                                <MenuItem value={1}>0,1</MenuItem>
-                                <MenuItem value={2}>0,2</MenuItem>
-                                <MenuItem value={3}>0,3</MenuItem>
-                                <MenuItem value={4}>0,4</MenuItem>
-                                <MenuItem value={5}>0,5</MenuItem>
-                                <MenuItem value={6}>0,6</MenuItem>
-                                <MenuItem value={7}>0,7</MenuItem>
-                                <MenuItem value={8}>0,8</MenuItem>
-                                <MenuItem value={9}>0,9</MenuItem>
+                                <MenuItem value={5}>0,05</MenuItem>
+                                <MenuItem value={10}>0,1</MenuItem>
+                                <MenuItem value={15}>0,15</MenuItem>
+                                <MenuItem value={20}>0,2</MenuItem>
+                                <MenuItem value={25}>0,25</MenuItem>
+                                <MenuItem value={30}>0,3</MenuItem>
+                                <MenuItem value={35}>0,35</MenuItem>
+                                <MenuItem value={40}>0,4</MenuItem>
+                                <MenuItem value={45}>0,45</MenuItem>
                             </Select>
 
                         </FormControl>
@@ -955,15 +961,15 @@ export default function DenseTable() {
                                 onChange={handleChangeCross}
                             >
 
-                                <MenuItem value={1}>0,1</MenuItem>
-                                <MenuItem value={2}>0,2</MenuItem>
-                                <MenuItem value={3}>0,3</MenuItem>
-                                <MenuItem value={4}>0,4</MenuItem>
-                                <MenuItem value={5}>0,5</MenuItem>
-                                <MenuItem value={6}>0,6</MenuItem>
-                                <MenuItem value={7}>0,7</MenuItem>
-                                <MenuItem value={8}>0,8</MenuItem>
-                                <MenuItem value={9}>0,9</MenuItem>
+                                <MenuItem value={5}>0,05</MenuItem>
+                                <MenuItem value={10}>0,1</MenuItem>
+                                <MenuItem value={15}>0,15</MenuItem>
+                                <MenuItem value={20}>0,2</MenuItem>
+                                <MenuItem value={25}>0,25</MenuItem>
+                                <MenuItem value={30}>0,3</MenuItem>
+                                <MenuItem value={35}>0,35</MenuItem>
+                                <MenuItem value={40}>0,4</MenuItem>
+                                <MenuItem value={45}>0,45</MenuItem>
                             </Select>
                         </FormControl>
 
