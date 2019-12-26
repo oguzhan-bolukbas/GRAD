@@ -14,27 +14,18 @@ class mutation extends Component{
     document.body.style.background = "#fff";
     document.body.style.marginLeft = "370px";
     document.body.style.marginRight = "100px";
-
-
   }
   render() {
     return (
       <div className="home">
-
         <AppbarHome/>
         <PaperGeneAndCromosome/>
-        <Button variant="contained" color="primary" style={{float: 'right', marginLeft: "2px", marginTop: "5px"}}
-                className="float-right" component={Link} to="/dersler/caprazlama/caprazlama-nedir">
-          İLERİ
-          <NavigateNextIcon/>
-        </Button>
-
-        <Button variant="contained" color="primary" style={{float: 'right', marginTop: "5px"}} className="float-right"
+        <Button variant="contained" color="primary" style={{float: 'left', marginTop: "5px"}} className="float-right"
                 component={Link} to="/dersler/genetik-algoritma-nasil-calisir">
-          <NavigateBeforeIcon/>
-          GERİ
-        </Button>
-
+          <NavigateBeforeIcon/>GERİ</Button>
+        <Button variant="contained" color="primary" style={{float: 'left', marginLeft: "2px", marginTop: "5px"}}
+                className="float-right" component={Link} to="/dersler/caprazlama/caprazlama-nedir">
+          İLERİ<NavigateNextIcon/></Button>
       </div>
     );
   }

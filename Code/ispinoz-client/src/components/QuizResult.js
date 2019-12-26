@@ -33,9 +33,9 @@ class QuizResult extends Component {
         <CardMedia image={userImage} title="Quiz Result" className={classes.image}/>
         <CardContent className={classes.content}>
           <Typography variant="h5" component={Link} to={`/kisiler/${userHandle}`} color="primary">{userHandle}</Typography>
-          <Typography variant="body1" color="secondary">Quiz Number: {quizNumber}</Typography>
-          <Typography variant="body1" color="secondary">Quiz Score: {quizScore}</Typography>
-          <Typography variant="body1">Classname: {className}</Typography>
+          <Typography variant="body1" color="secondary">Quiz Numarası: {quizNumber}</Typography>
+          <Typography variant="body1" color="secondary">Quiz Puanı: {quizScore}</Typography>
+          <Typography variant="body1">Sınıfı: {className}</Typography>
           <Typography variant="body2" color="textSecondary">{dayjs(finishedAt).fromNow()}</Typography>
         </CardContent>
       </Card>

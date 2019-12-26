@@ -48,8 +48,8 @@ class signup extends Component {
       confirmPassword: this.state.confirmPassword,
       handle: this.state.handle
     };
-    axios
-      .post('/kayitol', newUserData)
+    console.log(newUserData);
+    axios.post('/signup', newUserData)
       .then(res => {
         localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
@@ -84,18 +84,18 @@ class signup extends Component {
           </Typography>
           <form noValidate onSubmit={this.handleSubmit}>
             <TextField id="email" name="email" type="email" label="E-posta" className={classes.textField}
-                       helperText={errors.email} error={errors.email ? true : false} value={this.state.email}
+                       helperText={errors.email} error={!!errors.email} value={this.state.email}
                        onChange={this.handleChange} fullWidth/>
             <TextField id="password" name="password" type="password" label="Şifre" className={classes.textField}
-                       helperText={errors.password} error={errors.password ? true : false}
+                       helperText={errors.password} error={!!errors.password}
                        value={this.state.password} onChange={this.handleChange} fullWidth/>
             <TextField id="confirmPassword" name="confirmPassword" type="password" label="Şifreyi Doğrula"
                        className={classes.textField}
-                       helperText={errors.confirmPassword} error={errors.confirmPassword ? true : false}
+                       helperText={errors.confirmPassword} error={!!errors.confirmPassword}
                        value={this.state.confirmPassword}
                        onChange={this.handleChange} fullWidth/>
             <TextField id="handle" name="handle" type="text" label="Kullanıcı Adı" className={classes.textField}
-                       helperText={errors.handle} error={errors.handle ? true : false} value={this.state.handle}
+                       helperText={errors.handle} error={!!errors.handle} value={this.state.handle}
                        onChange={this.handleChange} fullWidth/>
             {errors.general && (
               <Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}

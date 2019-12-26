@@ -5,17 +5,18 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import Paper from "@material-ui/core/Paper";
 // Icons
-import {CalendarToday, Person, School, Web} from "@material-ui/icons";
+import {CalendarToday, Person, School} from "@material-ui/icons";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Typography from "@material-ui/core/Typography";
 
 const styles = (theme) => ({
   paper: {
+    marginTop: "-20px",
     marginLeft: '300px',
     padding: 20,
     width: "600px",
-    height: "475px"
+    height: "440"
   },
   profile: {
     '& .image-wrapper': {
@@ -35,7 +36,7 @@ const styles = (theme) => ({
       borderRadius: '50%'
     },
     '& .profile-details': {
-      margin: '0 0 0 125px',
+      margin: '10px 0 0 150px',
       textAlign: 'left',
       '& span, svg': {
         verticalAlign: 'middle'
@@ -78,17 +79,12 @@ class Profile extends Component {
           </div>
           <div className="profile-details">
             <ListItem className={classes.buttonPadding}>
-              <ListItemIcon> <Person color="primary"/> </ListItemIcon>
-              <Typography variant="h6" color="initial">{userHandle}</Typography>
-            </ListItem>
-            <ListItem className={classes.buttonPadding}>
               <ListItemIcon> <School color="primary"/> </ListItemIcon>
               <Typography variant="h6" color="initial">{className}</Typography>
             </ListItem>
             <ListItem className={classes.buttonPadding}>
-              <ListItemIcon> <Web color="primary"/> </ListItemIcon>
-              <Typography variant="h6" color="initial"><a
-                href={"https://www.github.com/oguzhan-bolukbas"}>github.com/oguzhan-bolukbas</a></Typography>
+              <ListItemIcon> <Person color="primary"/> </ListItemIcon>
+              <Typography variant="h6" color="initial">{userHandle}</Typography>
             </ListItem>
             <ListItem className={classes.buttonPadding}>
               <ListItemIcon> <CalendarToday color="primary"/> </ListItemIcon>
@@ -97,7 +93,7 @@ class Profile extends Component {
           </div>
         </div>
       </Paper>
-    ) : <h5></h5>;
+    ) : <h5> </h5>;
   }
 }
 

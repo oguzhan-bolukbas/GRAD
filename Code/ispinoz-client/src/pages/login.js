@@ -44,7 +44,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    axios.post('/Login', userData)
+    axios.post('/login', userData)
       .then(res => {
         localStorage.setItem('FBIdToken', `Bearer ${res.data.token}`);
         this.setState({
@@ -80,10 +80,10 @@ class Login extends Component {
             </Typography>
             <form noValidate onSubmit={this.handleSubmit}>
               <TextField id="email" name="email" type="email" label="E-posta" className={classes.textField}
-                         helperText={errors.email} error={errors.email ? true : false} value={this.state.email}
+                         helperText={errors.email} error={!!errors.email} value={this.state.email}
                          onChange={this.handleChange} fullWidth/>
               <TextField id="password" name="password" type="password" label="Şifre" className={classes.textField}
-                         helperText={errors.password} error={errors.password ? true : false} value={this.state.password}
+                         helperText={errors.password} error={!!errors.password} value={this.state.password}
                          onChange={this.handleChange} fullWidth/>
               {errors.general && (
                 <Typography variant="body2" className={classes.customError}>{errors.general}</Typography>)}
