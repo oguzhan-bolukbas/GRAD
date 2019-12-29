@@ -1,0 +1,4 @@
+node_modules/
+
+# IMPORTANT! Never push configuration files
+firebaseConf.js

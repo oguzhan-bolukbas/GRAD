@@ -1,0 +1,36 @@
+html,
+body{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+}
+.container{ /*Navbar'ın arkasında metin kalmaması için*/
+  margin: auto auto 0 auto; /*Top Right Bottom Left top 80 di değiştim.*/
+  max-width: 1200px;
+}
+.pixel{
+  margin-left: 120px;
+}
+
+.nav-container{
+  margin: auto;
+}
+
+.list {
+  margin-left: 5500px;
+}
+.home h1{
+  color: white; /* or hexidecimal */
+}
+.lecture h1{
+  color: white; /* or hexidecimal */
+}
+.practice h1{
+  color: white; /* or hexidecimal */
+}
+.quiz h1{
+  color: white; /* or hexidecimal */
+}
+a{
+  text-decoration: none;
+}
