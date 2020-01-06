@@ -1,7 +1,7 @@
 export const quizData = [
   {
     id: 0,
-    question: `Genetik Algoirtma'da koromozom nedir?`,
+    question: `Genetik Algoritma'da kromozom nedir?`,
     options: [`Kendi başına anlamlı bilgi taşıyan en küçük birimdir.`,
       `Birden fazla genin bir araya gelerek oluşturduğu dizidir. `,
       `Bireylerin oluşturduğu topluluktur.`],

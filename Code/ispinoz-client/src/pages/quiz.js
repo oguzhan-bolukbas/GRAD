@@ -28,7 +28,8 @@ const useStyles = makeStyles({
 
 export default function ImgMediaCard() {
   const classes = useStyles();
-
+  let lessonName = "Dersler\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0";
+  let problemName = "Problemler\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0";
   return (
     <div className="home">
       <AppbarProblems />
@@ -45,7 +46,7 @@ export default function ImgMediaCard() {
               />
               <CardContent>
                 <Typography color="primary" gutterBottom variant="h5" component="h2">
-                  Dersler
+                  {lessonName}
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -68,7 +69,7 @@ export default function ImgMediaCard() {
               />
               <CardContent>
                 <Typography color="primary" gutterBottom variant="h5" component="h2">
-                  Problemler
+                  {problemName}
                 </Typography>
               </CardContent>
             </CardActionArea>

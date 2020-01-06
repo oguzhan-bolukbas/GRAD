@@ -186,7 +186,7 @@ export default function ClippedDrawer() {
           </ListItem>
           <ListItem button onClick={handleClickCrossingOver}>
             <ListItemIcon> <BubbleChartTwoTone/> </ListItemIcon>
-            <ListItemText primary="Çaprazlama (Crossover)"/>
+            <ListItemText primary="Çaprazlama (Crossover)"LowPriorityIcon/>
             {openCrossingOver ? <ExpandLess /> : <ExpandMore />}
           </ListItem>
           <Collapse in={openCrossingOver} timeout="auto" unmountOnExit>

@@ -119,16 +119,16 @@ function createData(name, calories) {
     return { name, calories};
 }
 const rows = [
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", ""),
-    createData("-", "")
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, ""),
+    createData(0, "")
 ];
 
 
@@ -240,7 +240,7 @@ export default function DenseTable() {
 
         }
         else if(timervalue == 5){
-            setTimeout(selection, 2000);
+            setTimeout(selection, 500);
 
         }
         else if(timervalue == 6){
@@ -637,7 +637,7 @@ export default function DenseTable() {
             setTimeout(crossover, 5000);
         }
         else if(timervalue == 5){
-            setTimeout(crossover, 2000);
+            setTimeout(crossover, 500);
         }
         else if(timervalue == 6){
             crossover();
@@ -714,7 +714,7 @@ export default function DenseTable() {
             setTimeout(mutation, 5000);
         }
         else if(timervalue == 5){
-            setTimeout(mutation, 2000);
+            setTimeout(mutation, 500);
         }
         else if(timervalue == 6){
             mutation();
@@ -771,49 +771,49 @@ export default function DenseTable() {
             }
 
             if(array2[0] === "0"){
-                str1 =  res2[0].fontcolor("blue");
+                str1 =  res2[0].fontcolor("red");
             }
             else{
                 str1 =  res2[0]
             }
             if(array2[1] === "0"){
-                str2 =  res2[1].fontcolor("blue");
+                str2 =  res2[1].fontcolor("red");
             }
             else{
                 str2 =  res2[1]
             }
             if(array2[2] === "0"){
-                str3 =  res2[2].fontcolor("blue");
+                str3 =  res2[2].fontcolor("red");
             }
             else{
                 str3 =  res2[2]
             }
             if(array2[3] === "0"){
-                str4 =  res2[3].fontcolor("blue");
+                str4 =  res2[3].fontcolor("red");
             }
             else{
                 str4 =  res2[3]
             }
             if(array2[4] === "0"){
-                str5 = res2[4].fontcolor("blue");
+                str5 = res2[4].fontcolor("red");
             }
             else{
                 str5 =  res2[4]
             }
             if(array2[5] === "0"){
-                str6 =  res2[5].fontcolor("blue");
+                str6 =  res2[5].fontcolor("red");
             }
             else{
                 str6 =  res2[5]
             }
             if(array2[6] === "0"){
-                str7 =  res2[6].fontcolor("blue");
+                str7 =  res2[6].fontcolor("red");
             }
             else{
                 str7 =  res2[6]
             }
             if(array2[7] === "0"){
-                str8 =  res2[7].fontcolor("blue");
+                str8 =  res2[7].fontcolor("red");
             }
             else{
                 str8 =  res2[7]
@@ -840,7 +840,7 @@ export default function DenseTable() {
             setTimeout(repair, 5000);
         }
         else if(timervalue == 5){
-            setTimeout(repair, 2000);
+            setTimeout(repair, 500);
         }
         else if(timervalue == 6){
             repair();
@@ -925,49 +925,49 @@ export default function DenseTable() {
             }
 
             if(array2[0] === "0"){
-                str1 =  res2[0].fontcolor("blue");
+                str1 =  res2[0].fontcolor("red");
             }
             else{
                 str1 =  res2[0]
             }
             if(array2[1] === "0"){
-                str2 =  res2[1].fontcolor("blue");
+                str2 =  res2[1].fontcolor("red");
             }
             else{
                 str2 =  res2[1]
             }
             if(array2[2] === "0"){
-                str3 =  res2[2].fontcolor("blue");
+                str3 =  res2[2].fontcolor("red");
             }
             else{
                 str3 =  res2[2]
             }
             if(array2[3] === "0"){
-                str4 =  res2[3].fontcolor("blue");
+                str4 =  res2[3].fontcolor("red");
             }
             else{
                 str4 =  res2[3]
             }
             if(array2[4] === "0"){
-                str5 = res2[4].fontcolor("blue");
+                str5 = res2[4].fontcolor("red");
             }
             else{
                 str5 =  res2[4]
             }
             if(array2[5] === "0"){
-                str6 =  res2[5].fontcolor("blue");
+                str6 =  res2[5].fontcolor("red");
             }
             else{
                 str6 =  res2[5]
             }
             if(array2[6] === "0"){
-                str7 =  res2[6].fontcolor("blue");
+                str7 =  res2[6].fontcolor("red");
             }
             else{
                 str7 =  res2[6]
             }
             if(array2[7] === "0"){
-                str8 =  res2[7].fontcolor("blue");
+                str8 =  res2[7].fontcolor("red");
             }
             else{
                 str8 =  res2[7]
@@ -988,7 +988,7 @@ export default function DenseTable() {
             setTimeout(nextgeneration, 5000);
         }
         else if(timervalue == 5){
-            setTimeout(nextgeneration, 2000);
+            setTimeout(nextgeneration, 500);
         }
         else if(timervalue == 6){
             nextgeneration();
@@ -1042,7 +1042,7 @@ export default function DenseTable() {
                 setTimeout(selection, 5000);
             } else if (timervalue == 5) {
                 window.endValue = window.endValue + 1;
-                setTimeout(selection, 2000);
+                setTimeout(selection, 500);
             } else if (timervalue == 6) {
                 window.endValue = window.endValue + 1;
                 selection();
@@ -1142,25 +1142,20 @@ export default function DenseTable() {
                                 value={timervalue}
                                 onChange={handleChangeTimer}
                             >
-
-                                <MenuItem value={1}>Manuel</MenuItem>
+                                <MenuItem value={1}>Tıkla-Çalıştır</MenuItem>
                                 <MenuItem value={2}>20 Saniye</MenuItem>
                                 <MenuItem value={3}>10 Saniye</MenuItem>
                                 <MenuItem value={4}>5 Saniye</MenuItem>
-                                <MenuItem value={5}>2 Saniye</MenuItem>
-                                <MenuItem value={6}>Otomatik</MenuItem>
+                                <MenuItem value={5}>0.5 Saniye</MenuItem>
+                                <MenuItem value={6}>Başla-Bitir</MenuItem>
                             </Select>
-
                         </FormControl>
-
                         <div className={classes.root} >
                             <Typography  color="secondary"  gutterBottom variant="h7" component="h7"  >
                                 En Yüksek Değer
                             </Typography>
                             <Avatar className={classes2.orange}>{window.bestvalue}</Avatar>
                         </div>
-
-
                         <div className={classes.row3}>
                             <div id="nur" className={classes.row3} >
                                 <Typography  color="secondary"  gutterBottom variant="h4" component="h4"  >
@@ -1168,8 +1163,6 @@ export default function DenseTable() {
                                 </Typography>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 {/*----------------------------*/}
